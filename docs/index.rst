@@ -1,6 +1,6 @@
-===========================
+##########
 Yozh Robot
-===========================
+##########
 .. figure:: images/main_photo.jpg
     :alt: Yozh robot
     :width: 80%
