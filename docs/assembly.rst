@@ -5,7 +5,7 @@ This document describes the assembly of Yozh robot.
 
 .. toctree::
     :caption: Table of Contents
-    :maxdepth: 2
+    :maxdepth: 1
 
     assembly/parts
     assembly/motors
