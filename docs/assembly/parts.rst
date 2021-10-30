@@ -25,6 +25,7 @@ for buying these parts if for some reason you prefer not to use the kit.
    and male headers
 
 * Five custom PCBs:
+
   * Main electronics board
   * Spacer board
   * Reflectance sensor array board
@@ -37,11 +38,12 @@ for buying these parts if for some reason you prefer not to use the kit.
   services <https://www.pololu.com/product/749>`__ to cut the blade for you.
 
 * Mounting hardware:
+
   * Four 22mm M2.5 female brass standoffs and 8 M2.5 screws (8mm length), for mounting
     the top plate
   * Two 15mm M3 brass female standoffs and two M3 screws, for attaching the
     reflectance sensor board
-  * Two 6mm M3 M-F standoffs. Note: it is required that the thread length be at
+  * Two 6mm M3 M-F standoffs. Note: it is required that the male thread length be at
     least 6mm, which is somewhat unusual.
 
 Tools
