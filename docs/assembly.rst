@@ -10,6 +10,7 @@ This document describes the assembly of Yozh robot.
     assembly/parts
     assembly/motors
     assembly/chassis
+    assembly/chassis_solder
     assembly/reflectance
     assembly/top
     assembly/final
