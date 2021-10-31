@@ -1,4 +1,4 @@
-Motors
+Preparing motors
 =======
 
 Get the N20 motors. Strip four 5-cm pieces of solid core 22AWG wire. Use pliers
@@ -10,3 +10,5 @@ Now, solder these wires to motor terminals  as shown in the photo below.
 **Important**: pay attention to proper orientation of the motors! One of motor
 terminals is marked +; make sure that this terminal is on the right side as
 shown in the photos.
+
+Finally, put the magnetic encoder disks on the rear shafts of the motors. 
