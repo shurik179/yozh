@@ -13,7 +13,7 @@ Now follow these steps:
    to drive the screws all the way in.
 
 2. Turn the chassis right side up. Attach the idler sprockets following the
-   directions of `Zumo user guide  <https://www.pololu.com/docs/0J54/3>`__.
+   directions of `Zumo user guide <https://www.pololu.com/docs/0J54/3>`__.
 
 3. Insert the motors in the channel at the front of the chassis, aligning the
    gearbox with the grooves in the channel. The front plate of the gearbox

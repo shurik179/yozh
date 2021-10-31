@@ -23,3 +23,5 @@ main board, and then filling it with solder.
 
 Once the solder cools, turn the switch on. The LEDs on the robot should light up,
 indicating that the robot is powered.
+
+Turn the robot off again. 
