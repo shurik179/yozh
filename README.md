@@ -1,7 +1,7 @@
-# yozh
-Small robot based on Pololu's Zumo chassis but programmable in CircuitPython.
-Created by shurik179 for a robotics class at SigmaCamp.
-Detailed documentation will be available at yozh.rtfd.io
+# Yozh Robot
+Yozh is a small robot based on Pololu's Zumo chassis but programmable in CircuitPython.
+It was created by shurik179 for a robotics class at SigmaCamp.
+Detailed documentation is available at http://yozh.rtfd.io.
 
 At the moment, it is a work in progress and not ready for public consumption yet
 
