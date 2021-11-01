@@ -1,4 +1,4 @@
 This is it!
 ===========
-Your robot is now ready. Check the User Guide to start using and programming
+Your robot is now complete. Check the User Guide to start  programming and using 
 your Yozh!

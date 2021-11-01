@@ -57,6 +57,7 @@ to assemble their own PCBs.
     :caption: Table of Contents
     :maxdepth: 2
 
+    quickstart
     assembly
-    userguide
     details
+    library

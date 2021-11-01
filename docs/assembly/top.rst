@@ -25,3 +25,6 @@ position.
    correctly by looking from the sides.
 
 6. Use the M2.5 screws to attach the top plate to the standoffs on the Yozh robot.
+
+7. Plug the front distance sensor board into male headers at the front of the robot, with
+   the sensors facing out. 

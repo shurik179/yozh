@@ -13,7 +13,10 @@ To build Yozh Robot, you will need the following parts and materials:
 * Yozh robot kit, available from Tindie (SOON - link coming). Contents of this kit,
   together with alternatives for those who
   prefer to build your own, is described below.
-* Four AA batteries (NiMH rechargeable batteries are recommended)
+* Four AA batteries. Usual alkaline batteries will work but won't last long,  
+  so use of  heavy-duty NiMH rechargeable batteries such as
+  `Panasonic Eneloop Pro <https://www.amazon.com/Panasonic-BK-3HCCA4BA-eneloop-Pre-Charged-Rechargeable/dp/B00JHKSL28/>`__
+  is strongly recommended. You will also need a charger for these batteries.
 
 
 Yozh kit contents
@@ -48,7 +51,7 @@ for buying these parts if for some reason you prefer not to use the kit.
     e.g. here: https://www.aliexpress.com/item/32872847199.html?spm=a2g0s.9042311.0.0.27424c4dmfu9xI
     (choose option **M3 (thread 8mm)**, and length 6mm).
 
-* Two 4-pin male headers, long (15mm)
+* Two long (15mm) 4-pin male headers
 
 Tools
 -----
