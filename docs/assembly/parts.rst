@@ -44,7 +44,11 @@ for buying these parts if for some reason you prefer not to use the kit.
   * Two 15mm M3 brass female standoffs and two M3 screws, for attaching the
     reflectance sensor board
   * Two 6mm M3 M-F standoffs. Note: it is required that the male thread length be at
-    least 6mm, which is somewhat unusual.
+    least 6mm, which is somewhat unusual. You can find such standoffs on AliExpress,
+    e.g. here: https://www.aliexpress.com/item/32872847199.html?spm=a2g0s.9042311.0.0.27424c4dmfu9xI
+    (choose option **M3 (thread 8mm)**, and length 6mm).
+
+* Two 4-pin male headers, long (15mm)
 
 Tools
 -----
