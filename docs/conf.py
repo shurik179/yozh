@@ -77,9 +77,9 @@ language = "en"
 exclude_patterns = []
 
 # The name of the Pygments (syntax highlighting) style to use.
-pygments_style = 'sphinx' 
+pygments_style = 'sphinx'
 
-primary_domain = "c"
+primary_domain = "python"
 
 
 # -- Options for HTML output -------------------------------------------------
@@ -90,7 +90,7 @@ primary_domain = "c"
 html_theme = 'sphinx_rtd_theme'
 # html_theme_path = ["_themes", ]
 # html_logo = "images/roverwinglogo-gold.png"
-# html_favicon = "images/icon.png"
+html_favicon = "images/favicon.ico"
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
