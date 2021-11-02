@@ -4,7 +4,7 @@ Display, buttons, LEDs
 LEDs
 -----
 
-.. function:: set_led_L(color)
+
 
 .. function:: set_led_R(color)
 
@@ -46,4 +46,4 @@ Buttons
 
 .. function:: is_pressed(button)
 
-   Returns ``True`` if given button is currently pressed and ``False`` otherwise. 
+   Returns ``True`` if given button is currently pressed and ``False`` otherwise.
