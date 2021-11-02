@@ -5,6 +5,7 @@ To begin using the library, you need to put the following in the beginning of
 your `code.py` file:
 
 .. code-block:: python
+
    import yozh
    bot = yozh.Yozh()
 
@@ -14,6 +15,10 @@ on, all commands you give to the robot will be functions and properties of `bot`
 object. We will not include the name bot in our references below; for example,
 to use a command :func:`stop_motors()` described below, you would need to write
 :func:`bot.stop_motors()`.
+
+Initialization command `yozh.Yozh()` accepts some otpional parameters shown below:
+
+
 
 Here are some basic functions:
 
