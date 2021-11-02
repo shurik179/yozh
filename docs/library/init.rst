@@ -10,17 +10,18 @@ your `code.py` file:
    bot = yozh.Yozh()
 
 
-This creates  an  object with name `bot`, representing your robot.  From now
-on, all commands you give to the robot will be functions and properties of `bot`
+This creates  an  object with name ``bot``, representing your robot.  From now
+on, all commands you give to the robot will be functions and properties of ``bot``
 object. We will not include the name bot in our references below; for example,
 to use a command :func:`stop_motors()` described below, you would need to write
 :func:`bot.stop_motors()`.
 
 Initialization command ``yozh.Yozh()`` accepts some optional parameters shown below:
 
-.. function:: __init( oled=0x3c)__
+.. function:: __init(oled=0x3c)__
 
-   :param oled: Address of i2c display
+   :param oled: i2c address of the OLED  display. If for some reason you use the
+                robot without the top plate, use ``oled=None`` to avoid errors
    :type oled: Hex
 
 
