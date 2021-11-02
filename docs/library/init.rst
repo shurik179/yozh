@@ -4,10 +4,10 @@ Initialization and general functions
 To begin using the library, you need to put the following in the beginning of
 your `code.py` file:
 
-```
-import yozh
-bot = yozh.Yozh()
-```
+.. code-block:: python
+   import yozh
+   bot = yozh.Yozh()
+
 
 This creates  an  object with name `bot`, representing your robot.  From now
 on, all commands you give to the robot will be functions and properties of `bot`
