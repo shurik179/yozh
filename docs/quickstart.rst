@@ -11,7 +11,10 @@ Once the robot is assembled, follow the steps below to get started quickly.
     :caption: Table of Contents
     :maxdepth: 2
 
+    quickstart/at_glance
     quickstart/installation
-    quickstart/basic
+    quickstart/mu
+    quickstart/hello_world
+    quickstart/serial
     quickstart/examples
     quickstart/further
