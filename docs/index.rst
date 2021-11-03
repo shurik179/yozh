@@ -55,7 +55,7 @@ to assemble their own PCBs.
 
 .. toctree::
     :caption: Table of Contents
-    :maxdepth: 2
+    :maxdepth: 1
 
     quickstart
     assembly
