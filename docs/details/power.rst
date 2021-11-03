@@ -25,5 +25,5 @@ Connecting the ItsyBitsy microcontroller to a computer by USB cable provides pow
 to 3.3v bus, even if the main battery is off. This would activate the  microcontrollers
 and some of the electronics, but not the motors or servos.
 
-You can check the battery voltage in software, using ``battery()`` function as described in
-Library reference. Fully charged NiMH batteries should give about 5.5v.
+You can check the battery voltage in software, using ``battery()`` function as
+described in Library reference. Fully charged NiMH batteries should give about 5.5v.

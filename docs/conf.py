@@ -131,4 +131,5 @@ imgmath_image_format = 'svg'
 
 rst_epilog = """
 .. |github| replace:: `github repository <https://github.com/shurik179/yozh>`__
+.. |library| replace:: `Library Reference`
 """
