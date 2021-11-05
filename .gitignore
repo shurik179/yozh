@@ -39,3 +39,6 @@ tmp/
 
 # KICad cache files
 *-cache
+
+# anything marked as private
+*private/

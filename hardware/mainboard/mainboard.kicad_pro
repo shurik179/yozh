@@ -382,7 +382,7 @@
       "idf": "",
       "netlist": "",
       "specctra_dsn": "",
-      "step": "shield-main.step",
+      "step": "mainboard.step",
       "vrml": "shield-main.wrl"
     },
     "page_layout_descr_file": ""

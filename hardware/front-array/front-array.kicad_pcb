@@ -1,4 +1,4 @@
-(kicad_pcb (version 20210424) (generator pcbnew)
+(kicad_pcb (version 20210722) (generator pcbnew)
 
   (general
     (thickness 1.6)
@@ -318,7 +318,7 @@
     (property "Sheetname" "")
     (path "/173f3737-74de-4919-9b33-8f0d49e808d6")
     (attr through_hole)
-    (fp_text reference "J1" (at -4.38 -2.77 90) (layer "F.SilkS")
+    (fp_text reference "J1" (at -4.380005 -2.769992 90) (layer "F.SilkS") hide
       (effects (font (size 1 1) (thickness 0.15)))
       (tstamp 35c30083-8bf9-4564-9392-451594ebe18e)
     )
@@ -421,7 +421,7 @@
     (property "Sheetname" "")
     (path "/4e49704b-226e-496d-8afe-ec3d9ac2e970")
     (attr through_hole)
-    (fp_text reference "J2" (at -4.38 -2.77 90) (layer "F.SilkS")
+    (fp_text reference "J2" (at -4.380005 -2.769992 90) (layer "F.SilkS") hide
       (effects (font (size 1 1) (thickness 0.15)))
       (tstamp 42214e5f-39bb-4859-a0ad-959c65d18a8f)
     )
@@ -523,6 +523,9 @@
   (gr_line (start 102 86) (end 102 78) (layer "Edge.Cuts") (width 0.1) (tstamp cce361f9-f28b-4ef8-b5fb-9b6932c5e2b3))
   (gr_line (start 117 86) (end 102 86) (layer "Edge.Cuts") (width 0.1) (tstamp d4df4148-c57d-4e4f-8989-2ae0544aed9e))
   (gr_line (start 117 100) (end 183 100) (layer "Edge.Cuts") (width 0.1) (tstamp f4dd42a5-a422-4beb-b43f-7df86adcd2da))
+  (gr_text "JLCJLCJLCJLC" (at 150.254 98.476) (layer "B.SilkS") (tstamp 9e3ea618-9404-4c69-aa1b-470106615722)
+    (effects (font (size 1 1) (thickness 0.15)) (justify mirror))
+  )
 
   (segment (start 104.534 80.442) (end 104.534 81.458) (width 0.25) (layer "F.Cu") (net 1) (tstamp 014f706b-4917-4875-b8f7-b87ce1b9c322))
   (segment (start 105.22 81.8) (end 105.22 82.906) (width 0.25) (layer "F.Cu") (net 1) (tstamp 01513dba-d00f-400c-a804-84bac4a3dcec))
