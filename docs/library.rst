@@ -7,7 +7,7 @@ library. We assume that the user has already installed Yozh library on the
 robot, as described in the Quickstart Guide.
 
 
-This document describes version xx of the library.
+This document describes version 2.1 of the library.
 
 
 
@@ -20,8 +20,7 @@ This document describes version xx of the library.
     library/init
     library/UI
     library/motors
-    library/driving
     library/servos
     library/reflectance
     library/distance
-    library/IMU
+    library/imu
