@@ -73,7 +73,8 @@ The easiest way to interact with OLED display is by using the commands below.
 
    line1 = bot.add_textbox(text_position=(0,10), text="Yozh is happy!")
 
-  The command accepts a number of optional parameters, documented below.
+
+The command accepts a number of optional parameters, documented below.
 
   :param str text_font: The path to your font file for your data text display.
 
@@ -96,3 +97,39 @@ The easiest way to interact with OLED display is by using the commands below.
                                          position is relative to the label
 
    :param str text: If this is provided, it will set the initial text of the label.
+
+.. function:: set_text(text, i)
+
+   Replaces  text in textbox  with index ``i``, e.g.
+
+.. code-block:: python
+
+   line1 = bot.add_textbox(text_position=(0,10), text="Yozh is happy!")
+   time.sleep(1.0)
+   bot.set_text("Press any button", line1)
+
+Writing empty text into a textbox deletes it. Thus, if you want to erase
+current text but keep the textbox for future use, replace the text with a
+single space ``bot.set_text(" ", i)``
+
+Advanced users may also use any commands from CircuitPython ``displayio`` module
+to put text and graphics on the OLED display as described in  https://learn.adafruit.com/circuitpython-display-support-using-displayio.
+The display object of the robot  can be accessed as ``bot.display``, e.g. 
+
+.. code-block:: python
+
+   display = bot.display
+   # Setup the file as the bitmap data source
+   bitmap = displayio.OnDiskBitmap("/purple.bmp")
+
+  # Create a TileGrid to hold the bitmap
+  tile_grid = displayio.TileGrid(bitmap, pixel_shader=bitmap.pixel_shader)
+
+  # Create a Group to hold the TileGrid
+  group = displayio.Group()
+
+  # Add the TileGrid to the Group
+  group.append(tile_grid)
+
+  # Add the Group to the Display
+  display.show(group)
