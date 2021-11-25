@@ -27,6 +27,10 @@ Initialization command ``yozh.Yozh()`` accepts some optional parameters shown be
 
 Here are some basic functions:
 
+.. function:: fw_version()
+
+   Returns firmware version as a string. e.g. `2.1`.
+
 .. function:: battery()
 
    Returns battery voltage, in volts. For normal operation it should be at
