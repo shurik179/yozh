@@ -39,6 +39,14 @@ LEDs
    drain the batteries rather quickly)
 
 
+Buzzer
+------
+
+.. function:: buzz(freq, dur=0.5)
+
+    Buzz at given frequency (in hertz) for given duration (in seconds).
+    Second parameter is optional; if omitted, duration of 0.5 seconds is used.
+       
 Buttons
 -------
 
@@ -76,27 +84,29 @@ The easiest way to interact with OLED display is by using the commands below.
 
 The command accepts a number of optional parameters, documented below.
 
-  :param str text_font: The path to your font file for your data text display.
+  :param  text_font: The path to your font file for your data text display.
 
-  :param text_position: The position of your extracted text on the display in an (x, y) tuple.
-                      Can be a list of tuples for when there's a list of json_paths, for
-                      example.
+  :param text_position: The position of  text on the display in an (x, y) tuple.
 
-   :param text_wrap: When non-zero, the maximum number of characters on each
-                     line before text
-                     is wrapped. (for long text data chunks). Defaults to 0, no wrapping.
+  :param text_wrap:  When non-zero, the maximum number of characters on each
+                     line before text is wrapped. (for long text data chunks).
+                     Defaults to 0, no wrapping.
 
-   :param text_maxlen: The max length of the text. If non-zero, it will be truncated to this
-                    length. Defaults to 0.
+  :param text_maxlen: The max length of the text. If non-zero, it will be
+                      truncated to this length. Defaults to 0, no truncation.
 
-   :param int text_scale: The factor to scale the default size of the text by
+  :param text_scale: The factor to scale the default size of the text by
 
-   :param float line_spacing: The factor to space the lines apart
+  :param line_spacing: The factor to space the lines apart
 
-   :param (float,float) text_anchor_point: Values between 0 and 1 to indicate where the text
-                                         position is relative to the label
+  :type line_spacing: float
 
-   :param str text: If this is provided, it will set the initial text of the label.
+  :param (float,float) text_anchor_point: Values between 0 and 1 to indicate where the text
+                                          position is relative to the label
+
+  :type text_anchor_point: (float, float)
+
+  :param text: If this is provided, it will set the initial text of the textbox.
 
 .. function:: set_text(text, i)
 
@@ -114,7 +124,7 @@ single space ``bot.set_text(" ", i)``
 
 Advanced users may also use any commands from CircuitPython ``displayio`` module
 to put text and graphics on the OLED display as described in  https://learn.adafruit.com/circuitpython-display-support-using-displayio.
-The display object of the robot  can be accessed as ``bot.display``, e.g. 
+The display object of the robot  can be accessed as ``bot.display``, e.g.
 
 .. code-block:: python
 
