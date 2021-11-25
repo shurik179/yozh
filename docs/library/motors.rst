@@ -9,7 +9,7 @@ Basic control
 
 .. function:: set_motors(power_L, power_R)
 
-   Set power for left and right motors. ``power_L`` is power for left motor,
+   Set power for left and right motors. ``power_L`` is power to left motor,
    ``power_R`` is power to right motor. Each of them should be  between 100
    (full speed forward) and -100 (full speed backward).
 
@@ -85,9 +85,9 @@ ticks/second; for other motors, you can find it by running ``motors_test.py`` ex
    Configures parameters of PID algorithm, using motors maximal speed in
    encoder ticks/second.
 
-.. function PID_on()
+.. function:: PID_on()
 
-.. function PID_off()
+.. function:: PID_off()
 
    Enables/disables  PID control (for both motors).
 
@@ -128,5 +128,3 @@ If you find that the robot consistently turns too much (or too little), you can 
 
     bot.DEG_TO_TICKS=15
     bot.turn(90)
-
-    
