@@ -13,10 +13,15 @@ by Everlight. The sensors are labeled A1 through A8.
 
 Distance sensors
 ----------------
+
+.. figure:: ../images/distance_sensors.png
+    :alt: Yozh robot
+    :width: 80%
+
 Yozh also contains a removable board with two front-facing `VL53L0X
 <https://www.st.com/en/imaging-and-photonics-solutions/vl53l0x.html>`__
 Time-of-Flight laser distance sensors by ST Microelectronics. These sensors
 have maximal distance of 2m; reliable sensing distance is closer to 1.5m.
 Field of view is 25 degrees.
 
-They can be used for obstacle avoidance or other similar purposes. 
+They can be used for obstacle avoidance or other similar purposes.
