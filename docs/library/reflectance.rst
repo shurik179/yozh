@@ -16,9 +16,9 @@ Basic usage
 .. function:: linearray_raw(i)
 
    Returns raw reading of sensor ``i``. One can use either indices 0...7 or
-   (preferred) named values ``bot.A1 = 0 ``...``bot.A8 = 7``.
-   Readings range 0-1023 depending on amount of reflected light: the more light reflected, the
-   **lower** the value. Typical reading on white paper is about 50-80, and on
+   (preferred) named values ``bot.A1 = 0`` ... ``bot.A8 = 7``.
+   Readings range 0-1023 depending on amount of reflected light: the more light
+   reflected, the **lower** the value. Typical reading on white paper is about 50-80, and on
    black painted plywood,  950. Note that black surfaces can be unexpectedly
    reflective; on some materials which look black to human eye, the reading
    can be as low as 600.
@@ -75,7 +75,7 @@ Yozh library provides the helper function.
     (A1 and A8) are not used.
 
     If there is no line under these sensors, the value returned by this command
-    will be close to 0, but can not be relied on. 
+    will be close to 0, but can not be relied on.
 
 .. function:: line_position_black()
 

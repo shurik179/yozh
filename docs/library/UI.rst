@@ -46,7 +46,7 @@ Buzzer
 
     Buzz at given frequency (in hertz) for given duration (in seconds).
     Second parameter is optional; if omitted, duration of 0.5 seconds is used.
-       
+
 Buttons
 -------
 
@@ -84,11 +84,13 @@ The easiest way to interact with OLED display is by using the commands below.
 
 The command accepts a number of optional parameters, documented below.
 
-  :param  text_font: The path to your font file for your data text display.
+.. function:: add_textbox()
 
-  :param text_position: The position of  text on the display in an (x, y) tuple.
+   :param  text_font: The path to your font file for your data text display.
 
-  :param text_wrap:  When non-zero, the maximum number of characters on each
+   :param text_position: The position of  text on the display in an (x, y) tuple.
+
+   :param text_wrap:  When non-zero, the maximum number of characters on each
                      line before text is wrapped. (for long text data chunks).
                      Defaults to 0, no wrapping.
 
