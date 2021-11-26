@@ -1,7 +1,7 @@
 Display, buttons, LEDs
 ======================
 
-Yozh contains  two NeoPixel  LEDs in the back and an 128x64 OLED screen and
+Yozh contains a buzzer,  two NeoPixel  LEDs in the back and an 128x64 OLED screen and
 two buttons on the top plate, for interaction with the user. To control them,
 use the functions below.
 
@@ -103,7 +103,7 @@ The command accepts a number of optional parameters, documented below.
 
   :type line_spacing: float
 
-  :param (float,float) text_anchor_point: Values between 0 and 1 to indicate where the text
+  :param text_anchor_point: Values between 0 and 1 to indicate where the text
                                           position is relative to the label
 
   :type text_anchor_point: (float, float)
