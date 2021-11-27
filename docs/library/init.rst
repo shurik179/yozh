@@ -16,13 +16,15 @@ object. We will not include the name bot in our references below; for example,
 to use a command :func:`stop_motors()` described below, you would need to write
 :func:`bot.stop_motors()`.
 
-Initialization command ``yozh.Yozh()`` accepts some optional parameters shown below:
+By default, creating bot object also initializes the OLED display; it will
+produce errors if the OLED display is not found. If for some
+reason you are not using OLED, you can initialize the robot using this form of
+initialization command:
 
-.. function:: __init(oled=0x3c)__
+.. code-block:: python
 
-   :param oled: i2c address of the OLED  display. If for some reason you use the
-                robot without the top plate, use ``oled=None`` to avoid errors
-   :type oled: Hex
+   import yozh
+   bot = yozh.Yozh(oled = None)
 
 
 Here are some basic functions:
