@@ -25,15 +25,20 @@ Next step is attaching the reflectance sensor array to the front of the robot.
 4. Get the blade. Using pliers, bend the two tabs to about 70 degree angle.
 
 
+
 .. figure:: ../images/blade.jpg
    :alt: Blade
    :width: 80%
-
 
 5. Insert the blade so that the tabs fit in the gap between the main board and
    the standoffs. If you bent it to the correct angle, the front of the array
    will be touching the blade. If necessary, remove the blade and use pliers again
    to adjust the angle.
+
+.. figure:: ../images/reflectance-sideview.jpg
+   :alt: Blade
+   :width: 80%
+
 
 6. Insert the short M-F M3 standoffs in the holes at the top of main board, through
    the hole in the blade tabs and into the long M3 standoff. Tighten by hand.
