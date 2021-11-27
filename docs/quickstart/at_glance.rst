@@ -8,9 +8,9 @@ The photos below show main features of Yozh:
     :width: 80%
 
 
-  .. figure:: ../images/overview-back.png
-      :alt: Rear view
-      :width: 80%
+.. figure:: ../images/overview-back.png
+    :alt: Rear view
+    :width: 80%
 
 .. figure:: ../images/reflectance2.jpg
     :alt: Reflectance array
