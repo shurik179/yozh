@@ -1,3 +1,4 @@
+.. _assembly:
 ********************
 Yozh Assembly Guide
 ********************
