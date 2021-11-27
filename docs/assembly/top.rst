@@ -39,3 +39,5 @@ position.
 .. figure:: ../images/front-top-view.jpg
    :alt: Robot fully assembled
    :width: 80%
+
+8. (optional) Attach googly eyes!   
