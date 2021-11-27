@@ -7,14 +7,16 @@ you had downloaded previously. Try opening and runnign them to see what the robo
 
  Below is the list of provided examples (as of Nov 2, 2021):
 
-* `basic_test.py` - basic test of robot operation, including OLED display, LEDs, and buttons
-* `motors.py` - testing basic operation of motors and encoders
+* `basic_example.py` - basic test of robot operation, including OLED display, LEDs, and buttons
+* `motor_test.py` - testing basic operation of motors and encoders
 * `servos.py` - testing servos (if you have any attached).
+* `pid_test` - testing PID control of motors
 * `drive_test.py` - testing higher-level drive commands, such as
   `go forward for 10cm` or `turn 90 degrees`
-* `distance_sensors` - testing operation of front-facing distance sensors
-* `reflectance_array` - testing reflectance sensor array
+* `distancesensors` - testing operation of front-facing distance sensors
+* `linearray_test` - testing reflectance sensor array
 * `line_following` - following a line (requires a black line 1-3 cm wide, on white background)
+* `obstacle_avoidance`  - drivign around and using distance sensors to avoid obstacles
 
-Again, all of these examples are amply commented, so it should be easy to understand 
+All of these examples are amply commented, so it should be easy to understand 
 how the  code  works and how to modify it.

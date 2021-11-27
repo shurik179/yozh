@@ -1,6 +1,6 @@
 Circuit Python library  installation
 ====================================
-Yozh is intended to be programmed in CircuitPython - an implementation of
+Yozh is intended to be programmed in CircuitPython 7 - an implementation of
 Python programming language for microcontrollers, created by Adafruit (based on
 Micropython, another Python implementation). For general background on Circuit
 Python, please visit `What is CircuitPython? <https://learn.adafruit.com/welcome-to-circuitpython/what-is-circuitpython>`__
