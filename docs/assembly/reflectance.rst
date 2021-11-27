@@ -37,3 +37,7 @@ Next step is attaching the reflectance sensor array to the front of the robot.
 
 6. Insert the short M-F M3 standoffs in the holes at the top of main board, through
    the hole in the blade tabs and into the long M3 standoff. Tighten by hand.
+
+.. figure:: ../images/reflectance-4.jpg
+   :alt: Reflectance array connected to the robot
+   :width: 80%
