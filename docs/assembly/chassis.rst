@@ -54,12 +54,13 @@ Now follow these steps:
    against the spacer board, with no gaps anywhere.
 
 
+7. Tightly screw the 22mm M2.5 standoffs from the Yozh kit onto the screws
+   protruding through the main board.
+
+
 .. figure:: ../images/chassis-5.jpg
    :alt: Chassis assembly 5
    :width: 80%
 
-
-7. Tightly screw the 22mm M2.5 standoffs from the Yozh kit onto the screws
-   protruding through the main board.
 
 8. Put the silicone tracks on wheels (requires a little effort).
