@@ -15,7 +15,7 @@ of wire, as shown in the photo below.
 Now, take the motors. Attach the sprocket to each motor, paying attention to
 orientation: the side of the sprocket with the "lip" should be facing outwards.
 
-.. figure:: ../images/motor_sprocket.jpg
+.. figure:: ../images/motor-sprocket.jpg
     :alt: Motor with sprocket
     :width: 80%
 
