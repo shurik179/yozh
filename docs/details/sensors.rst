@@ -8,7 +8,7 @@ Reflectance array
 In the front of the robot, there is an array of 8 down-facing reflectance
 sensors for detecting field borders, following the line, and other similar tasks.
 It uses `ITR9909 <https://lcsc.com/product-detail/Reflective-Optical-Interrupters_Everlight-Elec-ITR9909_C53399.html>`__ sensors
-by Everlight. The sensors are labeled A1 through A8.
+by Everlight. The sensors are labeled A1 (rightmost) through A8 (leftmost).
 
 .. figure:: ../images/reflectance2.jpg
     :alt: Reflectance sensor

@@ -27,3 +27,8 @@ and some of the electronics, but not the motors or servos.
 
 You can check the battery voltage in software, using ``battery()`` function as
 described in Library reference. Fully charged NiMH batteries should give about 5.5v.
+
+
+.. figure:: ../images/overview-back.png
+    :alt: Rear view
+    :width: 80%
