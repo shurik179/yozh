@@ -29,9 +29,13 @@ position.
 5. Take the top plate board, with the OLED display, and place it on top of the
    robot so that the male headers from the previous step are plugged into the 2*4
    female header on the bottom of the top plate. Double-check that it is plugged
-   correctly by looking from the sides. Now double-check again. 
+   correctly by looking from the sides. Now double-check again.
 
 6. Use the M2.5 screws to attach the top plate to the standoffs on the Yozh robot.
 
 7. Plug the front distance sensor board into male headers at the front of the robot, with
    the sensors facing out.
+
+.. figure:: ../images/front-top-view.jpg
+   :alt: Robot fully assembled
+   :width: 80%
