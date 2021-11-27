@@ -1,10 +1,11 @@
 Electronics
 ===========
 The robot is controlled by two microcontrollers (MCU):
+
 * Main (master) MCU: `ItsyBitsy RP2040 <https://www.adafruit.com/product/4888>`__
   This MCU is programmed by the user in CircuitPython. Provided CircuitPython
   library, documented in FIXME, provides convenient functions for using
-  all features of the robot. 
+  all features of the robot.
 
 * Secondary (slave) MCU: SAMD21G. This MCU is responsible for all low-level
   operations, converting high-level commands coming from main MCU into signals
@@ -15,7 +16,7 @@ The robot is controlled by two microcontrollers (MCU):
   Normally, the user shouldn't need to touch this firmware.
 
 The two MCUs talk to each other  using I2C communication protocol; main MCU acts as
-the master on this bus, and the secondary acts as slave.
+the master on the I2C bus, and the secondary acts as slave.
 
 Some of Yozh hardware is directly controlled by the main MCU, without going
 through the secondary one:
