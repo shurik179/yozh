@@ -8,11 +8,27 @@ Next step is attaching the reflectance sensor array to the front of the robot.
 2. Use M3 screws to attach the two 14mm M3 standoffs to the reflectance sensor
    array as shown in the photo.
 
+.. figure:: ../images/reflectance-1.jpg
+   :alt: Reflectance array with standoffs
+   :width: 80%
+
+
 3. Plug the reflectance array into the female header at the bottom of the robot
    main board. Pull it slightly out so that there is a small gap (about 1mm)
    between the top of the standoff and the bottom of the main board.
 
+.. figure:: ../images/reflectance-2.jpg
+   :alt: Reflectance array connected to the robot
+   :width: 80%
+
+
 4. Get the blade. Using pliers, bend the two tabs to about 70 degree angle.
+
+
+.. figure:: ../images/blade.jpg
+   :alt: Blade
+   :width: 80%
+
 
 5. Insert the blade so that the tabs fit in the gap between the main board and
    the standoffs. If you bent it to the correct angle, the front of the array
