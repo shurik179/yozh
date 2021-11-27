@@ -4,7 +4,7 @@ Itsy Bitsy and the top board
 Before proceeding, make sure that the main switch on Yozh robot is in OFF
 position.
 
-1. Install CircuitPython on your  Itsy Bitsy RP2040 microcontroller as described
+1. Install CircuitPython 7 on your  Itsy Bitsy RP2040 microcontroller as described
    in `Adafruit Learn Guide <https://learn.adafruit.com/adafruit-itsybitsy-rp2040/circuitpython>`__.
 
 2. Solder two 14-pin male headers to the  Itsy Bitsy board. If you need help
@@ -16,15 +16,22 @@ position.
    with the USB connector facing out. Double-check that it is plugged correctly -
    it is easy to make a mistake, shifting the board by one position.
 
+.. figure:: ../images/itsybitsy.jpg
+   :alt: ItsyBitsy installed
+   :width: 80%
+
+
+
+
 4. Insert the two 4-pin 15mm male headers into the 2*4 female header on the main
    Yozh board.
 
 5. Take the top plate board, with the OLED display, and place it on top of the
    robot so that the male headers from the previous step are plugged into the 2*4
    female header on the bottom of the top plate. Double-check that it is plugged
-   correctly by looking from the sides.
+   correctly by looking from the sides. Now double-check again. 
 
 6. Use the M2.5 screws to attach the top plate to the standoffs on the Yozh robot.
 
 7. Plug the front distance sensor board into male headers at the front of the robot, with
-   the sensors facing out. 
+   the sensors facing out.

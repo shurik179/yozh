@@ -14,10 +14,13 @@ them with your iron. Use flush  cutters to trim remaining length of motor leads.
 
 
 
-Now, turn the chassis over and insert the  two individual battery contacts as shown in
-`Zumo user guide  <https://www.pololu.com/docs/0J54/3>`__. The solder tabs of the
+Now, turn the chassis over and insert the  two individual battery contacts as
+shown in ` this drawing <https://a.pololu-files.com/picture/0J9740.1200.png>`__
+by Pololu.  The solder tabs of the
 two individual contacts should go through the holes in battery compartment and
-into the slots in the spacer board and the main board. Insert 4 AA batteries
+into the slots in the spacer board and the main board.
+
+Insert 4 AA batteries
 (making sure they are in correct polarity) to hold the battery terminals in
 place until you solder them and close the  battery compartment cover.   Turn the chassis
 over again and inspect the battery terminals; the top of solder tab should be
