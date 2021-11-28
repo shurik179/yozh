@@ -14,7 +14,8 @@ following `Adafruit's  instructions <https://learn.adafruit.com/adafruit-itsybit
 Next step is installing  some CircuitPython libraries. Download the Adafruit's library bundle
 as a zip file from https://circuitpython.org/libraries. Unzip the archive to your hard drive.
 
-Connect Yozh robot to the computer using a micro USB cable. It should appear in
+Connect Yozh robot to the computer using a micro USB cable. (It should be
+plugged into the USB port on the ItsyBitsy RP2040.) It should appear in
 your file browser as an external drive with the name `CIRCUITPY`. Open it to
 view contents. It might contain a folder named `lib`; if not, create one. Now,
 install the necessary libraries by copying the following files and folders from
@@ -32,5 +33,5 @@ Next, you need to install Yozh Circuit Python library. Download the zip file of
 this library from FIXME and unzip to your computer. Find in the extracted archive file
 `yozh.mpy` and copy it to `lib` folder. Now, you have all the libraries you need.
 
-Please note that extracted yozh library archive also contains a folder `examples`.
+Please note that extracted Yozh library archive also contains a folder `examples`.
 Move this folder to some convenient location on your computer - you will use it shortly.

@@ -30,7 +30,7 @@ Yozh also contains a removable board with two front-facing `VL53L0X
 <https://www.st.com/en/imaging-and-photonics-solutions/vl53l0x.html>`__
 Time-of-Flight laser distance sensors by ST Microelectronics. These sensors
 have maximal distance of 2m; reliable sensing distance is closer to 1.5m.
-Each sensor has 25 degrees; this leaves a very small "blind spot" immediately
+Each sensor has 25 degree field of view; this leaves a very small "blind spot" immediately
 in front of the robot, but provides complete coverage enabling the robot to
 detect any  obstacle placed between 15-150 cm away.
 
