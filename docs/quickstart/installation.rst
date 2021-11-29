@@ -23,9 +23,10 @@ Adafruit Circuit Python bundle to `lib` folder in `CIRCUITPY` drive:
 
 * `adafruit_bus_device`
 * `adafruit_register`
-* `adafruit_display_text.mpy`
+* `adafruit_display_text`
 * `adafruit_displayio_ssd1306.mpy`
 * `simpleio.mpy`
+* `adafruit_vl53l0x.mpy`
 
 
 
