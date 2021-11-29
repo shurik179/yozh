@@ -57,7 +57,7 @@ Yozh provides a number of connectors for connecting additional electronics to It
   ItsyBitsy - including those used for other components.
 
 * In the front of the robot, there are two 5-pin male connectors. They follow
-  the pinout convention of Pimoroni breakout garden:
+  the pinout convention of `Pimoroni breakout garden <https://shop.pimoroni.com/collections/breakout-garden>`__:
 
   - pin 1: 3.3v
 
@@ -87,4 +87,4 @@ Yozh provides a number of connectors for connecting additional electronics to It
   used and their charge level, voltage of VBAT pins can range from 4.5 - 6.5 V.
 
 * Finally, at the bottom of the top plate, there are two Qwiic/Stemma QT I2C
-  connectors.   
+  connectors.

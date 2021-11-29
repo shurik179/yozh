@@ -1,4 +1,4 @@
-Sensors
+Distance and reflectance sensors
 =======
 
 Yozh robot has several built-in sensors.
