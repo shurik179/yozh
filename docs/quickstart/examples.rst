@@ -9,7 +9,7 @@ you had downloaded previously. Try opening and running them to see what the robo
 
 * `basic_example.py` - basic test of robot operation, including OLED display, LEDs, and buttons
 * `motor_test.py` - testing basic operation of motors and encoders
-* `servos.py` - testing servos (if you have any attached).
+* `servo_test.py` - testing servos (if you have any attached).
 * `pid_test.py` - testing PID control of motors
 * `drive_test.py` - testing higher-level drive commands, such as
   `go forward for 10cm` or `turn 90 degrees`

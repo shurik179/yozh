@@ -17,4 +17,4 @@ Yozh Features in Detail
     details/imu
     details/sensors
     details/connectors
-    details/attachments
+    details/servos
