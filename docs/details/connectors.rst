@@ -27,17 +27,17 @@ I2C bus
 Pins SDA and SCL of ItsyBitsy are used for I2C communication with the following
 components of the robot:
 
-* Secondary MCU (I2C address: `0x11`)
+* Secondary MCU (I2C address: ``0x11``)
 
-* OLED display (I2c address: `0x3c`)
+* OLED display (I2c address: ``0x3c``)
 
-* Front distance sensors (I2C addresses `0x29`, `0x30`)
+* Front distance sensors (I2C addresses ``0x29``, ``0x30``)
 
 You can connect additional devices to the same bus as long as they have addresses
 different from those listed above.
 
-The bus operates at 3.3v; the main board contains pull-up resistors for i2c bus,
-so additional pull-ups are not necessary.
+The bus operates at 3.3v; the main board contains pull-up resistors (2.2K) for
+the I2C bus, so additional pull-ups are not necessary.
 
 To connect new devices, you can use either the 5-pin connectors at the front
 of the robot or Qwiic/Stemma QT connectors at the bottom of the top plate.
@@ -47,7 +47,8 @@ Connectors
 ----------
 
 
-Yozh provides a number of connectors for connecting additional electronics to ItsyBitsy:
+Yozh provides a number of connectors for connecting additional electronics to
+ItsyBitsy:
 
 * On each side of the ItsyBitsy there are three rows of **male headers** (you need
   to remove the top plate to access these headers). The outer row is ground,
