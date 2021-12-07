@@ -10,7 +10,7 @@
 #define FW_VERSION_MAJOR 2
 #define FW_VERSION_MINOR 1
 //uncomment to allow debugging print to Serial.
-//#define DEBUG_PRINT
+#define DEBUG_PRINT
 
 uint32_t loopCount=0;
 
@@ -78,8 +78,9 @@ void loop(){
         clearFlag(FLAG_MOTOR_POWER);
         #ifdef DEBUG_PRINT
             Serial.println("Updating motor mode/power  configuration");
-            Serial.print("Motor1 mode: "); Serial.print(motorMode[0] ); Serial.print(" power: "); Serial.println(motorPower[0]);
-            Serial.print("Motor2 mode: "); Serial.print(motorMode[1] ); Serial.print(" power: "); Serial.println(motorPower[1]);
+            Serial.print("Motor mode: "); Serial.print(*motorMode); 
+            Serial.print(" powerL: "); Serial.print(motorPower[0]);
+            Serial.print(" powerR: "); Serial.println(motorPower[1]);
         #endif
         setMotors();
     }

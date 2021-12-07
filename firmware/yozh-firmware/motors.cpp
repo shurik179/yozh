@@ -147,13 +147,15 @@ void setMotors(){
       Serial.print("Ti="); Serial.println(Ti,2);
       Serial.print("Td="); Serial.println(Td,2);
       Serial.print("Ilim="); Serial.println(Ilim,2);
-      Serial.print("Target="); Serial.println((float)motorPower[0]* (*motorMaxspeed)/MOTOR_MAX_POWER,5);
+      Serial.print("TargetL="); Serial.println((float)motorPower[0]* (*motorMaxspeed)/MOTOR_MAX_POWER,5);
+      Serial.print("TargetR="); Serial.println((float)motorPower[1]* (*motorMaxspeed)/MOTOR_MAX_POWER,5);
       */
       //set the difference speed controller
       if (motorPower[0] == motorPower[1]){
           float KpDiff=0.3*Kp;
           SpeedControllerDiff.configure(KpDiff, KpDiff/Ti,0,200);
           SpeedControllerDiff.setTarget(encoder[0]-encoder[1]); //keep current difference
+          Serial.println("Enabling motor sync");
       }
       break;
   }

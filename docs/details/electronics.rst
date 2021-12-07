@@ -4,7 +4,7 @@ The robot is controlled by two microcontrollers (MCU):
 
 * Main (master) MCU: `ItsyBitsy RP2040 <https://www.adafruit.com/product/4888>`__
   This MCU is programmed by the user in CircuitPython. Provided CircuitPython
-  library, documented in FIXME, provides convenient functions for using
+  library, documented in :ref:`Yozh Library Guide <library>`, provides convenient functions for using
   all features of the robot.
 
 * Secondary (slave) MCU: SAMD21G. This MCU is responsible for all low-level
