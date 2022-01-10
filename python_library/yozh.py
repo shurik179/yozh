@@ -96,8 +96,9 @@ YOZH_REG_ROLL                =const(96)
 YOZH_REG_QUAT                =const(100)
 YOZH_REG_DRIVE_STATUS        =const(116)
 
-
-
+# imu constants
+gRes = 500.0 / 32768.0   # gyro resolution, in (deg/s)/LSB
+aRes = 2.0 / 32768.0     # accelerometer resolution, in g/LSB
 class Yozh:
 
     def __init__(self, i2c=board.I2C(), oled=0x3C, address=YOZH_DEFAULT_I2C_ADDR, distance_sensors=True):
@@ -110,6 +111,12 @@ class Yozh:
         self.encoder_R = 0
         self.speed_L   = 0
         self.speed_R   = 0
+        self.ax        = 0    #acceleration
+        self.ay        = 0
+        self.az        = 0
+        self.gx        = 0    #gyro
+        self.gy        = 0
+        self.gz        = 0
         self._calibrate_W = 70   #reasonable defaults for black and white sensor readings
         self._calibrate_B = 950
         self._threshold = 500    # black/white threshold
@@ -191,6 +198,17 @@ class Yozh:
 
     def is_pressed(self, pin):
         return(not pin.value)
+
+
+    def choose_button(self):
+        while (self.button_A.value and self.button_B.value):
+            pass
+        if (not self.button_A.value):
+            # Button A was pressed
+            return "A"
+        else:
+            return "B"
+
 
 ##########  MOTORS ########################################
     def set_motors(self, power_left, power_right):
@@ -316,6 +334,45 @@ class Yozh:
     def buzz(self, freq, dur=0.5):
         simpleio.tone(YOZH_BUZZER, freq, duration=dur)
 
+##########  IMU    ########################################
+    def IMU_start(self):
+        self._write_8(YOZH_REG_IMU_INIT, 1)
+
+    def IMU_calibrate(self):
+        self._write_8(YOZH_REG_IMU_INIT, 2)
+        time.sleep(1.0)
+        while (self._read_8(YOZH_REG_IMU_STATUS)==2):
+            pass
+
+
+    def IMU_stop(self):
+        self._write_8(YOZH_REG_IMU_INIT, 0)
+
+    def IMU_status(self):
+        return(self._read_8(YOZH_REG_IMU_STATUS))
+
+    def IMU_get_accel(self):
+        accel=[0,0,0]
+        self._read_16_array(YOZH_REG_ACCEL, accel)
+        self.ax=accel[0]*aRes
+        self.ay=accel[1]*aRes
+        self.az=accel[2]*aRes
+
+    def IMU_get_gyro(self):
+        gyro=[0,0,0]
+        self._read_16_array(YOZH_REG_GYRO, gyro)
+        self.gx=gyro[0]*gRes
+        self.gy=gyro[1]*gRes
+        self.gz=gyro[2]*gRes
+
+    def IMU_yaw(self):
+        return(self._read_16(YOZH_REG_YAW)*0.1)
+
+    def IMU_pitch(self):
+        return(self._read_16(YOZH_REG_PITCH)*0.1)
+
+    def IMU_roll(self):
+        return(self._read_16(YOZH_REG_ROLL)*0.1)
 
 ##########  LEDS   ########################################
 
@@ -692,7 +749,11 @@ class Yozh:
             self._device.readinto(self._in_buffer, end = 2*count)
             #self._device.write_then_readinto(bytes([address & 0xFF]),self._in_buffer,in_end = 2*count )
         for i in range(count):
-            result_array[i]=self._in_buffer[2*i] |(self._in_buffer[2*i+1]<<8)
+            raw=self._in_buffer[2*i] |(self._in_buffer[2*i+1]<<8)
+            if (raw & (1<<15)): # sign bit is set
+                result_array[i] = (raw - (1<<16))
+            else:
+                result_array[i] = raw
 
     def _read_32(self, address):
         # Read and return a 32-bit signed little  endian value  from the

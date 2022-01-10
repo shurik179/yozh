@@ -62,6 +62,7 @@ volatile uint16_t * servoPosition   =(uint16_t *) &REGBANK[REG_SERVO1]; //2-elem
 volatile uint8_t * fwVersion        = (uint8_t *)&REGBANK[REG_FW_VERSION];//2-element array
 //whoami
 volatile uint8_t * whoAmI           = (uint8_t *)&REGBANK[REG_WHO_AM_I];
+volatile uint8_t * imuStatus        = (uint8_t *)&REGBANK[REG_IMU_STATUS];
 
 //encoders
 volatile int32_t  * encoder         = (int32_t *) &REGBANK[REG_ENCODER_L]; //2-element array
@@ -80,7 +81,7 @@ volatile int16_t * mag              = (int16_t *) &REGBANK[REG_MAG];   //3-eleme
 //orientation, as a unit quaternion
 //quat[0] is real part, quat[1], quat[2], quat[3] are i-, j- and k-components respectively
 //scaled by 2^30
-volatile int32_t * quat             = (int32_t *) &REGBANK[REG_QUAT];   //3-element array
+volatile int32_t * quat_converted   = (int32_t *) &REGBANK[REG_QUAT];   //3-element array
 
 // yaw, pitch, roll, in units of 1/10 degree
 volatile int16_t * yaw              = (int16_t *) &REGBANK[REG_YAW];   //3-element array

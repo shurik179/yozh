@@ -6,16 +6,17 @@
 #include "motors.h"
 #include "analog.h"
 #include "neopixel.h"
+#include "lsm6dsl.h"
 
-#define FW_VERSION_MAJOR 2
-#define FW_VERSION_MINOR 1
+#define FW_VERSION_MAJOR 3
+#define FW_VERSION_MINOR 0
 //uncomment to allow debugging print to Serial.
 #define DEBUG_PRINT
 
 uint32_t loopCount=0;
 
 void setup(){
-    //i2cMasterBegin(100000); //start I2C bus on Wire1 as master, in regular mode (100 kHz)
+    i2cMasterBegin(100000); //start I2C bus on Wire1 as master, in regular mode (100 kHz)
     i2cSlaveBegin();        //start i2c bus on Wire, as a slave
     initRegmap();
     *whoAmI=0x11;
@@ -26,7 +27,7 @@ void setup(){
         /*while(!Serial){
           delay(10);
         }*/
-        delay(1000);
+        delay(2000);
         Serial.println("Yozh firmware started");
         delay(1000);
 #endif
@@ -38,7 +39,7 @@ void setup(){
     setupMotorPins();
     setServos();//FIXME
     *linearrayConfig = 0;
-    //*imuStatus = IMU_OFF;
+    *imuStatus = IMU_OFF;
     *neopixelBrightness=64;
     neopixelColors[1]=150;
     neopixelColors[4]=150;
@@ -78,7 +79,7 @@ void loop(){
         clearFlag(FLAG_MOTOR_POWER);
         #ifdef DEBUG_PRINT
             Serial.println("Updating motor mode/power  configuration");
-            Serial.print("Motor mode: "); Serial.print(*motorMode); 
+            Serial.print("Motor mode: "); Serial.print(*motorMode);
             Serial.print(" powerL: "); Serial.print(motorPower[0]);
             Serial.print(" powerR: "); Serial.println(motorPower[1]);
         #endif
@@ -92,6 +93,29 @@ void loop(){
             disableLineArray();
         }
     }
+
+    if (isSet(FLAG_IMU_CONFIG)){
+        clearFlag(FLAG_IMU_CONFIG);
+        #ifdef DEBUG_PRINT
+        Serial.println("Configuring IMU");
+        #endif
+        switch (*imuConfig){
+            case IMU_CONFIG_END: //stop
+                *imuStatus = IMU_OFF;
+                break;
+            case IMU_CONFIG_BEGIN://begin
+                *imuStatus = IMU_OK; //FIXME
+                //Serial.println("starting IMU");
+                IMUbegin();
+                //Serial.println("IMU Started");
+                break;
+            case IMU_CONFIG_CALIBRATE: //calibrate
+                IMUcalibrate();
+                break;
+        }
+    }
+
+
     if (isSet(FLAG_NEOPIXEL_CONFIG)){
         clearFlag(FLAG_NEOPIXEL_CONFIG);
         pixelUpdateConfig();
@@ -101,6 +125,9 @@ void loop(){
         pixelUpdate();
     }
     //now, update readings of sensors etc
+    if (*imuConfig) {
+        IMUupdate();
+    }
     updateVsense();
     if (*linearrayConfig) {
         updateLineArray();

@@ -116,7 +116,7 @@ extern volatile int16_t * mag;
 //orientation, as a unit quaternion
 //quat[0] is real part, quat[1], quat[2], quat[3] are i-, j- and k-components respectively
 //scaled by 2^30
-extern volatile int32_t * quat;
+extern volatile int32_t * quat_converted;
 // yaw, pitch, roll, in units of 1/10 degree
 extern volatile int16_t * yaw;
 extern volatile int16_t * pitch;
