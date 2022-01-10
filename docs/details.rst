@@ -3,7 +3,10 @@
 Yozh Features in Detail
 ***************************
 
-
+.. figure:: images/main_photo.jpg
+    :alt: Yozh robot
+    :width: 80%
+    
 .. toctree::
     :caption: Table of Contents
     :maxdepth: 1

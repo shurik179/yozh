@@ -7,7 +7,7 @@ elements:
 
 * two buttons
 
-* two Qwiic/Stemma QT I2C connectors (on the bottom side of the plate)
+* two Qwiic/Stemma QT I2C connectors (on the back side of the plate)
 
 * a number of 3mm mounting holes for attaching additional electronics
 

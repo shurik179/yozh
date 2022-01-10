@@ -57,7 +57,7 @@ Buttons
 
    Returns ``True`` if given button is currently pressed and ``False`` otherwise.
 
-.. function:: wait_for(button)
+.. function:: choose_button()
 
     Waits until the user presses one of the two buttons. This function returns
     string literal ``A`` or ``B`` depending on the pressed  button:

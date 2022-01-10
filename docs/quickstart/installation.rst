@@ -30,9 +30,10 @@ Adafruit Circuit Python bundle to `lib` folder in `CIRCUITPY` drive:
 
 
 
-Next, you need to install Yozh Circuit Python library. Download the zip file of
-this library from FIXME and unzip to your computer. Find in the extracted archive file
-`yozh.mpy` and copy it to `lib` folder. Now, you have all the libraries you need.
+Next, you need to install Yozh Circuit Python library. Go to |github| and click
+on green ``Code`` button to download the zip file containing all Yozh designs
+and software.  Extract the zip file to your computer. Find in the extracted archive file
+`python_library/yozh.py` and copy this file to `lib` folder. Now, you have all the libraries you need.
 
-Please note that extracted Yozh library archive also contains a folder `examples`.
+Please note that extracted Yozh \ archive also contains a folder `python_library/examples`.
 Move this folder to some convenient location on your computer - you will use it shortly.

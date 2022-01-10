@@ -103,8 +103,8 @@ and computed orientation, using the following functions:
 
 .. function:: float IMU_roll()
 
-   These functions return yaw, pitch, and roll angles for the robot. These
-   three angles describe the robot orientation as described below:
+   These functions return yaw, pitch, and roll angles for the robot, in degrees. 
+   These three angles determine the robot orientation as described below:
 
    * yaw is the rotation around the vertical axis (positive angle corresponds to
      clockwise rotation, i.e. right turns), relative to the starting position of
