@@ -19,3 +19,8 @@ might find it easier to order DFrobot kits from DigiKey:
 
 
 Note that some of these attachments might interfere with the distance sensors.
+
+
+.. figure:: ../images/grabber.jpg
+    :alt: Yozh robot with the grabber attachment
+    :width: 80%

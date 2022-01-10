@@ -46,6 +46,10 @@ of the robot or Qwiic/Stemma QT connectors at the bottom of the top plate.
 Connectors
 ----------
 
+.. figure:: ../images/connectors.png
+    :alt: Connections 
+    :width: 80%
+
 
 Yozh provides a number of connectors for connecting additional electronics to
 ItsyBitsy:
