@@ -47,8 +47,8 @@ Connectors
 ----------
 
 .. figure:: ../images/connectors.png
-    :alt: Connections 
-    :width: 80%
+    :alt: Connections
+    :width: 100%
 
 
 Yozh provides a number of connectors for connecting additional electronics to
