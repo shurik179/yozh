@@ -18,11 +18,9 @@ LEDs
 
 .. code-block:: python
 
-   RED=[255,0,0]
-   GREEN=[0,255,0]
-   BLUE=[0,0,255]
-   bot.set_led_L(BLUE)
-   bot.set_led_R(GREEN)
+    BLUE=[0,0,255]
+
+    bot.set_led_L(BLUE)
 
 .. function:: set_leds(color_l, color_r)
 
@@ -59,6 +57,21 @@ Buttons
 
    Returns ``True`` if given button is currently pressed and ``False`` otherwise.
 
+.. function:: wait_for(button)
+
+    Waits until the user presses one of the two buttons. This function returns
+    string literal ``A`` or ``B`` depending on the pressed  button:
+
+.. code-block:: python
+
+    bot.set_text("Press any button", line1)
+    #wait until user presses one of buttons
+    if (bot.choose_button()=="A"):
+        # do something
+    else:
+        # button B was pressed
+        # do something else
+
 
 OLED
 ----
@@ -73,7 +86,7 @@ The easiest way to interact with OLED display is by using the commands below.
 
    Add textbox (also known as label) to display. You can enter the actual text
    when creating the textbox, or replace it later. The command returns index
-   of the textbox, which can be used to update teh contents of the textbox later.
+   of the textbox, which can be used to update the contents of the textbox later.
 
    The basic use of this command is
 
