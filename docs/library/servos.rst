@@ -11,10 +11,13 @@ Yozh has two ports for connecting servos. To control them, use the commands belo
    value of 0.5 corresponds to middle (neutral) position.
 
    Note that these commands expect that the servo is capable of accepting
-   pulsewidths from  500 to 2500 microseconds. If the servo you are using has
-   smaller range (e.g. HiTec servos have range of 900 to 2100 microseconds),
-   it means that maximal position of the servo will be achieved for values
-   smaller than 1. FIXME
+   pulsewidths from  500 to 2500 microseconds. Many servos use
+   smaller range; for example, HiTec servos have range of 900 to 2100 microseconds.
+   For such a servo, it will reach maximal turning angle for position value less
+   than one (e.g., for HiTec servo, this value will be 0.8); increasing position
+   value from 0.8 to 1 will have no effect. Similarly, minimal angle  will be
+   achieved for ``position = 0.2``.
+
 
    **Warning**: please remember that if a servo is unable to reach the set
    position because of some mechanical obstacle (e.g., grabber claws can not
@@ -22,4 +25,4 @@ Yozh has two ports for connecting servos. To control them, use the commands belo
    drawing significant current. This can lead to servo motor overheating quickly;
    it can also lead to voltage drop of Yozh battery, interfering with
    operation of motors or other electronics. Thus, it is best to avoid such
-   situtations. 
+   situtations.
