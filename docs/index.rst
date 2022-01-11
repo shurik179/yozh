@@ -6,7 +6,8 @@ Yozh Robot
     :width: 80%
 
 Yozh is a small (under 10cm*10cm) robot, based on Pololu's Zumo chassis. It was
-created by Alexander Kirillov for a robotics class at SigmaCamp. Below are the
+created by `shurik179 <https://github.com/shurik179>`__ for a robotics class at
+`SigmaCamp <http://sigmacamp.org>`__. Below are the
 key features of this robot.
 
 
@@ -36,7 +37,7 @@ The robot consists of the following components:
   * Bottom-facing **reflectance array** with 8 sensors, for line-following and other similar tasks
   * Two front-facing **distance sensors**, using VL53L0X laser time-of-flight sensors,
     for obstacle avoidance
-  * A 9DOF **Inertial Motion Unit** (IMU), which can be used for determining robot
+  * A 6 DOF **Inertial Motion Unit** (IMU), which can be used for determining robot
     orientation in space for precise navigation
   * Two RGB **LEDs** for light indication and a **buzzer** for sound signals
   * Two ports for connecting **servos**
