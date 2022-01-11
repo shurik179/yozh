@@ -1,10 +1,10 @@
-# RoverWing Firmware
+# Yozh  Firmware
 
 This folder  contains the firmware and
 necessary support files for Yozh robot.
 
 Since Yozh comes with the firmware pre-installed, most users do not need
-any of the files in this repository. You only need to use it if you want to
+any of the files in this directory. You only need to use it if you want to
 understand the inner workings of the firmware, or to create your own modified
 version of the firmware. Note: the authors of the firmware provide no technical
 support for modifying the firmware; do it at your own risk.
@@ -20,6 +20,7 @@ are brief. This is intentional, to discourage inexperienced users.
 
 To build the firmware from the source, you need the following software installed
 on your computer:
+
 1.  Arduino IDE (version 1.8 or later).
 
 2. Board definition files -- see instructions below
@@ -62,4 +63,4 @@ from Windows store), or `/home/<user>/.arduino15/` (Linux).
 folder in this repository and use them to replace the corresponding files in
 `crickit_m0` folder.
 
-4. Restart Arduino IDE. 
+4. Restart Arduino IDE.

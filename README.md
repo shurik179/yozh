@@ -13,9 +13,10 @@ The robot consists of the following components:
   which takes care of all low-level operations such as counting encoder pulses
 * Additional boards: reflectance sensor array (for line following), front
   distance sensors, top cover with 64*128 OLED display and user buttons
-* [ItsyBitsy RP2040](https://www.adafruit.com/product/4888) by Adafruit, which serves as robot brain. It is plugged in
-into headers   on the main board and programmed by the user in CircuitPython,
-using a provided CircuitPython library to communicate with the slave MCU over I2C
+* [ItsyBitsy RP2040](https://www.adafruit.com/product/4888) by Adafruit, which
+  serves as robot brain. It is plugged  into headers   on the main board and
+  programmed by the user in CircuitPython, using a provided CircuitPython
+  library to communicate with the slave MCU over I2C.
 
 
 
@@ -24,3 +25,4 @@ using a provided CircuitPython library to communicate with the slave MCU over I2
 * `docs`: documentation
 * `hardware`: design files for the custom electronics boards, BOM, etc.
 * `firmware`: bootloader and firmware files
+* `python_library`: Circuit Python user library
