@@ -54,6 +54,10 @@ Tindie for those who want to build the robot but do not have time or skill
 to assemble their own PCBs.
 
 
+You can view photos and videos of Yozh here:
+
+https://photos.app.goo.gl/ERGFzz6CUv6od8WP6
+
 .. toctree::
     :caption: Table of Contents
     :maxdepth: 1
