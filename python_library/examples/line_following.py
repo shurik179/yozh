@@ -1,9 +1,4 @@
-# SPDX-FileCopyrightText: Alexander Kirillov
-# SPDX-License-Identifier: CC0-1.0
-
-# Example of yozh robot following a line (white on black field)
-#
-
+# Example of Yozh robot following a line (white on black field)
 
 import time
 import yozh

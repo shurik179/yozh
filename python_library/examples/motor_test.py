@@ -1,7 +1,5 @@
-# SPDX-FileCopyrightText: Alexander Kirillov
-# SPDX-License-Identifier: CC0-1.0
-
 # Basic motors test
+
 import time
 import yozh
 

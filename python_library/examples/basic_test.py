@@ -1,7 +1,4 @@
-# SPDX-FileCopyrightText: Alexander Kirillov
-# SPDX-License-Identifier: CC0-1.0
-
-# Basic example of Yozh Bot, with LEDs and buttons
+# Basic example of Yozh Bot use, with LEDs and buttons
 
 import time
 import yozh

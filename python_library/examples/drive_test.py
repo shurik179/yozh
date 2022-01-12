@@ -1,6 +1,3 @@
-# SPDX-FileCopyrightText: Alexander Kirillov
-# SPDX-License-Identifier: CC0-1.0
-
 # Testing basic driving operations
 
 import time

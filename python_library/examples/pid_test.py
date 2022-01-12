@@ -1,6 +1,3 @@
-# SPDX-FileCopyrightText: Alexander Kirillov
-# SPDX-License-Identifier: CC0-1.0
-
 # Using PID algorithm for closed loop speed control of motors
 
 import time
@@ -36,7 +33,7 @@ bot.wait_for(bot.button_A)
 bot.configure_PID(maxspeed=4200)
 # Andvanced users can also adjust other PID paratmeters.
 # bot.configure_PID(maxspeed=4200, Kp=0.8/4200, Ti=0.3, Td=0, Ilim=1000)
-# enable PID 
+# enable PID
 bot.PID_on()
 bot.reset_encoders()
 bot.buzz(660,1.0)

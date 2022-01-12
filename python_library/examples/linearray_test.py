@@ -1,9 +1,4 @@
-# SPDX-FileCopyrightText: Alexander Kirillov
-# SPDX-License-Identifier: CC0-1.0
-
-# Basic example of Yozh Bot, with LEDs and buttons
-
-# Import all board pins.
+# Testing reflectance array
 import time
 import yozh
 

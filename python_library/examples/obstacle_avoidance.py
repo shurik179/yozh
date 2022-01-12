@@ -1,7 +1,4 @@
-# SPDX-FileCopyrightText: Alexander Kirillov
-# SPDX-License-Identifier: CC0-1.0
-
-# Testing front distance sensors
+# Obstacle avoidance
 
 import time
 import yozh

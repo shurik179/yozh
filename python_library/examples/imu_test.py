@@ -1,7 +1,4 @@
-# SPDX-FileCopyrightText: Alexander Kirillov
-# SPDX-License-Identifier: CC0-1.0
-
-# Basic example of Yozh Bot, with LEDs and buttons
+# Testing Inertial Motion Unit (IMU)
 
 import time
 import yozh
@@ -53,4 +50,3 @@ while True:
     bot.set_text("pitch: {}".format(bot.IMU_pitch()), line3)
     bot.set_text("roll: {}".format(bot.IMU_roll()), line4)
     time.sleep(0.2)
-
