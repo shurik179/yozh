@@ -120,6 +120,7 @@ class Yozh:
         self._calibrate_W = 70   #reasonable defaults for black and white sensor readings
         self._calibrate_B = 950
         self._threshold = 500    # black/white threshold
+        self._yaw_offset = 0
         time.sleep(0.2)
         with self._device:
             result = bytearray(1)
@@ -337,12 +338,14 @@ class Yozh:
 ##########  IMU    ########################################
     def IMU_start(self):
         self._write_8(YOZH_REG_IMU_INIT, 1)
+        self._yaw_offset = self._read_16(YOZH_REG_YAW)*0.1
 
     def IMU_calibrate(self):
         self._write_8(YOZH_REG_IMU_INIT, 2)
         time.sleep(1.0)
         while (self._read_8(YOZH_REG_IMU_STATUS)==2):
             pass
+        self._yaw_offset = self._read_16(YOZH_REG_YAW)*0.1
 
 
     def IMU_stop(self):
@@ -365,8 +368,16 @@ class Yozh:
         self.gy=gyro[1]*gRes
         self.gz=gyro[2]*gRes
 
+    def IMU_yaw_reset(self):
+        self._yaw_offset = self._read_16(YOZH_REG_YAW)*0.1
+
     def IMU_yaw(self):
-        return(self._read_16(YOZH_REG_YAW)*0.1)
+        yaw = self._read_16(YOZH_REG_YAW)*0.1 - self._yaw_offset
+        if (yaw >180):
+            yaw = yaw - 360
+        elif (yaw < - 180 ):
+            yaw = yaw + 360
+        return(yaw)
 
     def IMU_pitch(self):
         return(self._read_16(YOZH_REG_PITCH)*0.1)

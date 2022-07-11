@@ -4,7 +4,7 @@
 #include <FlashStorage.h>
 #include "regmap.h"
 #define LSM6DSL_ADDRESS    0x6A   // Address of LSM6DSL accel/gyro when ADO = LOW
-#define LSM6DSL_WHO_AM_I   0x6A   // Value of WHO_AM_I register 
+#define LSM6DSL_WHO_AM_I   0x6A   // Value of WHO_AM_I register
 
 //offsets data
 //flash storage stuff
@@ -76,7 +76,7 @@ const float gRes = 500.0f / 32768.0f; //gyro resolution, in (deg/s)/LSB
 const float gResRad = gRes * PI/180.0f; //gyro resolution, in (rad/s)/LSB
 
 
-const float radToDeg=180.0f/PI;      //converstion factor from radians to degrees s
+const float radToDeg=57.29578;      //converstion factor from radians to degrees s
 const float GyroMeasError = PI * (40.0f / 180.0f);     // gyroscope measurement error in rads/s (start at 60 deg/s), then reduce after ~10 s to 3
 const float beta = sqrtf(3.0f / 4.0f) * GyroMeasError;  // compute beta
 const float GyroMeasDrift = PI * (2.0f / 180.0f);      // gyroscope measurement drift in rad/s/s (start at 0.0 deg/s/s)

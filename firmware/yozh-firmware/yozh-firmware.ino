@@ -11,7 +11,7 @@
 #define FW_VERSION_MAJOR 2
 #define FW_VERSION_MINOR 0
 //uncomment to allow debugging print to Serial.
-#define DEBUG_PRINT
+//#define DEBUG_PRINT
 
 uint32_t loopCount=0;
 
