@@ -5,9 +5,9 @@ sphinx:
   builder: html
 
 # Optionally build your docs in additional formats such as PDF and ePub
-# formats:
-
+formats:
+  - pdf
+  - htmlzip
 # Optionally set the version of Python and requirements required to build your docs
 python:
   version: 3.7
-  
