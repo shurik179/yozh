@@ -4,12 +4,8 @@
 #include "wiring_private.h"
 
 // Motor configuration modes
-#define MOTOR_MODE_POWER 0 //includes brake
-#define MOTOR_MODE_COAST 1
-#define MOTOR_MODE_SPEEDPID 2
-//#define MOTOR_MODE_TANKDRIVE 3 //motors a re conrolled by higher level drive controls,
-                           // as defined in drive.h - not individually
-// For coasting a motor:
+#define MOTOR_MODE_POWER 0  // motors controlled individually
+#define MOTOR_MODE_DRIVE 1  // tank drive - direction determined by IMU 
 // Normally, motor power is an int between -500...500
 // this special value indicates that the motor should be stopped in coast state
 #define POWER_COAST 1000

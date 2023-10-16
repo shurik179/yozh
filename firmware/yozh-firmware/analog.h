@@ -6,7 +6,6 @@
 void setupAnalogPins();
 void enableLineArray();
 void disableLineArray();
-void updateVsense();
 void updateLineArray();
 void printAnalogs();
 uint16_t myAnalogRead(uint8_t pin);

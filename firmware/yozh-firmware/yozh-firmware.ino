@@ -5,11 +5,10 @@
 //code for motors, encoders, and servos
 #include "motors.h"
 #include "analog.h"
-#include "neopixel.h"
 #include "lsm6dsl.h"
 
-#define FW_VERSION_MAJOR 2
-#define FW_VERSION_MINOR 0
+#define FW_VERSION_MAJOR 3
+#define FW_VERSION_MINOR 9
 //uncomment to allow debugging print to Serial.
 //#define DEBUG_PRINT
 
@@ -32,7 +31,7 @@ void setup(){
         delay(1000);
 #endif
     for (int i=0; i<2; i++){
-        servoPosition[i] = 1500;
+        servoPosition[i] = 0;
     }
     *motorMode = MOTOR_MODE_POWER;
     setupTimers();
@@ -40,30 +39,25 @@ void setup(){
     setServos();//FIXME
     *linearrayConfig = 0;
     *imuStatus = IMU_OFF;
-    *neopixelBrightness=64;
-    neopixelColors[1]=150;
-    neopixelColors[4]=150;
-    pixelBegin();
-    pixelUpdate();
     Serial.println("Setup ends");
 }
 
 void loop(){
     loopCount++;
-    //High priority: done every cycle
     //First, update configuration/motors/servos
     if (isSet(FLAG_MOTOR_CONFIG)){
         clearFlag(FLAG_MOTOR_CONFIG);
         #ifdef DEBUG_PRINT
             Serial.println("Updating motor configuration");
         #endif
-        //FIXME
+        //FIXME - need to restart all PID controllers
     }
     if (isSet(FLAG_SERVO)){
         clearFlag(FLAG_SERVO);//unset the servo flag bit
         #ifdef DEBUG_PRINT
         Serial.print("setting servo to new positions: ");
         Serial.print(servoPosition[0]); Serial.println(" ");
+        Serial.print(servoPosition[1]); Serial.println(" ");
         #endif
         setServos();
     }
@@ -116,22 +110,15 @@ void loop(){
     }
 
 
-    if (isSet(FLAG_NEOPIXEL_CONFIG)){
-        clearFlag(FLAG_NEOPIXEL_CONFIG);
-        pixelUpdateConfig();
-    }
-    if (isSet(FLAG_NEOPIXEL)){
-        clearFlag(FLAG_NEOPIXEL);
-        pixelUpdate();
-    }
     //now, update readings of sensors etc
     if (*imuConfig) {
         IMUupdate();
     }
-    updateVsense();
     if (*linearrayConfig) {
         updateLineArray();
     }
+
     //update motor speed reading and pid speed adjustment
+    //it will automatically check for elapsed  time
     updateSpeed();
 }

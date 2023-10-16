@@ -17,16 +17,13 @@ void initRegmap(){
     for (i=0; i<RW_REGISTERS; i++)  registerFlag[i] = FLAG_NONE;
     //initialize registerFlag array, which shows, for each register, which flag it should set
     //Note: this uses hardcoded block sizes
-    for (i=0; i<11; i++)  registerFlag[REG_MAX_SPEED+i] = FLAG_MOTOR_CONFIG;
-    registerFlag[REG_MOTOR_MODE] = FLAG_MOTOR_MODE;
+    for (i=0; i<11; i++)  registerFlag[REG_MAX_SPEED+i] = FLAG_MOTOR_CONFIG; //11 bytes for MOTOR_CONFIG
+    for (i=0; i<3; i++)  registerFlag[REG_MOTOR_MODE+i] = FLAG_MOTOR_MODE;   // 3 bytes for MOTOR_MODE
+    for (i=0; i<4; i++)  registerFlag[REG_POWER_L+i] = FLAG_MOTOR_POWER;     // 4 bytes for MOTOR_POWER
+    for (i=0; i<4; i++)  registerFlag[REG_SERVO1+i] = FLAG_SERVO;            // 4 bytes fro servos
     registerFlag[REG_ENC_RESET] = FLAG_ENC_RESET;
-    for (i=0; i<4; i++)  registerFlag[REG_POWER_L+i] = FLAG_MOTOR_POWER;
-    for (i=0; i<8; i++)  registerFlag[REG_DRIVE_DISTANCE+i] = FLAG_DRIVE_CONFIG; //includes distange or angle target or drive speed
     registerFlag[REG_IMU_INIT] = FLAG_IMU_CONFIG;
-    for (i=0; i<6; i++)  registerFlag[REG_NEOPIXEL_L+i] = FLAG_NEOPIXEL; //Neopixel setup
-    registerFlag[REG_NEOPIXEL_BRIGHTNESS] = FLAG_NEOPIXEL_CONFIG;
     registerFlag[REG_LINEARRAY_INIT] = FLAG_LINEARRAY_CONFIG;
-    for (i=0; i<4; i++)  registerFlag[REG_SERVO1+i] = FLAG_SERVO;
 }
 
 /* **********************************************************************
@@ -45,16 +42,12 @@ volatile uint16_t * motorTd         =(uint16_t *) &REGBANK[REG_PID_TD];
 volatile uint16_t * motorIlim       =(uint16_t *) &REGBANK[REG_PID_ILIM];
 volatile byte     * motorConfig     = &REGBANK[REG_MOTOR_CONFIG];
 volatile uint8_t  * motorMode       =(uint8_t *)  &REGBANK[REG_MOTOR_MODE];
+volatile uint8_t  * motorMode       =(uint8_t *)  &REGBANK[REG_MOTOR_MODE];
 volatile byte     * encoderReset    = &REGBANK[REG_ENC_RESET];
 volatile int16_t  * motorPower      =(int16_t *)  &REGBANK[REG_POWER_L]; //2-element array
-volatile int32_t  * driveDistance   =(int32_t *)  &REGBANK[REG_DRIVE_DISTANCE];
-volatile int16_t  * turnAngle       =(int16_t *)  &REGBANK[REG_TURN_ANGLE];
-volatile uint16_t * driveSpeed      =(uint16_t *) &REGBANK[REG_DRIVE_SPEED];
-volatile uint8_t  * imuConfig       =(uint8_t *)  &REGBANK[REG_IMU_INIT];
-volatile uint8_t  * neopixelColors  =(uint8_t *)  &REGBANK[REG_NEOPIXEL_L]; //6-element array: 3 colors for each of 2 neopixels; order is RGB
-volatile uint8_t  * neopixelBrightness = (uint8_t *) &REGBANK[REG_NEOPIXEL_BRIGHTNESS];
-volatile uint8_t  * linearrayConfig =(uint8_t *)  &REGBANK[REG_LINEARRAY_INIT];
 volatile uint16_t * servoPosition   =(uint16_t *) &REGBANK[REG_SERVO1]; //2-element array
+volatile uint8_t  * imuConfig       =(uint8_t *)  &REGBANK[REG_IMU_INIT];
+volatile uint8_t  * linearrayConfig =(uint8_t *)  &REGBANK[REG_LINEARRAY_INIT];
 
 //Read-only registers
 
@@ -67,24 +60,20 @@ volatile uint8_t * imuStatus        = (uint8_t *)&REGBANK[REG_IMU_STATUS];
 //encoders
 volatile int32_t  * encoder         = (int32_t *) &REGBANK[REG_ENCODER_L]; //2-element array
 volatile int16_t  * speed           = (int16_t *) &REGBANK[REG_SPEED_L]; //speed in encoder counts/s
-volatile uint16_t * linearrayRaw    = (uint16_t *) &REGBANK[REG_LINEARRAY_RAW];   //8-element array
-volatile uint16_t * vsense          = (uint16_t *) &REGBANK[REG_VSENSE];
+//line array
+volatile uint16_t * linearrayRaw    = (uint16_t *) &REGBANK[REG_LINEARRAY_RAW];   //7-element array
 //acceleration data: accel[0]=x accel, accel[1]=y, accel[2]=z
 //scale: LSB=1/16384 g
 volatile int16_t * accel            = (int16_t *) &REGBANK[REG_ACCEL];   //3-element array
 //gyro data: gyro[0]=x rotation, gyro[1]=y, gyro[2]=z
 //LSB=250.0 / 32768.0 deg/s
 volatile int16_t * gyro             = (int16_t *) &REGBANK[REG_GYRO];   //3-element array
-//magentometer data: accel[0]=x accel, accel[1]=y, accel[2]=z
-//scale: FIXME
-volatile int16_t * mag              = (int16_t *) &REGBANK[REG_MAG];   //3-element array
 //orientation, as a unit quaternion
 //quat[0] is real part, quat[1], quat[2], quat[3] are i-, j- and k-components respectively
 //scaled by 2^30
-volatile int32_t * quat_converted   = (int32_t *) &REGBANK[REG_QUAT];   //3-element array
+volatile int32_t * quat_converted   = (int32_t *) &REGBANK[REG_QUAT];   //4-element array
 
 // yaw, pitch, roll, in units of 1/10 degree
-volatile int16_t * yaw              = (int16_t *) &REGBANK[REG_YAW];   //3-element array
-volatile int16_t * pitch            = (int16_t *) &REGBANK[REG_PITCH];   //3-element array
-volatile int16_t * roll             = (int16_t *) &REGBANK[REG_ROLL];   //3-element array
-volatile uint8_t * regDriveStatus   = (uint8_t *) &REGBANK[REG_DRIVE_STATUS];
+volatile int16_t * yaw              = (int16_t *) &REGBANK[REG_YAW];
+volatile int16_t * pitch            = (int16_t *) &REGBANK[REG_PITCH];
+volatile int16_t * roll             = (int16_t *) &REGBANK[REG_ROLL];

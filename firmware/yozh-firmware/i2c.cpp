@@ -59,7 +59,7 @@ void i2cSlaveRequestEvent(){
 
 void i2cSlaveReceiveEvent(int bytesReceived){
     uint8_t offset=Wire.read();//get the register offset, always first byte sent
-    if ((bytesReceived>1) && (offset<40)) { //FIXME
+    if ((bytesReceived>1) && (offset<RW_REGISTERS)) { 
         //this was to write data to register
         for (int i=0; i<bytesReceived-1; i++){
             REGBANK[offset+i]=Wire.read();

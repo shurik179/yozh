@@ -19,20 +19,20 @@ void setupTimers () {
   while (GCLK->STATUS.bit.SYNCBUSY);              // Wait for synchronization
 
   REG_GCLK_GENCTRL = GCLK_GENCTRL_IDC |           // Set the duty cycle to 50/50 HIGH/LOW
-                   GCLK_GENCTRL_GENEN |         // Enable GCLK4
-                   GCLK_GENCTRL_SRC_DFLL48M |   // Set the 48MHz clock source
-                   GCLK_GENCTRL_ID(4);          // Select GCLK4
+                   GCLK_GENCTRL_GENEN |           // Enable GCLK4
+                   GCLK_GENCTRL_SRC_DFLL48M |     // Set the 48MHz clock source
+                   GCLK_GENCTRL_ID(4);            // Select GCLK4
   while (GCLK->STATUS.bit.SYNCBUSY);              // Wait for synchronization
   //feed GCLK4 to TCC0, TCC1
   REG_GCLK_CLKCTRL = GCLK_CLKCTRL_CLKEN |          // Enable GCLK
                        GCLK_CLKCTRL_GEN_GCLK4 |    // Select GCLK4
                        GCLK_CLKCTRL_ID_TCC0_TCC1;  // Feed GCLK4 to TCC0 and TCC1
-  while (GCLK->STATUS.bit.SYNCBUSY);              // Wait for synchronization
+  while (GCLK->STATUS.bit.SYNCBUSY);               // Wait for synchronization
 
   REG_GCLK_CLKCTRL = GCLK_CLKCTRL_CLKEN |          // Enable GCLK
                        GCLK_CLKCTRL_GEN_GCLK4 |    // Select GCLK4
-                       GCLK_CLKCTRL_ID_TCC2_TC3;  // Feed GCLK4 to TCC2 and TC3
-  while (GCLK->STATUS.bit.SYNCBUSY);              // Wait for synchronization
+                       GCLK_CLKCTRL_ID_TCC2_TC3;   // Feed GCLK4 to TCC2 and TC3
+  while (GCLK->STATUS.bit.SYNCBUSY);               // Wait for synchronization
 
 
   //configure TCC0 timer for motors
@@ -88,6 +88,7 @@ void setupMotorPins(){
 }
 
 void resetEncoders(){
+    //using encoder variable, defined at regmap.cpp
     encoder[0]=0;
     encoder[1]=0;
     //also, reset previous value, otherwise speed computation will go haywire
@@ -128,7 +129,8 @@ void setMotors(){
       break;//special value to indicate that it should be floating
       //Serial.println("Setting motor 1 to coast ");
     */
-    case MOTOR_MODE_SPEEDPID:
+    case MOTOR_MODE_DRIVE:
+      //FIXME!!!!
       //set up the PID controllers for left and right motor
       //each of them will take  as input speed (in ticks/s) and outputs a value between -1..1 - it will be later multiplied by MOTOR_MAX_POWER
       float Kp= (*motorKp)*0.0000001; //10^7
@@ -149,14 +151,14 @@ void setMotors(){
       Serial.print("Ilim="); Serial.println(Ilim,2);
       Serial.print("TargetL="); Serial.println((float)motorPower[0]* (*motorMaxspeed)/MOTOR_MAX_POWER,5);
       Serial.print("TargetR="); Serial.println((float)motorPower[1]* (*motorMaxspeed)/MOTOR_MAX_POWER,5);
-      */
+
       //set the difference speed controller
       if (motorPower[0] == motorPower[1]){
           float KpDiff=0.3*Kp;
           SpeedControllerDiff.configure(KpDiff, KpDiff/Ti,0,200);
           SpeedControllerDiff.setTarget(encoder[0]-encoder[1]); //keep current difference
           Serial.println("Enabling motor sync");
-      }
+      }*/
       break;
   }
   //finally, use the found values to set motor powers
@@ -205,7 +207,7 @@ void setMotorsPower(int16_t power1, int16_t power2){
 //when running in PID mode, also compute and apply PID corrections to the motors
 void updateSpeed(){
     uint32_t delta=micros()- lastUpdate;
-    if (delta<40000) return; //only run the cycle once every 40 ms, or 25hz
+    if (delta<40000) return; //only run the cycle once every 40 ms, or 25hz - FIXME 
     lastUpdate=micros();
     int32_t count0=encoder[0]; uint32_t timestamp0=encoderTimestamp[0];
     int32_t count1=encoder[1]; uint32_t timestamp1=encoderTimestamp[1];
@@ -218,7 +220,7 @@ void updateSpeed(){
     prevEncoder[0]=count0; prevEncoderTimestamp[0]=timestamp0;
     prevEncoder[1]=count1; prevEncoderTimestamp[1]=timestamp1;
     //now, deal with PID if necessary
-    if (*motorMode == MOTOR_MODE_SPEEDPID) {
+    if (*motorMode == MOTOR_MODE_DRIVE) {
       int16_t powerL = motorPower[0] + (int16_t) (MOTOR_MAX_POWER*SpeedControllerL.update((float)speed[0]));
       int16_t powerR = motorPower[1] + (int16_t) (MOTOR_MAX_POWER*SpeedControllerR.update((float)speed[1]));
       //now, compute and apply differential correction

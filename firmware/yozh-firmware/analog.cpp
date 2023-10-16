@@ -1,7 +1,7 @@
 #include "analog.h"
 #include "regmap.h"
 
-uint8_t PINS_ANALOG[]={PIN_A0,PIN_A1,PIN_A2,PIN_A3,PIN_A4,PIN_A5,PIN_A6,PIN_A7,PIN_A8};
+uint8_t PINS_ANALOG[]={PIN_A0,PIN_A1,PIN_A2,PIN_A3,PIN_A4,PIN_A5,PIN_A6};
 
 
 void setupAnalogPins() {
@@ -23,12 +23,10 @@ void disableLineArray(){
 }
 
 
-void updateVsense(){
-    *vsense = myAnalogRead(PIN_A0);
-}
+
 void updateLineArray(){
     for (uint8_t i=0; i<NUM_ANALOGS; i++) {
-        linearrayRaw[i]=myAnalogRead(PINS_ANALOG[i+1]); //note shift by 1 - 0th entry is vsense
+        linearrayRaw[i]=myAnalogRead(PINS_ANALOG[i]); 
     }
 }
 
