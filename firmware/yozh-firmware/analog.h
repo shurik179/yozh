@@ -2,7 +2,7 @@
 #define _YOZH_ANALOG_H
 #include <Arduino.h>
 #include "wiring_private.h"
-#define NUM_ANALOGS 8
+#define NUM_ANALOGS 7
 void setupAnalogPins();
 void enableLineArray();
 void disableLineArray();

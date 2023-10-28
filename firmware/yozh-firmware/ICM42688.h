@@ -119,7 +119,7 @@ https://media.digikey.com/pdf/Data%20Sheets/TDK%20PDFs/ICM-42688-P_DS_Rev1.2.pdf
 #define ICM42688_OFFSET_USER7              0x7E
 #define ICM42688_OFFSET_USER8              0x7F
 
-#define ICM42688_ADDRESS           0x69   // Address of ICM42688 accel/gyro when ADO = 0
+#define ICM42688_ADDRESS           0x68  // Address of ICM42688 accel/gyro when ADO = 0
 #define ICM42688_CHIPID            0x47   // value returned from WHO_AM_I read
 
 

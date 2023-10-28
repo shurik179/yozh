@@ -68,6 +68,7 @@ extern volatile uint16_t * motorTd;
 extern volatile uint16_t * motorIlim;
 extern volatile byte     * motorConfig;
 extern volatile uint8_t  * motorMode;
+extern volatile int16_t  * direction;
 extern volatile byte     * encoderReset;
 extern volatile int16_t  * motorPower; //2-element array
 extern volatile uint8_t  * imuConfig;

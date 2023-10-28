@@ -5,7 +5,7 @@
 
 // Motor configuration modes
 #define MOTOR_MODE_POWER 0  // motors controlled individually
-#define MOTOR_MODE_DRIVE 1  // tank drive - direction determined by IMU 
+#define MOTOR_MODE_DRIVE 1  // tank drive - direction determined by IMU
 // Normally, motor power is an int between -500...500
 // this special value indicates that the motor should be stopped in coast state
 #define POWER_COAST 1000
@@ -45,4 +45,11 @@ void setServos();
 /* Interrupt service routines for encoders */
 void ISR_enc1_speed();
 void ISR_enc2_speed();
+
+//for making angles be between -180..180. Variable a is nagle in units of 0.1 degree
+int16_t inline normalizeAngle(int16_t a){
+  if (a>1800) return (a-3600);
+  else if (a<-1800) return (a+3600);
+  else return a;
+}
 #endif //for ifndef _YOZH_MOTORS_H

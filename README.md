@@ -5,6 +5,9 @@ Detailed documentation is available at http://yozh.rtfd.io.
 
 At the moment, it is a work in progress and not ready for public consumption yet
 
+## Status
+currently working on version 4
+
 ## Project overview
 The robot consists of the following components:
 * [Zumo chassis](https://www.pololu.com/product/1418) by Pololu
@@ -25,4 +28,4 @@ The robot consists of the following components:
 * `docs`: documentation
 * `hardware`: design files for the custom electronics boards, BOM, etc.
 * `firmware`: bootloader and firmware files
-* `python_library`: Circuit Python user library
+* `circuitpython_library`: Circuit Python user library

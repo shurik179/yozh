@@ -56,11 +56,11 @@ extern "C"
  *----------------------------------------------------------------------------*/
 
 // Number of pins defined in PinDescription array
-#define PINS_COUNT           (28u)
+#define PINS_COUNT           (25u)
 #define NUM_DIGITAL_PINS     (17u)
-#define NUM_ANALOG_INPUTS    (9u)
+#define NUM_ANALOG_INPUTS    (7u)
 #define NUM_ANALOG_OUTPUTS   (0u)
-#define analogInputToDigitalPin(p)  ((p < 9u) ? (p) : -1)
+#define analogInputToDigitalPin(p)  ((p < 7u) ? (p) : -1)
 
 #define digitalPinToPort(P)        ( &(PORT->Group[g_APinDescription[P].ulPort]) )
 #define digitalPinToBitMask(P)     ( 1 << g_APinDescription[P].ulPin )
@@ -83,9 +83,8 @@ extern "C"
 /*
  * Pin definitions
  */
- #define PIN_VSENSE    (0ul)
 
-//there is no pin A0, but it is used as an offset in wiring_analog.c in core....
+
 #define PIN_A0         (0ul)
 #define PIN_A1         (1ul)
 #define PIN_A2         (2ul)
@@ -93,8 +92,7 @@ extern "C"
 #define PIN_A4         (4ul)
 #define PIN_A5         (5ul)
 #define PIN_A6         (6ul)
-#define PIN_A7         (7ul)
-#define PIN_A8         (8ul)
+
 
 static const uint8_t A0  = PIN_A0;
 static const uint8_t A1  = PIN_A1;
@@ -103,10 +101,10 @@ static const uint8_t A3  = PIN_A3;
 static const uint8_t A4  = PIN_A4;
 static const uint8_t A5  = PIN_A5;
 static const uint8_t A6  = PIN_A6 ;
-static const uint8_t A7  = PIN_A7 ;
-static const uint8_t A8  = PIN_A8 ;
 
 
+#define PIN_ANALOG_CTRL  (7ul)
+#define PIN_HEARTBEAT    (8ul)
 
 #define PIN_SERVO1       (10ul)
 #define PIN_SERVO2       (9ul)
@@ -122,13 +120,11 @@ static const uint8_t A8  = PIN_A8 ;
 #define PIN_MOTOR2A      (22ul)
 #define PIN_MOTOR2B      (21ul)
 
-#define PIN_ANALOG_CTRL  (25ul)
 
 
-#define PIN_NEOPIXEL     (26ul)
 
 // dummy
-#define PIN_DAC0         (27ul)
+#define PIN_DAC0         (25ul)
 
 
 /*
@@ -163,7 +159,7 @@ static const uint8_t A8  = PIN_A8 ;
 #define PIN_USB_DM          (23ul)
 #define PIN_USB_DP          (24ul)
 //fake - in fact, host enable pin is not connected
-#define PIN_USB_HOST_ENABLE (27ul)
+#define PIN_USB_HOST_ENABLE (25ul)
 /*
  * I2S Interfaces
  */

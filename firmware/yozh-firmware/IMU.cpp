@@ -176,7 +176,7 @@ float getPitch() {
 float getRoll(){
   float a, a_deg;
   a  = - atan2f(2.0f * (quat[0] * quat[1] + quat[2] * quat[3]), quat[0] * quat[0] - quat[1] * quat[1] - quat[2] * quat[2] + quat[3] * quat[3]);
-  a_deg= a*radToDeg+180;
+  a_deg= a*radToDeg;
   if (a_deg>180) a_deg-=360;
 
   return (a_deg);

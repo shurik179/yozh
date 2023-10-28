@@ -5,14 +5,17 @@
 //code for motors, encoders, and servos
 #include "motors.h"
 #include "analog.h"
-#include "lsm6dsl.h"
+#include "IMU.h"
 
 #define FW_VERSION_MAJOR 3
-#define FW_VERSION_MINOR 9
+#define FW_VERSION_MINOR 95
+
 //uncomment to allow debugging print to Serial.
 //#define DEBUG_PRINT
 
 uint32_t loopCount=0;
+uint32_t lastBlink=0;
+bool heartbeat = 0;
 
 void setup(){
     i2cMasterBegin(100000); //start I2C bus on Wire1 as master, in regular mode (100 kHz)
@@ -38,12 +41,22 @@ void setup(){
     setupMotorPins();
     setServos();//FIXME
     *linearrayConfig = 0;
-    *imuStatus = IMU_OFF;
+    pinMode(PIN_HEARTBEAT, OUTPUT);
+    digitalWrite(PIN_HEARTBEAT, LOW);
+    * imuConfig = 1;
+    IMUbegin();
     Serial.println("Setup ends");
 }
 
 void loop(){
     loopCount++;
+    //blink LED
+    uint32_t now = millis();
+    if (now-lastBlink>250) {
+        lastBlink = now;
+        heartbeat = ! heartbeat;
+        digitalWrite(PIN_HEARTBEAT, heartbeat);
+    }
     //First, update configuration/motors/servos
     if (isSet(FLAG_MOTOR_CONFIG)){
         clearFlag(FLAG_MOTOR_CONFIG);
@@ -109,7 +122,6 @@ void loop(){
         }
     }
 
-
     //now, update readings of sensors etc
     if (*imuConfig) {
         IMUupdate();
@@ -121,4 +133,5 @@ void loop(){
     //update motor speed reading and pid speed adjustment
     //it will automatically check for elapsed  time
     updateSpeed();
+
 }
