@@ -6,9 +6,10 @@
 
   (title_block
     (title "Yozh mainboard")
-    (date "2023-10-26")
+    (date "2023-10-28")
     (rev "4.02")
-    (company "Island Robotics")
+    (company "Alexander Kirillov")
+    (comment 1 "shurik179@gmail.com")
   )
 
   (lib_symbols
