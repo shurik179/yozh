@@ -29,3 +29,7 @@ The robot consists of the following components:
 * `hardware`: design files for the custom electronics boards, BOM, etc.
 * `firmware`: bootloader and firmware files
 * `circuitpython_library`: Circuit Python user library
+
+## License
+All components (hardware, software, documentation) are released under MIT license.
+See file LICENSE in this directory for full text of the license.
