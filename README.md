@@ -31,5 +31,12 @@ The robot consists of the following components:
 * `circuitpython_library`: Circuit Python user library
 
 ## License
-All components (hardware, software, documentation) are released under MIT license.
+Ecept as noted below, all components (hardware, software, documentation) are
+copyright by Alexander Kirillov  and are  released under MIT license.
 See file LICENSE in this directory for full text of the license.
+
+Circuit Python librabries included in circuitpython_library/lib are copyright by Adafruit, see
+https://github.com/adafruit/Adafruit_CircuitPython_Bundle . They are released under MIT License.
+
+Fonts included with Circuit Python library are released under SIL Open Font License.
+See LICENSE file in directory circuitpython_library/fonts
