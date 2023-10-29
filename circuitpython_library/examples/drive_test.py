@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: Copyright 2021-2023 Alexander Kirillov <shurik179@gmail.com>
+# SPDX-License-Identifier: MIT
+#
 # Testing basic driving operations
 
 import time
@@ -34,7 +37,7 @@ if (bot.IMU_status() != 1):
     bot.set_text(3,"IMU failed: {}".format(bot.IMU_status()), font = FONT_BOLD, color = RED)
     while True:
         pass
-   
+
    # new messages on display
 bot.set_text(1,"Press button A to continue")
 #wait until user presses button A

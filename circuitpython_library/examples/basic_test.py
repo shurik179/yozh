@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: Copyright 2021-2023 Alexander Kirillov <shurik179@gmail.com>
+#
+# SPDX-License-Identifier: MIT
 # Basic example of Yozh Bot use, with LEDs and buttons
 
 import time
@@ -23,5 +26,3 @@ while True:
         bot.set_leds(BLUE)
     else:
         bot.set_leds(RED)
-
-

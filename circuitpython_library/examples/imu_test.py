@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: Copyright 2021-2023 Alexander Kirillov <shurik179@gmail.com>
+# SPDX-License-Identifier: MIT
+
 # Testing Inertial Motion Unit (IMU)
 import time
 from  yozh import *
@@ -33,7 +36,7 @@ if (bot.IMU_status() != 1):
     bot.set_text(3,"IMU failed: {}".format(bot.IMU_status()), font = FONT_BOLD, color = RED)
     while True:
         pass
-   
+
 
 while True:
     bot.set_text(1, "yaw: {}".format(bot.IMU_yaw()))
@@ -42,5 +45,3 @@ while True:
     bot.IMU_get_accel()
     bot.set_text(4, "Accel: x:{:.1f} y:{:.1f} z:{:.1f}".format(bot.ax, bot.ay, bot.az))
     time.sleep(0.2)
-
-

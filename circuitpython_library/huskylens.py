@@ -1,3 +1,8 @@
+# SPDX-FileCopyrightText: Copyright 2021-2023 Alexander Kirillov <shurik179@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+#
+
 # main reference:
 # https://github.com/HuskyLens/HUSKYLENSArduino/blob/master/HUSKYLENS%20Protocol.md
 # Huskylens Wiki:

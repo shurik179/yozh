@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: Copyright 2021-2023 Alexander Kirillov <shurik179@gmail.com>
+# SPDX-License-Identifier: MIT
+
 # Yozh Bot servo example
 
 import time
@@ -30,5 +33,3 @@ while True:
         bot.set_servo1(0.5)
         bot.set_servo2(0.5)
         bot.set_leds(GREEN)
-
-

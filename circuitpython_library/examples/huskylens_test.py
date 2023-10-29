@@ -1,5 +1,6 @@
-# SPDX-FileCopyrightText: Alexander Kirillov
-# SPDX-License-Identifier: CC0-1.0
+# SPDX-FileCopyrightText: Copyright 2021-2023 Alexander Kirillov <shurik179@gmail.com>
+# SPDX-License-Identifier: MIT
+
 
 # Print ifno about AprilTags
 # make sure HuskyLens has been cofigured and trained to recognize AprilTags
@@ -33,10 +34,8 @@ while True:
         print("Block with ID {}: size {}x{}, coordinates ({},{})".format(item.ID,item.width, item.height, item.x, item.y))
         bot.set_text(2,"Size {}x{}, \ncoordinates ({},{})".format(item.width, item.height, item.x, item.y))
         bot.set_leds(GREEN)
-    
+
     else:
         bot.set_leds(BLUE)
         bot.clear_display()
     #time.sleep(0.1)
-
-

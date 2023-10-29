@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: Copyright 2021-2023 Alexander Kirillov <shurik179@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+#
 # This file contains definitions and basic functions for
 # interaction between Yozh master (ESP32-S3) and slave MCU
 

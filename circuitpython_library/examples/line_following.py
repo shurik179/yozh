@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: Copyright 2021-2023 Alexander Kirillov <shurik179@gmail.com>
+# SPDX-License-Identifier: MIT
+
 # Example of Yozh robot following a line (white on black field)
 
 import time
@@ -32,11 +35,11 @@ while True:
     bot.set_text(2,"Press B to start", font = FONT_BOLD)
     bot.wait_for(BUTTON_B)
     bot.set_leds(GREEN)
-    #start driving 
+    #start driving
     while (bot.sensor_on_black(0) and bot.sensor_on_black(6)):
         error=bot.line_position_white()
         if error is None:
-            break #exit the while loop 
+            break #exit the while loop
         if error>0:
             bot.set_leds(RED,GREEN)
         else:
@@ -44,4 +47,3 @@ while True:
         bot.set_motors(speed+Kp*error, speed-Kp*error)
     # end of while loop - we reached end of the line
     bot.stop_motors()
-    
