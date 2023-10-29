@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: Copyright 2021-2023 Alexander Kirillov <shurik179@gmail.com>
+// SPDX-License-Identifier: MIT
+// Partly based on the work of Kris Winer, https://github.com/kriswiner/ICM42688
+// (also released under MIT license)
+
 #include "i2c.h"
 #include "regmap.h"
 #include "IMU.h"

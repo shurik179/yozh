@@ -1,5 +1,4 @@
 # SPDX-FileCopyrightText: Copyright 2021-2023 Alexander Kirillov <shurik179@gmail.com>
-#
 # SPDX-License-Identifier: MIT
 # Basic example of Yozh Bot use, with LEDs and buttons
 

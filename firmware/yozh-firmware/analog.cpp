@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: Copyright 2021-2023 Alexander Kirillov <shurik179@gmail.com>
+// SPDX-License-Identifier: MIT
 #include "analog.h"
 #include "regmap.h"
 
@@ -26,7 +28,7 @@ void disableLineArray(){
 
 void updateLineArray(){
     for (uint8_t i=0; i<NUM_ANALOGS; i++) {
-        linearrayRaw[i]=myAnalogRead(PINS_ANALOG[i]); 
+        linearrayRaw[i]=myAnalogRead(PINS_ANALOG[i]);
     }
 }
 

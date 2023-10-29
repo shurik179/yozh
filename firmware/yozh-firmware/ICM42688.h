@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: Copyright 2021-2023 Alexander Kirillov <shurik179@gmail.com>
+// SPDX-License-Identifier: MIT
 /* ICM42688 registers
 https://media.digikey.com/pdf/Data%20Sheets/TDK%20PDFs/ICM-42688-P_DS_Rev1.2.pdf
 */

@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: Copyright 2021-2023 Alexander Kirillov <shurik179@gmail.com>
+// SPDX-License-Identifier: MIT
 #include "regmap.h"
 //allocate memory for registers, aligned with 32-bit words
 volatile int32_t REG32[REG_SIZE32];
