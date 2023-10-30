@@ -1,33 +1,42 @@
 Power
 =====
-Yozh is powered by 4 AA (also known as LR6) batteries, inserted in the
-battery compartment at the bottom of the robot. It is highly recommended
-that you use heavy-duty rechargeable NiMh batteries such as
-`Panasonic Eneloop Pro <https://www.amazon.com/Panasonic-BK-3HCCA4BA-eneloop-Pre-Charged-Rechargeable/dp/B00JHKSL28/>`__.
-You will also need a charger.
+Yozh is powered by one or two 18650 Li-Ion batteries, inserted in the
+battery compartment insdie the robot; to access it, you need to remove 
+the top plate.  See the section for discussion of whether you need one or two batteries. 
+
+
+
+It is highly recommended that you use batteries from a trusted manufacturer, such as Panasonic,
+Samsung,  or Sanyo; do not try to save a couple of dollars by buying a no-name battery from  
+Amazon or  eBay - instead, use one of specialized shops such as https://www.18650batterystore.com/. 
+You need  **flat top unprotected batteries**; look for batteries with capacity 3000 mAh or more. 
+Current rating is less important (you need a battery rated for 4A continuous current or more 
+-- this is  low by the standards of 18650 battery cells). A good choice is this battery: 
+https://www.18650batterystore.com/products/samsung-35e
+
+
 
 The robot also contains power switch, for disconnecting the battery, and a
 power indicator LED.
 
 The robot contains a voltage regulator, which converts battery voltage
-to regulated 3.3v. Most of the robot electronics, including the microcontrollers
-and most of the sensors, are powered from 3.3v bus. Motors, servos
-(if connected), buzzer,  and reflectance array are powered directly from the battery.
+to regulated 3.3v. This regulator provides power to the secondary MCU, IMU 
+and distance sensors, leaving about 300 mA available for use by extra sensors 
+you might connect to  Yozh. 
 
-Note that NiMh batteries are not designed for high currents. Depending on
-the battery, you can expect  4-5A maximum; this would be enough for all
-on-board electronics and  motors, and leave 1-2A for any electronics you want to add.
-This should be OK for micro servos and a couple of sensors, but if you want to
-use standard size servos or power-hungry devices such as AI cameras, you might
-have issues.
+Yozh also contains a boost converter, converting battery voltage to regulated 6V. 
+This is used to power the motors and servos. 
 
-Connecting the ItsyBitsy microcontroller to a computer by USB cable provides power
-to 3.3v bus, even if the main battery is off. This would activate the  microcontrollers
-and some of the electronics, but not the motors or servos.
+Finally, some of the on-board electrnics are powered directly from the battery voltage: 
+the main MCU and TFT  screen, Neopixels and headlights. 
 
-You can check the battery voltage in software, using ``battery()`` function as
-described in  :ref:`Yozh Library Guide <library>`. Fully charged NiMH batteries
-should give about 5.5v.
+Connecting the ESP32-S3 microcontroller to a computer by USB cable provides power
+to the MCU  even if the main battery is off. This would activate the main  MCU 
+and some of the electronics, but not the secondary MCU, motors or servos.
+
+You can check the battery voltage in software, using ``battery_voltage()`` function as
+described in  :ref:`Yozh Library Guide <library>`. Fully charged Li-Ion batteries
+should give about 4.2v.
 
 
 .. figure:: ../images/overview-back.png
