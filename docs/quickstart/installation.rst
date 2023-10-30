@@ -27,7 +27,7 @@ Now, copy the following files and folders from the downloaded `circuitpython_lib
 * `hedgehog.bmp`
 * `fonts` folder 
 * `lib` folder (`CIRCUITPY` may already contain folder `lib`; if so, copy 
-   all contents of `circuitpython_library/lib` to `CIRCUITPY/lib`)
+  all contents of `circuitpython_library/lib` to `CIRCUITPY/lib`)
 
 Please note that extracted Yozh  archive also contains a folder `circuitpython_library/examples`.
 Move this folder to some convenient location on your computer - you will use it shortly.
