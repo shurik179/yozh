@@ -13,12 +13,14 @@ LEDs
 
    These commands set the left (respectively, right) LED to given color. Color
    must be one of the following: 
-   
+
    * a tuple of 3 numbers, showing the values of Red, Green, and Blue
      colors, each ranging between 0--255, e.g. ``bot.set_led_L( (255,0,0))`` to set
      the left LED red.  
+
    * A 32-bit integer, usually written in the hexadecimal form: ``0xRRGGBB``, where each letter stands for a hexadecimal digit 0...FF. 
      E.g. ``0xFF0000`` for red. 
+
    * One of predefined colors, e.g. ``RED``. Full list of predefined colors is: 
      RED, GREEN, BLUE, YELLOW, WHITE, OFF. You can also define your own colors, e.g. 
 
@@ -68,7 +70,7 @@ Buttons
         # do something else
 
 
-DISPLAY 
+Display
 -------
 
 The easiest way to interact with the TFT  display is by using the commands below.
@@ -96,7 +98,7 @@ You can print multi-line messages, separating lines by ``\n``, e.g.
 
 This will print ``Put robot on black`` on line 1 and ``and press A to continue`` on line 2. 
 
-To use a different font, use optional parameter ```font``. Posible choices are: 
+To use a different font, use optional parameter ``font``. Posible choices are: 
 
 * ``FONT_REGULAR``: usual font 
 

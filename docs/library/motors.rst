@@ -4,8 +4,37 @@ Motor control
 Of course, main use of this robot is to drive around, and for this, we need to
 control the motors.
 
-Basic control
--------------
+
+Basic driving 
+--------------------
+
+Yozh python library  provides high level commands for controlling the robot.
+
+
+.. function:: go_forward (distance, speed=60)
+
+.. function:: go_backward(distance, speed=60)
+
+   Move forward/backward  by given distance (in centimeters). Parameter ``speed``, which ranges 
+   between 0-100,  is optional; if not given, default speed of 60 is used.
+   Note that distance and speed should always be positive, even when moving backward.
+
+   Behind the scenes, these commands try to maintain constant robot speed and direction. 
+   To learn more about how it is done check section FIXME.  
+
+.. function:: turn(angle, speed=60)
+
+   Turn by given angle, in degrees. Positive values correspond to turning right (clockwise).
+   Parameter ``speed`` is  optional; if not given, default speed of 50 (i.e. half of maximal) is used.
+
+
+
+
+
+
+Low level commands 
+------------------
+You can also control robot motors directly: 
 
 .. function:: set_motors(power_L, power_R)
 
@@ -16,48 +45,11 @@ Basic control
    Note that because no two motors are exactly identical, even if you give
    both motors same power (e.g. ``set_motors(60,60)``), their speeds might be
    slightly different, causing the robot to veer to one side instead of moving
-   straight. To fix that, use PID control as described below.
+   straight. To avoid this, use ``go_forward()`` command described above. 
 
 .. function:: stop_motors()
 
    Stop  both motors.
-
-
-
-
-Drive control: basic 
---------------------
-
-Yozh python library also provides higher level commands for controlling the robot.
-
-
-.. function:: go_forward (distance, speed=60)
-
-.. function:: go_backward(distance, speed=60)
-
-   Move forward/backward  by given distance (in centimeters). Parameter ``speed``, which ranges 
-   between 0-100,  is optional; if not given, default speed of 60 is used.
-
-   Note that distance and speed should always be positive, even when moving backward.
-
-.. function:: turn(angle, speed=60)
-
-   Turn by given angle, in degrees. Positive values correspond to turning right (clockwise).
-   Parameter ``speed`` is  optional; if not given, default speed of 50 (i.e. half of maximal) is used.
-
-
-Note that all of these commands use encoder readings to determine how far to
-drive or turn. Of course, to do this one needs to know how to convert from
-centimeters or degrees to encoder ticks. This information is stored in properties
-``bot.CM_TO_TICKS`` and ``bot.DEG_TO_TICKS``. By default, Yozh library uses
-``CM_TO_TICKS = 150``, ``DEG_TO_TICKS=14``, which should be correct for 75:1 motors.
-If you find that the robot consistently turns too much (or too little), you can change these values, e.g.
-
-.. code-block:: python
-
-    bot.DEG_TO_TICKS=15
-    bot.turn(90)
-
 
 Encoders
 --------
@@ -68,7 +60,7 @@ Encoders
 
 .. function:: reset_encoders()
 
-  Resets both encoders
+   Resets both encoders
 
 
 .. function:: get_encoders()
