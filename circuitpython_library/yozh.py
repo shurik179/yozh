@@ -146,6 +146,7 @@ class Yozh:
             self.display.refresh()
             #raise RuntimeError('Could not find Yozh Bot, is it connected and powered? ')
         else:
+            self.IMU_start()
             self.canvas.append(bitmap_label.Label(font = FONT_REGULAR, text="Firmware: "+self.fw_version(), scale = 1, x=110, y=82))
             self.display.refresh()
 
@@ -157,9 +158,7 @@ class Yozh:
             b"0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ/-_,.:?!'\n "
         )
         FONT_REGULAR.load_glyphs(glyphs)
-        FONT_BOLD.load_glyphs(glyphs)
-        #now pause
-        time.sleep(1.0)
+        #FONT_BOLD.load_glyphs(glyphs)
         ##clear display
         del self.canvas[3]
         del self.canvas[2]
@@ -194,7 +193,7 @@ class Yozh:
 
 
         # various constants
-        self.CM_TO_TICKS = 150
+        self.CM_TO_TICKS = 150.0
         # basic configuration of PID - FIXME
         self.configure_PID(maxspeed=4200)
         self._pid = False
@@ -358,7 +357,9 @@ class Yozh:
 
     def stop_motors(self):
         """Stops both motors."""
+        self._write_8(YOZH_REG_MOTOR_MODE, 0x00)
         self._write_16_array(YOZH_REG_POWER_L,[0,0])
+
 
     def get_encoders(self):
         """
@@ -400,7 +401,7 @@ class Yozh:
 
 ##########  DRIVING ########################################
 
-    def go_forward(self, distance, speed=60, correct_error = True):
+    def go_forward(self, distance, speed=60, correct_error = False):
         self.reset_encoders()
         if correct_error:
             heading  = self.normalize(self.IMU_yaw()-self.angle_error)
@@ -414,9 +415,20 @@ class Yozh:
         while (self.encoder_L+self.encoder_R<target):
             self.get_encoders()
         self.stop_motors()
-        # restore old motor mode  setting
-        self._write_8(YOZH_REG_MOTOR_MODE, 0x00)
         self.angle_error = 0
+
+    def start_forward(self, speed=60):
+        self.reset_encoders()
+        heading = self.IMU_yaw()
+        #print(direction)
+        self._write_16(YOZH_REG_DIRECTION, (int) (heading*10) )
+        self._write_8(YOZH_REG_MOTOR_MODE, 0x01)
+        self.set_motors(speed, speed)
+
+
+    def distance_traveled(self):
+        self.get_encoders()
+        return ((self.encoder_L+self.encoder_R)/self.CM_TO_TICKS)
 
     def go_backward(self, distance, speed=60):
         self.reset_encoders()
@@ -432,11 +444,13 @@ class Yozh:
     def turn(self, angle, speed=60):
         start_yaw = self.IMU_yaw()
         target_yaw = start_yaw + angle
+        print("turn ",angle)
+        print(start_yaw)
         if angle>0:
             self.set_motors(speed, -speed)
             diff=0
             while (diff  < (angle -2) or diff >355): #subtract 2 degrees to account for robot not stopping instantly
-                #print(diff)
+                print(diff)
                 diff = self.angle_diff(start_yaw,self.IMU_yaw(), CW)
         else:
             angle = - angle
@@ -473,7 +487,7 @@ class Yozh:
 ##########  IMU    ########################################
     def IMU_start(self):
         self._write_8(YOZH_REG_IMU_INIT, 1)
-        time.sleep(1.0)
+        #time.sleep(1.0)
 
     def IMU_calibrate(self):
         self._write_8(YOZH_REG_IMU_INIT, 2)
@@ -598,7 +612,7 @@ class Yozh:
         Is reflectance sensor i (i=0...6) on white?
         """
         raw = self._read_16(YOZH_REG_LINEARRAY_RAW+2*i)
-        return(self<self._threshold[i])
+        return(raw<self._threshold[i])
 
     def sensor_on_black(self,i):
         """
@@ -607,7 +621,7 @@ class Yozh:
         raw = self._read_16(YOZH_REG_LINEARRAY_RAW+2*i)
         return(raw>=self._threshold[i])
 
-    def all_on_black(self,i):
+    def all_on_black(self):
         """
         Are all sensors on black?
         """
@@ -618,7 +632,7 @@ class Yozh:
                 return False
         return True
 
-    def all_on_white(self,i):
+    def all_on_white(self):
         """
         Are all sensors on white?
         """
@@ -649,6 +663,11 @@ class Yozh:
             else:
                 right += self.linearray_cal(i,x)*0.01
                 break
+        if right == 5:
+            # no line found
+            return(None)
+            
+        
         #print(right, end=' ')
         # now count sensors n the left of white line
         for j in range (1,6):

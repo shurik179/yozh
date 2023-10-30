@@ -2,7 +2,7 @@ First program
 =============
 
 The `CIRCUITPY` drive which was created during installation of CircuitPython on
-ItsyBitsy RP2040 contains a special file, `code.py`. This file always contains
+EPS32-S3  contains a special file, `code.py`. This file always contains
 the code of the  current program running on the board. As soon as you turn the
 robot on or hit reset, the robot starts  executing this program.
 
@@ -15,9 +15,9 @@ should  put some  code that waits  for press of a button in your
 program - otherwise, your robot will start motion while still connected by USB
 cable to the computer, which is probably not what you want.
 
-To test the robot, connect it to the computer, using the microUSB connector of the
-ItsyBitsy RP2040. Make sure the robot switch is
-in ON position. Start the Mu  editor and open `code.py` file in CircuitPython drive,
+To test the robot, connect it to the computer, using the USB-C connector of the
+ESP32-S3. Make sure the robot switch is
+in ON position. Start the Mu  editor and open `code.py` file in `CIRCUITPY` drive,
 using **Load** button.  Erase everything in that file so it is blank.
 
 Now, find the folder with examples from Yozh library you downloaded previously.

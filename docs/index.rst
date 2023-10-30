@@ -5,46 +5,47 @@ Yozh Robot
     :alt: Yozh robot
     :width: 80%
 
-Yozh is a small (under 10cm*10cm) robot, based on Pololu's Zumo chassis. It was
+Yozh is a small (about 13cm*13cm) robot, inspired by  Pololu's Zumo robot. It was
 created by `shurik179 <https://github.com/shurik179>`__ for a robotics class at
 `SigmaCamp <http://sigmacamp.org>`__. Below are the
 key features of this robot.
 
 
-The robot consists of the following components:
+* Dimensions: Legnth: 13 cm; width: 13 cm; height: 5cm
 
-* `Zumo chassis <https://www.pololu.com/product/1418>`__ by Pololu
+* Power: one or two 18650 Li-Ion batteries 
 
-* Power source: 4 AA batteries (NiMH rechargeable batteries recommended)
+* Wheels and motors: uses `silicone tracks <>`__  and 
+  `6V, HP, 75 gear ratio <https://www.pololu.com/product/2215>`__ micro metal 
+  gearmotors, both by Pololu. 
 
-* Two micro metal gearmotors by Pololu (`6V, HP, 75 gear ratio <https://www.pololu.com/product/2215>`__),
-  with motor encoders
-
-* Custom electronics board, containing a slave MCU (SAMD21) preprogrammed with firmware,
+* Electronics: a custom electronics board, containing a slave MCU (SAMD21) preprogrammed 
+  with firmware,
   which takes care of all low-level operations such as counting encoder pulses,
   controlling the motors using closed-loop PID algorithm to maintain constant
   speed, and more
 
-* `ItsyBitsy RP2040 <https://www.adafruit.com/product/4888>`__ by Adafruit,
-  which serves as robot brain. It plugs into the main board and is programmed by
-  the user in CircuitPython, using a provided CircuitPython library to
+* Main controller: `ESP32-S3 Feather board  <https://www.adafruit.com/product/4888>`__ by Adafruit,
+  which serves as robot brain. It  is programmed by  the user in CircuitPython, using a provided CircuitPython library to
   communicate with the slave MCU over I2C. This library provides high-level
   commands such as *move forward by 30cm*
 
-* Included sensors and electronics:
+* Included sensors and other electronics 
 
-  * Top plate with 128*64 **OLED display** and 2 **buttons** for user interaction
-  * Bottom-facing **reflectance array** with 8 sensors, for line-following and other similar tasks
-  * Two front-facing **distance sensors**, using VL53L0X laser time-of-flight sensors,
+    * 240*320 **color TFT  display** and 3 **buttons** for user interaction
+    * Bottom-facing **reflectance array** with 7 sensors, for line-following and other similar tasks
+    * Two front-facing **distance sensors**, using VL53L0X laser time-of-flight sensors,
     for obstacle avoidance
-  * A 6 DOF **Inertial Motion Unit** (IMU), which can be used for determining robot
-    orientation in space for precise navigation
-  * Two RGB **LEDs** for light indication and a **buzzer** for sound signals
-  * Two ports for connecting **servos**
-* There are plenty of pins available for connection additional electronics. We
-  also provide several standard connectors for users convenience
-  (Qwiic/Stemma QT connector for I2C devices, Grove connectors)
-* Yozh is compatible with mechanical attachments (`grabber <https://www.dfrobot.com/product-2128.html>`__,
+    * A 6 DOF **Inertial Motion Unit** (IMU), which can be used for determining robot
+      orientation in space for precise navigation
+    * Two RGB **LEDs** for light indication and a **buzzer** for sound signals
+
+* Expansion ports nad connections:  
+  
+    * Two ports for connecting **servos**
+    * Two  I2C ports, using Qwiic/Stemma QT connector
+    * Several availabel pin headers for connecting other electronics
+    * Yozh is compatible with mechanical attachments (`grabber <https://www.dfrobot.com/product-2128.html>`__,
   `forklift <https://www.dfrobot.com/product-2129.html>`__,...) by DFRobot.
 
 
