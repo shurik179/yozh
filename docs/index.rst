@@ -11,27 +11,29 @@ created by `shurik179 <https://github.com/shurik179>`__ for a robotics class at
 key features of this robot.
 
 
-* Dimensions: Length: 13 cm; width: 13 cm; height: 5cm
+* **Dimensions:** Length: 12.4 cm; width: 13 cm; height: 4.8 cm
 
-* Power: one or two 18650 Li-Ion batteries 
+* **Power:** one or two 18650 Li-Ion batteries 
 
-* Wheels and motors: uses `silicone tracks <https://www.pololu.com/product/3034>`__  and 
+* **Wheels and motors:** uses `silicone tracks <https://www.pololu.com/product/3034>`__  and 
   `6V, HP, 75 gear ratio <https://www.pololu.com/product/2215>`__ micro metal 
   gearmotors, both by Pololu. 
 
-* Electronics: a custom electronics board, containing a slave MCU (SAMD21) preprogrammed 
+* **Main controller:** `ESP32-S3 Feather board  <https://www.adafruit.com/product/5691>`__ by Adafruit,
+  which serves as robot brain. It  is programmed by  the user in CircuitPython, using a provided 
+  CircuitPython library. This library provides high-level
+  commands such as *move forward by 30cm*
+
+
+* **Electronics:** a custom electronics board, containing a secondary MCU (SAMD21) preprogrammed 
   with firmware,  which takes care of all low-level operations such as counting encoder pulses,
   controlling the motors using closed-loop PID algorithm to maintain constant
-  speed, and more
+  speed, and more.
 
-* Main controller: `ESP32-S3 Feather board  <https://www.adafruit.com/product/5691>`__ by Adafruit,
-  which serves as robot brain. It  is programmed by  the user in CircuitPython, using a provided CircuitPython library to
-  communicate with the slave MCU over I2C. This library provides high-level
-  commands such as *move forward by 30cm*
 
 * Included sensors and other electronics 
 
-    * 240*320 **color TFT  display** and 3 **buttons** for user interaction
+    * 240*135 **color TFT  display** and 3 **buttons** for user interaction
 
     * Bottom-facing **reflectance array** with 7 sensors, for line-following and other similar tasks
     
