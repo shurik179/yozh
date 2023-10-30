@@ -13,6 +13,7 @@ LEDs
 
    These commands set the left (respectively, right) LED to given color. Color
    must be one of the following: 
+   
    * a tuple of 3 numbers, showing the values of Red, Green, and Blue
      colors, each ranging between 0--255, e.g. ``bot.set_led_L( (255,0,0))`` to set
      the left LED red.  
