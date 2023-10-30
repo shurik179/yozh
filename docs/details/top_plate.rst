@@ -3,7 +3,8 @@ Top plate
 On the top of Yozh robot, there is a top plate containing the following
 elements:
 
-* The main MCU (ESP32-S3), with 240x320 color TFT display, reset button, and  
+* The main MCU (`ESP32-S3 Feather  <https://www.adafruit.com/product/5691>`__ ), with 
+  240x135 color TFT display, reset button, and  
   three  buttons (labeled A, B, C) for user interaction 
 
 * two Qwiic/Stemma QT I2C connectors 
