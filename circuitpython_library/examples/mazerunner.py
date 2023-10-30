@@ -54,7 +54,8 @@ def check_intersection():
         left = False
         right = False
         straight = False
-        bot.start_forward(30)
+        # start motion forward; no distance limit 
+        bot.go_forward(UNLIMITED, 30)
         while (bot.distance_traveled()<3):
             if bot.sensor_on_white(6):
                 left = True

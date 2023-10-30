@@ -70,6 +70,9 @@ aRes = 2.0 / 32768.0     # accelerometer resolution, in g/LSB
 CW = 1     #clockwise
 CCW = - 1  #counterclockwise
 
+# special value of distance for go_forward/backward command
+UNLIMITED = -1 
+
 
 class Yozh:
 
@@ -405,19 +408,14 @@ class Yozh:
         self._write_16(YOZH_REG_DIRECTION, (int) (heading*10) )
         self._write_8(YOZH_REG_MOTOR_MODE, 0x01)
         self.set_motors(speed, speed)
+        if distance == UNLIMITED:
+            return()
+        
         target = self.CM_TO_TICKS * distance # travel for given number of  cm
         while (self.encoder_L+self.encoder_R<target):
             self.get_encoders()
         self.stop_motors()
         self.angle_error = 0
-
-    def start_forward(self, speed=60):
-        self.reset_encoders()
-        heading = self.IMU_yaw()
-        #print(direction)
-        self._write_16(YOZH_REG_DIRECTION, (int) (heading*10) )
-        self._write_8(YOZH_REG_MOTOR_MODE, 0x01)
-        self.set_motors(speed, speed)
 
 
     def distance_traveled(self):

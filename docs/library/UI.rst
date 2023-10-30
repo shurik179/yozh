@@ -18,8 +18,9 @@ LEDs
      colors, each ranging between 0--255, e.g. ``bot.set_led_L( (255,0,0))`` to set
      the left LED red.  
 
-   * A 32-bit integer, usually written in the hexadecimal form: ``0xRRGGBB``, where each letter stands for a hexadecimal digit 0...FF. 
-     E.g. ``0xFF0000`` for red. 
+   * A 32-bit integer, usually written in the hexadecimal form: ``0xRRGGBB``, where each letter 
+     stands for a hexadecimal digit 0...F. 
+     E.g. ``0xFF0000`` is the same as ``(255,0,0)`` ande defines the red color. 
 
    * One of predefined colors, e.g. ``RED``. Full list of predefined colors is: 
      RED, GREEN, BLUE, YELLOW, WHITE, OFF. You can also define your own colors, e.g. 
