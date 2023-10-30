@@ -1,7 +1,8 @@
 # SPDX-FileCopyrightText: Copyright 2021-2023 Alexander Kirillov <shurik179@gmail.com>
 # SPDX-License-Identifier: MIT
 
-# Example of Yozh robot following a line (white on black field)
+# Find the way out of a maze, using wall-following algorithm. 
+# Maze passages (not walls!) are indicated by white line on black field
 
 import time
 from  yozh import *
@@ -15,7 +16,6 @@ bot.set_leds(BLUE)
 bot.linearray_on()
 # buzz at frequency 440Hz for 1 sec
 bot.buzz(440,1.0)
-# wait for 3 sec
 time.sleep(1.0)
 bot.set_text(1, "Place robot  on black \nand press button A to calibrate")
 bot.wait_for(BUTTON_A)

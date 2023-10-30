@@ -117,7 +117,6 @@ class Yozh:
         # put splash screen on display
         title=bitmap_label.Label(font = FONT_BOLD, text="YOZH", scale = 2, x=105, y=30)
         self.canvas.append(title)
-        self.display.refresh()
         logo, palette = adafruit_imageload.load("/hedgehog.bmp",
                                                   bitmap=displayio.Bitmap,
                                                   palette=displayio.Palette)
@@ -255,9 +254,6 @@ class Yozh:
             self.set_text(2, " ")
             time.sleep(30)
 
-
-
-
 ##########  BUTTONS ########################################
 
     def wait_for(self,pin):
@@ -327,18 +323,18 @@ class Yozh:
             self.battery_percent.text=""
         self.display.refresh()
 
-    def set_text(self, index, message, font = FONT_REGULAR, color = WHITE):
+    def set_text(self, line_number, message, font = FONT_REGULAR, color = WHITE):
         """Display text, with indexing into our list of text boxes.
            :param index: Defaults to 0.
            :param str message: The text to be displayed
         """
         lines = str(message).splitlines()
-        num_lines = min(5-index,len(lines))
+        num_lines = min(5-line_number,len(lines))
         #print(num_lines)
         for i in range(num_lines):
-            self.textlines[i+index].text=lines[i]
-            self.textlines[i+index].color=color
-            self.textlines[i+index].font=font
+            self.textlines[i+line_number].text=lines[i]
+            self.textlines[i+line_number].color=color
+            self.textlines[i+line_number].font=font
         self.display.refresh()
 
 ##########  MOTORS ########################################
@@ -360,7 +356,6 @@ class Yozh:
         self._write_8(YOZH_REG_MOTOR_MODE, 0x00)
         self._write_16_array(YOZH_REG_POWER_L,[0,0])
 
-
     def get_encoders(self):
         """
         Gets and saves values of the two encoders
@@ -381,7 +376,6 @@ class Yozh:
         """
         self.speed_L = self._read_16(YOZH_REG_SPEED_L)
         self.speed_R = self._read_16(YOZH_REG_SPEED_R)
-
 
 ##########  Motor/PID config ########################################
     def configure_PID(self, maxspeed, Kp = None, Ti = None, Td = None, Ilim = None ):
@@ -516,7 +510,6 @@ class Yozh:
         self.gy=gyro[1]*gRes
         self.gz=gyro[2]*gRes
 
-
     def IMU_yaw(self):
         yaw = self._read_16(YOZH_REG_YAW)*0.1
         if (yaw >180):
@@ -530,7 +523,6 @@ class Yozh:
 
     def IMU_roll(self):
         return(self._read_16(YOZH_REG_ROLL)*0.1)
-
 
     def angle_diff(self, angle1, angle2, direction = CW):
         """
@@ -642,7 +634,6 @@ class Yozh:
             if raw_values[i]>self._threshold[i]:
                 return False
         return True
-
 
     def line_position_white(self):
         """

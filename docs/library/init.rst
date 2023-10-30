@@ -6,25 +6,16 @@ your `code.py` file:
 
 .. code-block:: python
 
-   import yozh
-   bot = yozh.Yozh()
+   import time
+   from  yozh import *
+   bot = Yozh()
 
-
-This creates  an  object with name ``bot``, representing your robot.  From now
+This creates and initializes an  object with name ``bot``, representing your robot.  From now
 on, all commands you give to the robot will be functions and properties of ``bot``
 object. We will not include the name bot in our references below; for example,
 to use a command :func:`stop_motors()` described below, you would need to write
 :func:`bot.stop_motors()`.
 
-By default, creating bot object also initializes the OLED display; it will
-produce errors if the OLED display is not found. If for some
-reason you are not using OLED, you can initialize the robot using this form of
-initialization command:
-
-.. code-block:: python
-
-   import yozh
-   bot = yozh.Yozh(oled = None)
 
 
 Here are some basic functions:
@@ -33,7 +24,11 @@ Here are some basic functions:
 
    Returns firmware version as a string. e.g. `2.1`.
 
-.. function:: battery()
+.. function:: battery_voltage()
 
    Returns battery voltage, in volts. For normal operation it should be at
-   least 4.5 V.
+   least 3.7 V. Fully charge battery produces about 4.1 - 4.2 V. 
+
+.. function:: battery_percent()
+
+   Returns charge percent (0 - 100).

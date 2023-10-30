@@ -15,26 +15,24 @@ Basic usage
 
 .. function:: linearray_raw(i)
 
-   Returns raw reading of sensor ``i``. One can use either indices 0...7 or
-   (preferred) named values ``bot.A1 = 0`` ... ``bot.A8 = 7``.
+   Returns raw reading of sensor ``i`` (i =  0...6).
    Readings range 0-1023 depending on amount of reflected light: the more light
-   reflected, the **lower** the value. Typical reading on white paper is about 50-80, and on
-   black painted plywood,  950. Note that black surfaces can be unexpectedly
+   reflected, the **lower** the value. Typical reading on white paper is about 50, and on
+   black painted plywood,  850. Note that black surfaces can be unexpectedly
    reflective; on some materials which look black to human eye, the reading
-   can be as low as 600.
+   can be as low as 400.
 
 Calibration
 -----------
 
 Process of calibration refers to learning the values corresponding to black
-and white areas of the field and then using these values to rescale the raw
-readings.
+areas of the field and then using these values to rescale the raw
+readings. (We do not calibrate white readings, as they do not vary that much). 
 
 .. function:: calibrate()
 
-   Calibrates the sensors, recording the lowest and highest values. This
-   command should be called when some of the sensors are on the white area
-   and some, on black.
+   Calibrates the sensors, recording the black  values. This
+   command should be called when all  of the sensors are on the black  area of the field. 
 
 .. function:: linearray_cal(i)
 
@@ -51,6 +49,15 @@ readings.
 
    Returns ``True`` if sensor ``i`` is on black and false otherwise.
 
+.. function:: all_on_white()
+
+
+.. function:: all_on_black()
+
+   Returns ``True`` if all sensors are  on black (respectively, white) and false otherwise.
+
+
+
 
 Line following
 --------------
@@ -62,7 +69,7 @@ Yozh library provides the helper function.
 
     Returns a number showing position of the line under the robot, assuming
     white line on black background.   The number
-    ranges between -5 (line far to the left of the robot) to 5 (line far to
+    ranges between -4 (line far to the left of the robot) to 4 (line far to
     the right of the robot). 0 is central position: line is exactly under the
     center of the robot.
 
@@ -71,11 +78,11 @@ Yozh library provides the helper function.
     difference. It works best for lines of width 1-2cm; in particular, electric
     tape or gaffers tape  (1/2" or 3/4") works well.
 
-    This command only uses the central 6 sensors; rightmost and leftmost sensor
-    (A1 and A8) are not used.
+    This command only uses the central 5 sensors; rightmost and leftmost sensor
+    (0 and 6) are not used.
 
-    If there is no line under these sensors, the value returned by this command
-    will be close to 0, but can not be relied on.
+    If there is no line under these sensors, the function returns ``None``. Thus, 
+    before using the returned value in  computations, you must test whether it is ``None``. 
 
 .. function:: line_position_black()
 

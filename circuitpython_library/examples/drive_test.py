@@ -12,8 +12,6 @@ bot = Yozh()
 bot.set_leds(BLUE)
 # buzz at frequency 440Hz for 1 sec
 bot.buzz(440,1.0)
-# new messages on display
-
 bot.set_text(1,"Press button A to \n calibrate IMU, \nbutton B to skip calibration")
 #wait until user presses one of buttons
 

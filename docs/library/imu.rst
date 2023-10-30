@@ -26,19 +26,20 @@ code in :guilabel:`imu_test` example sketch included with Yozh CircuitPython lib
 Initialization
 --------------
 
-By default, the IMU is inactive. To start/stop  it, use the functions below.
-
-.. function:: void  IMU_start()
-
-   Activate IMU
+By default, the IMU is active. To stop/restart  it, use the functions below.
 
 
-.. function:: void IMU_stop()
+.. function::  IMU_stop()
 
    Stop the IMU
 
 
-.. function::  bool IMU_status()
+.. function::   IMU_start()
+
+   Restart the  IMU
+
+
+.. function::   IMU_status()
 
    Returns IMU status. This function can be used to verify that IMU
    activation was successful. Possible values are:
@@ -59,11 +60,11 @@ corrections, the  data returned by the sensor is very inaccurate.
 If you haven't  calibrated the sensor before (or want to recalibrate it),
 use the following function:
 
-.. function:: void IMU_calibrate()
+.. function::  IMU_calibrate()
 
        This function will determine and
        apply the corrections; it will also save these corrections in the
-       flash storage of the Yozh slave microcontroller, where they will be
+       flash storage of the Yozh secondary microcontroller, where they will be
        stored for future use.  This data is preserved even after you power
        off the robot (much like the usual USB flash drive).
 

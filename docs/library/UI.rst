@@ -1,8 +1,8 @@
 Display, buttons, LEDs
 ======================
 
-Yozh contains a buzzer,  two NeoPixel  LEDs in the back and an 128x64 OLED screen and
-two buttons on the top plate, for interaction with the user. To control them,
+Yozh contains a buzzer,  two NeoPixel  LEDs in the back and an 240x135 color TFT screen and
+three buttons on the top plate, for interaction with the user. To control them,
 use the functions below.
 
 LEDs
@@ -12,30 +12,25 @@ LEDs
 .. function:: set_led_R(color)
 
    These commands set the left (respectively, right) LED to given color. Color
-   must be a list of 3 numbers, showing the values of Red, Green, and Blue
-   colors, each ranging between 0--255, e.g. ``bot.set_led_L([255,0,0])`` to set
-   the left LED red.  You can also define named colors for easier use, e.g.
+   must be one of the following: 
+   * a tuple of 3 numbers, showing the values of Red, Green, and Blue
+     colors, each ranging between 0--255, e.g. ``bot.set_led_L( (255,0,0))`` to set
+     the left LED red.  
+   * A 32-bit integer, usually written in the hexadecimal form: ``0xRRGGBB``, where each letter stands for a hexadecimal digit 0...FF. 
+     E.g. ``0xFF0000`` for red. 
+   * One of predefined colors, e.g. ``RED``. Full list of predefined colors is: 
+     RED, GREEN, BLUE, YELLOW, WHITE, OFF. You can also define your own colors, e.g. 
 
 .. code-block:: python
 
-    BLUE=[0,0,255]
+    ORANGE=0xFFA500
 
-    bot.set_led_L(BLUE)
+    bot.set_led_L(ORANGE)
 
 .. function:: set_leds(color_l, color_r)
 
-   Set colors of both LEDs at the same time. As before, each color is a list of
-   three values. Parameter ``color_r`` is optional; if omitted, both LEDs will
+   Set colors of both LEDs at the same time. Parameter ``color_r`` is optional; if omitted, both LEDs will
    be set to the same color.
-
-.. function:: set_led_brightness(value)
-
-   Set the maximal brightness of both LEDs to a given value (ranging 0-255).
-   Default value is 64 (i.e., 1/4 of maximal brightness), and it is more than
-   adequate for most purposes, so there is rarely a need to change it. Setting
-   brightness to 255 would produce light bright enough to hurt your eyes (and
-   drain the batteries rather quickly)
-
 
 Buzzer
 ------
@@ -50,8 +45,8 @@ Buttons
 
 .. function:: wait_for(button)
 
-   Waits until the user presses the given button. There are two possible
-   pre-defined buttons: ``bot.button_A`` and ``bot.button_B``
+   Waits until the user presses the given button. There are three  possible
+   pre-defined buttons: ``BUTTON_A``, ``BUTTON_B``, ``BUTTON_C``.
 
 .. function:: is_pressed(button)
 
@@ -59,102 +54,68 @@ Buttons
 
 .. function:: choose_button()
 
-    Waits until the user presses one of the two buttons. This function returns
-    string literal ``A`` or ``B`` depending on the pressed  button:
+    Waits until the user presses one of the  buttons. This function returns
+    string literal ``A``, ``B``,  or ``C`` depending on the pressed  button:
 
 .. code-block:: python
 
-    bot.set_text("Press any button", line1)
+    bot.set_text(1, "Press any button")
     #wait until user presses one of buttons
     if (bot.choose_button()=="A"):
         # do something
     else:
-        # button B was pressed
         # do something else
 
 
-OLED
-----
+DISPLAY 
+-------
 
-The easiest way to interact with OLED display is by using the commands below.
+The easiest way to interact with the TFT  display is by using the commands below.
 
 .. function:: clear_display()
 
    Clears all text and graphics from display
 
-.. function:: add_textbox()
+.. function:: set_text(line_number, message, font, color)
 
-   Add textbox (also known as label) to display. You can enter the actual text
-   when creating the textbox, or replace it later. The command returns index
-   of the textbox, which can be used to update the contents of the textbox later.
+   Print given message on a given line of the display. Line number can range 0--5. Parameters 
+   ``font``  and ``color`` are optional: if omitted, default font and white color are used. 
 
    The basic use of this command is
 
 .. code-block:: python
 
-   line1 = bot.add_textbox(text_position=(0,10), text="Yozh is happy!")
+   bot.set_text(0, "Press A to continue")
 
-
-The command accepts a number of optional parameters, documented below.
-
-.. function:: add_textbox()
-
-  :param  text_font: The path to your font file for your data text display.
-
-  :param text_position: The position of  text on the display in an (x, y) tuple.
-
-  :param text_wrap:  When non-zero, the maximum number of characters on each
-                     line before text is wrapped. (for long text data chunks).
-                     Defaults to 0, no wrapping.
-
-  :param text_maxlen: The max length of the text. If non-zero, it will be
-                      truncated to this length. Defaults to 0, no truncation.
-
-  :param text_scale: The factor to scale the default size of the text by
-
-  :param line_spacing: The factor to space the lines apart
-
-  :type line_spacing: float
-
-  :param text_anchor_point: Values between 0 and 1 to indicate where the text
-                                          position is relative to the label
-
-  :type text_anchor_point: (float, float)
-
-  :param text: If this is provided, it will set the initial text of the textbox.
-
-.. function:: set_text(text, i)
-
-   Replaces  text in textbox  with index ``i``, e.g.
+You can print multi-line messages, separating lines by ``\n``, e.g. 
 
 .. code-block:: python
 
-   line1 = bot.add_textbox(text_position=(0,10), text="Yozh is happy!")
-   time.sleep(1.0)
-   bot.set_text("Press any button", line1)
+   bot.set_text(1, "Put robot on black \nand press A to continue")
 
-Writing empty text into a textbox deletes it. Thus, if you want to erase
-current text but keep the textbox for future use, replace the text with a
-single space ``bot.set_text(" ", i)``
+This will print ``Put robot on black`` on line 1 and ``and press A to continue`` on line 2. 
+
+To use a different font, use optional parameter ```font``. Posible choices are: 
+
+* ``FONT_REGULAR``: usual font 
+
+* ``FONT_BOLD``: slightly larger bold font 
+
+* ``FONT_SMALL``: really small font, useful for long messages 
+
+
 
 Advanced users may also use any commands from CircuitPython ``displayio`` module
-to put text and graphics on the OLED display as described in  https://learn.adafruit.com/circuitpython-display-support-using-displayio.
-The display object of the robot  can be accessed as ``bot.display``, e.g.
+to put text and graphics on the TFT display as described in  https://learn.adafruit.com/circuitpython-display-support-using-displayio.
+The display object of the robot  can be accessed as ``bot.display``,  and the root group of the display is 
+``bot.canvas``. E.g., one could use 
 
 .. code-block:: python
 
-   display = bot.display
-   # Setup the file as the bitmap data source
-   bitmap = displayio.OnDiskBitmap("/purple.bmp")
 
-  # Create a TileGrid to hold the bitmap
-  tile_grid = displayio.TileGrid(bitmap, pixel_shader=bitmap.pixel_shader)
+   label=bitmap_label.Label(font = FONT_BOLD, text="DANGER", color = 0xFF0000, scale = 2, x=50, y=30)
+   bot.canvas.append(label)
+   bot.display.refresh()
 
-  # Create a Group to hold the TileGrid
-  group = displayio.Group()
-
-  # Add the TileGrid to the Group
-  group.append(tile_grid)
-
-  # Add the Group to the Display
-  display.show(group)
+Note that ``display.auto_refresh`` property is set to ``False``, so you need to 
+explicitly call ``display.refresh()`` function. 
