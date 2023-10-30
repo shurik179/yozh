@@ -15,8 +15,8 @@ Yozh Features in Detail
     details/power
     details/chassis
     details/electronics
-    details/leds
     details/top_plate
+    details/leds
     details/imu
     details/sensors
     details/connectors

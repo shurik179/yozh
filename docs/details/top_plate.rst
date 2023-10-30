@@ -3,17 +3,17 @@ Top plate
 On the top of Yozh robot, there is a top plate containing the following
 elements:
 
-* an OLED display (1.3" size, 128x64 pixels)
+* The main MCU (ESP32-S3), with 240x320 color TFT display, reset button, and  
+  three  buttons (labeled A, B, C) for user interaction 
 
-* two buttons
+* two Qwiic/Stemma QT I2C connectors 
 
-* two Qwiic/Stemma QT I2C connectors (on the back side of the plate)
+* several  connectors for connecting additional electronics (see FIXME for details)
 
 * a number of 3mm mounting holes for attaching additional electronics
 
-The top plate is mounted on the robot using 22mm long M2.5 standoffs. If
-necessary, it can be removed -- just make sure to modify the code as by default
-initialization code tries to initialize the OLED display.
+The top plate is mounted on the robot using 20mm long M3 standoffs. If
+necessary, it can be removed to access the robot interior. 
 
 The diagram below shows dimensions and hole locations.
 
