@@ -5,7 +5,9 @@ it is time to explore Yozh capabilities. To help with that, we have provided a
 number of examples, which can be found in `examples` folder of the Yozh library
 you had downloaded previously. Try opening and running them to see what the robot can do.
 
- Below is the list of provided examples (as of Jan 8, 2022):
+
+
+ Below is the list of provided examples (as of Nov 1, 2023):
 
 * `basic_test.py` - basic test of robot operation, including OLED display, LEDs, and buttons
 * `motor_test.py` - testing basic operation of motors and encoders

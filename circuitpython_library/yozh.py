@@ -71,7 +71,7 @@ CW = 1     #clockwise
 CCW = - 1  #counterclockwise
 
 # special value of distance for go_forward/backward command
-UNLIMITED = -1 
+UNLIMITED = -1
 
 
 class Yozh:
@@ -410,13 +410,12 @@ class Yozh:
         self.set_motors(speed, speed)
         if distance == UNLIMITED:
             return()
-        
+
         target = self.CM_TO_TICKS * distance # travel for given number of  cm
         while (self.encoder_L+self.encoder_R<target):
             self.get_encoders()
         self.stop_motors()
         self.angle_error = 0
-
 
     def distance_traveled(self):
         self.get_encoders()
@@ -486,7 +485,6 @@ class Yozh:
         time.sleep(5.0)
         while (self._read_8(YOZH_REG_IMU_STATUS)==2):
             time.sleep(0.5)
-
 
     def IMU_stop(self):
         self._write_8(YOZH_REG_IMU_INIT, 0)
@@ -655,8 +653,8 @@ class Yozh:
         if right == 5:
             # no line found
             return(None)
-            
-        
+
+
         #print(right, end=' ')
         # now count sensors n the left of white line
         for j in range (1,6):

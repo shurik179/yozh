@@ -8,7 +8,7 @@ page.
 
 CircuitPython must already be installed on the ESP32-S3 microcontroller
 serving as the brains of Yozh Robot. If not, please do so now
-following `Adafruit's  instructions <https://learn.adafruit.com/adafruit-itsybitsy-rp2040/circuitpython>`__.
+following `Adafruit's  instructions <https://learn.adafruit.com/esp32-s3-reverse-tft-feather/install-circuitpython>`__.
 
 
 Next, you need to install Yozh Circuit Python library. Go to |github| and click
