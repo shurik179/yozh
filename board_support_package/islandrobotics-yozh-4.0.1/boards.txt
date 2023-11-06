@@ -1,0 +1,85 @@
+# Copyright (c) 2014-2015 Arduino LLC.  All right reserved.
+#
+# This library is free software; you can redistribute it and/or
+# modify it under the terms of the GNU Lesser General Public
+# License as published by the Free Software Foundation; either
+# version 2.1 of the License, or (at your option) any later version.
+#
+# This library is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+# See the GNU Lesser General Public License for more details.
+#
+# You should have received a copy of the GNU Lesser General Public
+# License along with this library; if not, write to the Free Software
+# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+
+# based on Adafruit's board support package for SAMD boards, version 1.7.13
+
+menu.cache=Cache
+menu.speed=CPU Speed
+menu.opt=Optimize
+menu.maxqspi=Max QSPI
+menu.usbstack=USB Stack
+menu.debug=Debug
+# -----------------------------------
+# Yozh Robot (SAMD21)
+# -----------------------------------
+yozh.name=Yozh Robot
+
+# VID/PID for Bootloader, Arduino & CircuitPython
+yozh.vid.0=0x1d50
+yozh.pid.0=0x6186
+
+# Upload
+yozh.upload.tool=bossac18
+yozh.upload.protocol=sam-ba
+yozh.upload.maximum_size=262144
+yozh.upload.offset=0x2000
+yozh.upload.use_1200bps_touch=true
+yozh.upload.wait_for_upload_port=true
+yozh.upload.native_usb=true
+
+# Build
+yozh.build.mcu=cortex-m0plus
+yozh.build.f_cpu=48000000L
+yozh.build.usb_product="Yozh Robot"
+yozh.build.usb_manufacturer="Island Robotics"
+yozh.build.board=SAMD_YOZH
+yozh.build.core=adafruit:arduino
+yozh.build.extra_flags=-D__SAMD21G18A__ -DCRYSTALLESS -DARDUINO_SAMD_YOZH_M0 -DYOZH -DARDUINO_SAMD_ZERO -DARM_MATH_CM0PLUS {build.usb_flags}
+yozh.build.ldscript=linker_scripts/gcc/flash_with_bootloader.ld
+yozh.build.openocdscript=scripts/openocd/daplink_samd21.cfg
+yozh.build.variant=yozh
+yozh.build.variant_system_lib=
+yozh.build.vid=0x1d50
+yozh.build.pid=0x6186
+yozh.bootloader.tool=openocd
+yozh.bootloader.file=yozh/bootloader-yozh-v1.23.1-adafruit.1-390-g55c46b8.bin
+
+# Menu: Optimization
+yozh.menu.opt.small=Small (-Os) (standard)
+yozh.menu.opt.small.build.flags.optimize=-Os
+yozh.menu.opt.fast=Fast (-O2)
+yozh.menu.opt.fast.build.flags.optimize=-O2
+yozh.menu.opt.faster=Faster (-O3)
+yozh.menu.opt.faster.build.flags.optimize=-O3
+yozh.menu.opt.fastest=Fastest (-Ofast)
+yozh.menu.opt.fastest.build.flags.optimize=-Ofast
+yozh.menu.opt.dragons=Here be dragons (-Ofast -funroll-loops)
+yozh.menu.opt.dragons.build.flags.optimize=-Ofast -funroll-loops
+
+# Menu: USB Stack
+yozh.menu.usbstack.arduino=Arduino
+yozh.menu.usbstack.tinyusb=TinyUSB
+yozh.menu.usbstack.tinyusb.build.flags.usbstack=-DUSE_TINYUSB
+
+# Menu: Debug
+yozh.menu.debug.off=Off
+yozh.menu.debug.on=On
+yozh.menu.debug.on.build.flags.debug=-g
+
+
+
+
+
