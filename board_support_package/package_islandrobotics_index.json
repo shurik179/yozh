@@ -15,8 +15,8 @@
           "category": "Contributed",
           "url": "https://github.com/shurik179/yozh/raw/main/board_support_package/yozh-4.0.1.zip",
           "archiveFileName": "yozh-4.0.1.zip",
-          "checksum": "SHA-256:f50f76f13141fbcfa1e7085d10f47398ef26166231c09520f232f610bdda3dbe",
-          "size": "137414",
+          "checksum": "SHA-256:09bd88e76b63e813a89892564bea82d98dba404374bc14723e7fa68c8891ac1e",
+          "size": "141791",
           "boards": [
             {
               "name": "Yozh Robot Controller"
