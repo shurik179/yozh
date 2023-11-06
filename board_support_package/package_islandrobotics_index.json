@@ -13,7 +13,7 @@
           "architecture": "samd",
           "version": "4.0.1",
           "category": "Contributed",
-          "url": "https://github.com/robotics-masters/mm1-hat-arduino/blob/master/custom_board/RoboHat-0.0.26.zip?raw=true",
+          "url": "https://github.com/shurik179/yozh/raw/main/board_support_package/yozh-4.0.1.zip",
           "archiveFileName": "yozh-4.0.1.zip",
           "checksum": "SHA-256:f50f76f13141fbcfa1e7085d10f47398ef26166231c09520f232f610bdda3dbe",
           "size": "137414",
