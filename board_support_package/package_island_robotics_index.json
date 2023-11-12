@@ -1,0 +1,38 @@
+{
+  "packages":
+  [
+    {
+      "name": "island_robotics",
+      "maintainer": "Island Robotics LLC",
+      "websiteURL": "https://github.com/shurik179",
+      "help": {
+        "online": "https://github.com/shurik179"
+      },
+      "email" : "irobotics.store@gmail.com",
+      "platforms":
+      [
+        {
+          "name": "Island Robotics SAMD boards",
+          "architecture": "samd",
+          "version": "3.0.2",
+          "category": "Contributed",
+          "url": "REPLACE_BY_ACTUAL_URL",
+          "archiveFileName": "yozh_m0-3.0.2.zip",
+          "checksum": "SHA-256:ded8c9f860483b3bc416da16dda3d7383f4362e8fe011071cda41f083ecff978",
+          "size": "118137",
+          "boards": [
+            {
+              "name": "Yozh Robotics controller"
+            }
+          ],
+          "toolsDependencies":
+          [
+          ]
+        }
+      ],
+      "tools":
+      [
+      ]
+    }
+  ]
+}
