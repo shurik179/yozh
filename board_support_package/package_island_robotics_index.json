@@ -1,38 +1,32 @@
 {
-  "packages":
-  [
+  "packages": [
     {
       "name": "island_robotics",
       "maintainer": "Island Robotics LLC",
-      "websiteURL": "https://github.com/shurik179",
+      "websiteURL": "https://yozh.rtfd.io/",
       "help": {
-        "online": "https://github.com/shurik179"
+        "online": "https://github.com/shurik179/yozh"
       },
-      "email" : "irobotics.store@gmail.com",
-      "platforms":
-      [
+      "email": "irobotics.store@gmail.com",
+      "platforms": [
         {
           "name": "Island Robotics SAMD boards",
           "architecture": "samd",
-          "version": "3.0.2",
+          "version": "4.0.2",
           "category": "Contributed",
-          "url": "https://github.com/shurik179/yozh/raw/main/board_support_package/yozh_m0-3.0.2.zip",
-          "archiveFileName": "yozh_m0-3.0.2.zip",
-          "checksum": "SHA-256:ded8c9f860483b3bc416da16dda3d7383f4362e8fe011071cda41f083ecff978",
-          "size": "118137",
+          "url": "FIXME",
+          "archiveFileName": "yozh_m0-4.0.2.zip",
+          "checksum": "SHA-256:fd819e94945203bb8e041d9ff2757ccd2996a33b8954061d86c26c44e7d7e047",
+          "size": 113128,
           "boards": [
             {
               "name": "Yozh Robotics controller"
             }
           ],
-          "toolsDependencies":
-          [
-          ]
+          "toolsDependencies": []
         }
       ],
-      "tools":
-      [
-      ]
+      "tools": []
     }
   ]
 }
