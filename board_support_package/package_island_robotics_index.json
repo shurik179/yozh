@@ -14,7 +14,7 @@
           "architecture": "samd",
           "version": "4.0.2",
           "category": "Contributed",
-          "url": "FIXME",
+          "url": "https://github.com/shurik179/yozh/raw/main/board_support_package/yozh_m0-4.0.2.zip",
           "archiveFileName": "yozh_m0-4.0.2.zip",
           "checksum": "SHA-256:92d71022d7798891aa91abbff58676d58cdf6751ffb69762b2f27f3b4a012b9a",
           "size": 116464,
