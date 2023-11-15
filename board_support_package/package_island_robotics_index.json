@@ -16,8 +16,8 @@
           "category": "Contributed",
           "url": "FIXME",
           "archiveFileName": "yozh_m0-4.0.2.zip",
-          "checksum": "SHA-256:fd819e94945203bb8e041d9ff2757ccd2996a33b8954061d86c26c44e7d7e047",
-          "size": 113128,
+          "checksum": "SHA-256:92d71022d7798891aa91abbff58676d58cdf6751ffb69762b2f27f3b4a012b9a",
+          "size": 116464,
           "boards": [
             {
               "name": "Yozh Robotics controller"
