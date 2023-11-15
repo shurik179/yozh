@@ -1,40 +1,24 @@
 # SPDX-FileCopyrightText: Copyright 2021-2023 Alexander Kirillov <shurik179@gmail.com>
-#
 # SPDX-License-Identifier: MIT
-# Testing Yozh front distance sensors
+# Testing distnace sensors
 
 import time
-import yozh
+from  yozh import *
 
-RED=[255,0,0]
-GREEN=[0,255,0]
-BLUE=[0,0,255]
+bot = Yozh()
 
-bot = yozh.Yozh()
-# initialize display
-bot.clear_display()
-line1=bot.add_textbox(text_wrap=23, line_spacing=1.0)
-line2=bot.add_textbox(text_position=(0,25))
-bot.set_text("Yozh initialized!", line1)
-time.sleep(1.0)
-# show  basic info
-bot.set_text("FW version: "+ bot.fw_version(), line1)
-voltage = bot.battery()
-bot.set_text("Voltage: {}".format(voltage), line2)
 # set both LEDs to Blue
 bot.set_leds(BLUE)
 # buzz at frequency 440Hz for 1 sec
 bot.buzz(440,1.0)
-# wait for 3 sec
-time.sleep(3.0)
+# new messages on display
 
-
-bot.set_text("Testing distance sensors", line1)
+bot.set_text(1, "Testing distance sensors")
 
 while True:
     left  = bot.distance_L.range
     right = bot.distance_R.range
-    bot.set_text("L:{}  R:{}".format(left,right), line2)
+    bot.set_text(2, "L:{}  R:{}".format(left,right))
     if left<200:
         bot.set_led_L(RED)
     else:

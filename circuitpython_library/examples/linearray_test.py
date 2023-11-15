@@ -36,10 +36,13 @@ while True:
         cal_values+=str(round(bot.linearray_cal(i)))+";"
     bot.set_text(2,cal_values,  font = FONT_SMALL)
     # print line position
-    x = round(bot.line_position_white(),1)
-    bot.set_text(4, "Line: {}".format(x))
-    if x>0:
-        bot.set_leds(RED, GREEN)
-    else:
-        bot.set_leds(GREEN, RED)
+    x = bot.line_position_white()
+    if x is not None:
+        bot.set_text(4, "Line: {:.1f}".format(x))
+        if x>0:
+            bot.set_leds(RED, GREEN)
+        else:
+            bot.set_leds(GREEN, RED)
     time.sleep(0.3)
+
+

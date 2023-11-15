@@ -49,9 +49,11 @@ BUTTON_C   = DigitalInOut(board.D0)
 YOZH_BUZZER     = board.A1
 #neopixel leds
 YOZH_LEDS       = board.A0
+#neopixel leds
+YOZH_LIGHTS       = board.D12
 # distance sensors XSHUT pins
 YOZH_XSHUT_L    = DigitalInOut(board.D5)  #XSHUT1  pin D5
-YOZH_XSHUT_R    = DigitalInOut(board.D9)  #XSHUT2 pin D9
+YOZH_XSHUT_R    = DigitalInOut(board.D11)  #XSHUT2 pin D11
 
 # fonts
 FONT_BATTERY = bitmap_font.load_font("fonts/battery-16.bdf")
@@ -104,6 +106,8 @@ class Yozh:
         BUTTON_C.pull = Pull.UP
         #leds
         self._leds = neopixel.NeoPixel(YOZH_LEDS, 2, brightness=0.25, auto_write=True, pixel_order=neopixel.GRB)
+        #headlights
+        self._lights = neopixel.NeoPixel(YOZH_LIGHTS, 4, brightness=1.0, auto_write=True, pixel_order=neopixel.GRBW)
 
         # display
         self.display = board.DISPLAY
@@ -183,15 +187,14 @@ class Yozh:
         self.update_battery_display()
 
 
-        # if distance_sensors:
-        #     YOZH_XSHUT_L.switch_to_output(value=False) #turn off left
-        #     YOZH_XSHUT_R.switch_to_output(value=True)  #turn on right
-        #     # configure i2c address of right sensor
-        #     self.distance_R = VL53L0X(i2c)
-        #     self.distance_R.set_address(0x30)
-        #     # now, turn on the left one as well; it iwll use default address of 0x29
-        #     YOZH_XSHUT_L.value = True
-        #     self.distance_L = VL53L0X(i2c)
+        YOZH_XSHUT_L.switch_to_output(value=False) #turn off left
+        YOZH_XSHUT_R.switch_to_output(value=True)  #turn on right
+        # configure i2c address of right sensor
+        self.distance_R = VL53L0X(board.I2C())
+        self.distance_R.set_address(0x30)
+        # now, turn on the left one as well; it iwll use default address of 0x29
+        YOZH_XSHUT_L.value = True
+        self.distance_L = VL53L0X(board.I2C())
 
 
         # various constants
@@ -201,8 +204,10 @@ class Yozh:
         self._pid = False
         self.linearray_off()
         self.angle_error = 0 #actual yaw - desired yaw, in degrees
+        self._write_8(YOZH_REG_MOTOR_CONFIG, 3) # b00000011
         if self._charge_mode:
             self.charge_mode()
+            
 
 ######## Firmware version
     def fw_version(self):
@@ -285,6 +290,12 @@ class Yozh:
             return "C"
 
 ##########  LEDS   ########################################
+    def set_lights(self, power = 100):
+        """
+        Sets headlights on at given power (0..100)
+        """
+        brightness = (int) (power*2.54)
+        self._lights.fill((0,0,0,brightness))
 
     def set_led_L(self, color):
         """
@@ -783,3 +794,4 @@ class Yozh:
                 return (raw - (1<<32))
             else:
                 return raw
+

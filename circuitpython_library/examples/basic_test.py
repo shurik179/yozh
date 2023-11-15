@@ -16,6 +16,7 @@ bot.set_text(1, "Press A to continue")
 #wait until user presses button A
 # there are two buttons: button_A, button_B
 bot.wait_for(BUTTON_A)
+bot.set_lights(50)
 bot.set_text(1,"Press B to SWITCH colors")
 bot.buzz(660,1.0)
 while True:
