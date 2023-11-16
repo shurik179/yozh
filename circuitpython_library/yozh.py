@@ -289,7 +289,7 @@ class Yozh:
         else:
             return "C"
 
-##########  LEDS   ########################################
+##########  LEDS/HEADLIGHTS    ########################################
     def set_lights(self, power = 100):
         """
         Sets headlights on at given power (0..100)

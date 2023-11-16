@@ -3,6 +3,8 @@
 
 # Obstacle avoidance
 
+# FIXME - still need to be updated 
+
 import time
 import yozh
 
