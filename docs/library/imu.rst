@@ -9,14 +9,13 @@ This section describes the functions for using the built-in Inertial Motion
 Unit (IMU).
 
 Yozh contains a built-in Inertial Motion Unit (IMU), which is based on
-LSM6DSL chip from ST Microelectronics. This chip combines a 3-axis accelerometer and a
+`ICM42688 chip <https://invensense.tdk.com/products/motion-tracking/6-axis/icm-42688-p/>`__
+from TDK Invensense. This chip combines a 3-axis accelerometer and a
 3-axis gyro sensor, which provide information about acceleration and rotational
-speed. The sensor is placed on the back side of the top plate.
-Yozh firmware combines the sensor data to provide information
+speed. Yozh firmware processes the sensor data to provide information
 about robot's orientation in space, in the form of Yaw, Pitch, and Roll angles.
-(Yozh firmware is based on the work of
-`Kris Winer <https://github.com/kriswiner>`__ and uses data fusion
-algorithm invented by Sebastian Madgwick.)
+(Yozh firmware is based on the work of `Kris Winer <https://github.com/kriswiner>`__
+and uses data fusion algorithm invented by Sebastian Madgwick.)
 
 Below is the description of functions related to IMU. You can also  check sample
 code in :guilabel:`imu_test` example sketch included with Yozh CircuitPython library.
@@ -90,7 +89,7 @@ and computed orientation, using the following functions:
    Fetches from  the sensor  raw acceleration data and saves it using member
    variables ``ax``, ``ay``, ``az``, which give the acceleration
    in x-, y-, and z- directions respectively in in units of 1g
-   (9.81 m/:math:`sec^2`) as floats.
+   (9.81 m/sec^2) as floats.
 
 .. function:: void IMU_get_gyro()
 
@@ -104,7 +103,7 @@ and computed orientation, using the following functions:
 
 .. function:: float IMU_roll()
 
-   These functions return yaw, pitch, and roll angles for the robot, in degrees. 
+   These functions return yaw, pitch, and roll angles for the robot, in degrees.
    These three angles determine the robot orientation as described below:
 
    * yaw is the rotation around the vertical axis (positive angle corresponds to

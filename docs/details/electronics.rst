@@ -4,10 +4,10 @@ The robot is controlled by two microcontrollers (MCU):
 
 * Main (master) MCU: `ESP32-S3 Reverse TFT Feather  <https://www.adafruit.com/product/5691>`__
   This MCU is programmed by the user in CircuitPython. Provided CircuitPython
-  library, documented in :ref:`Yozh Library Guide <library>`, provides convenient functions for using
-  all features of the robot.
+  library, documented in :ref:`Yozh Library Guide <library>`, provides convenient
+  functions for using all features of the robot.
 
-* Secondary (slave) MCU: SAMD21G. This MCU is responsible for all low-level
+* Secondary (slave) MCU: SAMD21G18A. This MCU is responsible for all low-level
   operations, converting high-level commands coming from main MCU into signals
   sent to motors, servos and more, thus freeing pins and other
   resources of the main MCU for other purposes.  Secondary MCU  is also responsible for counting
@@ -36,7 +36,7 @@ through the secondary one:
 
 * Distance sensors
 
-* Two indicator NeoPixel leds 
+* Two indicator NeoPixel leds
 
 * battery voltage monitor
 

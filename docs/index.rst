@@ -13,30 +13,30 @@ key features of this robot.
 
 * **Dimensions:** Length: 12.4 cm; width: 13 cm; height: 4.8 cm
 
-* **Power:** one or two 18650 Li-Ion batteries 
+* **Power:** one or two 18650 Li-Ion batteries
 
-* **Wheels and motors:** uses `silicone tracks <https://www.pololu.com/product/3034>`__  and 
-  `6V, HP, 75 gear ratio <https://www.pololu.com/product/2215>`__ micro metal 
-  gearmotors, both by Pololu. 
+* **Wheels and motors:** uses `silicone tracks <https://www.pololu.com/product/3034>`__  and
+  `6V, HP, 75 gear ratio <https://www.pololu.com/product/2215>`__ micro metal
+  gearmotors, both by Pololu.
 
 * **Main controller:** `ESP32-S3 Feather board  <https://www.adafruit.com/product/5691>`__ by Adafruit,
-  which serves as robot brain. It  is programmed by  the user in CircuitPython, using a provided 
+  which serves as robot brain. It  is programmed by  the user in CircuitPython, using a provided
   CircuitPython library. This library provides high-level
   commands such as *move forward by 30cm*
 
 
-* **Electronics:** a custom electronics board, containing a secondary MCU (SAMD21) preprogrammed 
+* **Electronics:** a custom electronics board, containing a secondary MCU (SAMD21) preprogrammed
   with firmware,  which takes care of all low-level operations such as counting encoder pulses,
   controlling the motors using closed-loop PID algorithm to maintain constant
   speed, and more.
 
 
-* Included sensors and other electronics 
+* Included sensors and other electronics
 
     * 240*135 **color TFT  display** and 3 **buttons** for user interaction
 
     * Bottom-facing **reflectance array** with 7 sensors, for line-following and other similar tasks
-    
+
     * Two front-facing **distance sensors**, using VL53L0X laser time-of-flight sensors,
       for obstacle avoidance
 
@@ -45,15 +45,15 @@ key features of this robot.
 
     * Two RGB **LEDs** for light indication and a **buzzer** for sound signals
 
-* Expansion ports nad connections:  
-  
+* Expansion ports and connections:
+
     * Two ports for connecting **servos**
 
     * Two  I2C ports, using Qwiic/Stemma QT connector
-    
-    * Several availabel pin headers for connecting other electronics
-    
-    * Yozh is compatible with mechanical attachments 
+
+    * Several available pin headers for connecting other electronics
+
+    * Yozh is compatible with mechanical attachments
       (`grabber <https://www.dfrobot.com/product-2128.html>`__, `forklift <https://www.dfrobot.com/product-2129.html>`__,...) by DFRobot.
 
 
@@ -72,6 +72,5 @@ https://photos.app.goo.gl/ERGFzz6CUv6od8WP6
     :maxdepth: 1
 
     quickstart
-    assembly
     details
     library

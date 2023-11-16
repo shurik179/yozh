@@ -46,11 +46,12 @@ BUTTON_A   =  DigitalInOut(board.D2)
 BUTTON_B   = DigitalInOut(board.D1)
 BUTTON_C   = DigitalInOut(board.D0)
 # buzzer
-YOZH_BUZZER     = board.A1
+YOZH_BUZZER     = board.D13
 #neopixel leds
 YOZH_LEDS       = board.A0
 #neopixel leds
 YOZH_LIGHTS       = board.D12
+
 # distance sensors XSHUT pins
 YOZH_XSHUT_L    = DigitalInOut(board.D5)  #XSHUT1  pin D5
 YOZH_XSHUT_R    = DigitalInOut(board.D11)  #XSHUT2 pin D11

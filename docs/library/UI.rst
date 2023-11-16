@@ -5,6 +5,17 @@ Yozh contains a buzzer,  two NeoPixel  LEDs in the back and an 240x135 color TFT
 three buttons on the top plate, for interaction with the user. To control them,
 use the functions below.
 
+Headlights
+----------
+.. function:: set_lights(power)
+
+   Turns the headlights on/off. Power should be between 0-100; setting the power to zero 
+   turns the headlights off.
+
+   Note: headlights are capable of being controlled individuallly, and in fact one could 
+   set them to any color (they are RGBW Neopixels).mHowever, at the moment this is not 
+   supported by yozh library. 
+
 LEDs
 -----
 .. function:: set_led_L(color)
