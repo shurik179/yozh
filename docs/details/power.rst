@@ -8,6 +8,10 @@ battery compartment inside the robot; to access it, you need to remove
 the top plate.  See the section below for discussion of whether you
 need one or two batteries.
 
+**Warning**: Li-Ion batteries can be dangerous if not handled right! please
+make sure to place them with  correct polarity, and follow the instructions in the
+next section if you use two batteries. Always turn the power switch off before
+removing the top plate or doing any other work on the robot.
 
 
 It is highly recommended that you use batteries from a trusted manufacturer,
@@ -27,6 +31,31 @@ power indicator LED.
 You can check the battery voltage in software, using ``battery_voltage()`` function as
 described in  :ref:`Yozh Library Guide <library>`. Fully charged Li-Ion batteries
 should read about 4.2v.
+
+One or two batteries?
+---------------------
+
+For most purposes, one 18650 battery is sufficient. Place it in the slot
+closest to the back of the robot. Make sure to place it with correct polarity;
+positive and negative terminals are labeled on the robot PCB.
+
+If you are planning on using accessories that might use significant current,
+such as large size servos or AI cameras, or if you want to run the robot for
+long periods, you might want to add a second battery; these two batteries will
+be connected in parallel.
+
+If you want to use two batteries, please observe these precautions. Please
+take them seriously!
+
+* it is best to use the two identical batteries (same manufacturer and model)
+
+* before inserting the batteries, turn the power switch to off and **remove the
+jumper  J14** next to the batteries. After this, insert the batteries;  leave
+them inserted for a couple of hours or so, keeping the power switch off. After
+two hours, put the jumper J14 back on.    (This allows the
+two batteries to equalize the voltage. The positive terminals are connected
+through on-board 1 Ohm resistor. Jumper J14 shorts it.)
+
 
 Voltages used by the robot
 --------------------------
