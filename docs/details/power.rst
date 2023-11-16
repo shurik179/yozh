@@ -50,11 +50,11 @@ take them seriously!
 * it is best to use the two identical batteries (same manufacturer and model)
 
 * before inserting the batteries, turn the power switch to off and **remove the
-jumper  J14** next to the batteries. After this, insert the batteries;  leave
-them inserted for a couple of hours or so, keeping the power switch off. After
-two hours, put the jumper J14 back on.    (This allows the
-two batteries to equalize the voltage. The positive terminals are connected
-through on-board 1 Ohm resistor. Jumper J14 shorts it.)
+  jumper  J14** next to the batteries. After this, insert the batteries;  leave
+  them inserted for a couple of hours or so, keeping the power switch off. After
+  two hours, put the jumper J14 back on.    (This allows the
+  two batteries to equalize the voltage. The positive terminals are connected
+  through on-board 1 Ohm resistor. Jumper J14 shorts it.)
 
 
 Voltages used by the robot
