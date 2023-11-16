@@ -1,7 +1,7 @@
 Reflectance sensor array
 ========================
 Yozh has a built-in array of reflectance sensors, pointed down. These sensors
-can be used to detect filed borders, for following the line, and other similar
+can be used to detect field borders, for following the line, and other similar
 tasks.
 
 Basic usage
@@ -27,12 +27,12 @@ Calibration
 
 Process of calibration refers to learning the values corresponding to black
 areas of the field and then using these values to rescale the raw
-readings. (We do not calibrate white readings, as they do not vary that much). 
+readings. (We do not calibrate white readings, as they do not vary that much).
 
 .. function:: calibrate()
 
    Calibrates the sensors, recording the black  values. This
-   command should be called when all  of the sensors are on the black  area of the field. 
+   command should be called when all  of the sensors are on the black  area of the field.
 
 .. function:: linearray_cal(i)
 
@@ -81,8 +81,8 @@ Yozh library provides the helper function.
     This command only uses the central 5 sensors; rightmost and leftmost sensor
     (0 and 6) are not used.
 
-    If there is no line under these sensors, the function returns ``None``. Thus, 
-    before using the returned value in  computations, you must test whether it is ``None``. 
+    If there is no line under these sensors, the function returns ``None``. Thus,
+    before using the returned value in  computations, you must test whether it is ``None``.
 
 .. function:: line_position_black()
 
