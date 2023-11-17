@@ -16,11 +16,11 @@ While you are there, you can also adjust the theme and font to your liking -- fo
 you can switch to dark theme, shown below. After making your choices, click ``OK`` to 
 save the configuration. 
 
-.. figure:: ../images/thonny.png
-    :alt: Thonny editor
-    :width: 80%
 
 To verify the installation, connect your computer to the ESP32-S3 MCU of Yozh robot. 
 Hit the red ``Stop`` button to reconnect to the board. Thonny should now show the files 
 on the CURCUITPY drive,  as shown below:
 
+.. figure:: ../images/thonny.png
+    :alt: Thonny editor
+    :width: 80%
