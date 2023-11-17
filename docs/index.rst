@@ -1,7 +1,7 @@
 ##########
 Yozh Robot
 ##########
-.. figure:: images/main_photo.jpg
+.. figure:: images/main-4.0.2.jpg
     :alt: Yozh robot
     :width: 80%
 
@@ -45,6 +45,8 @@ key features of this robot.
 
     * Two RGB **LEDs** for light indication and a **buzzer** for sound signals
 
+    * Four RGBW LEDs used as headlights 
+
 * Expansion ports and connections:
 
     * Two ports for connecting **servos**
@@ -65,7 +67,7 @@ to assemble their own PCBs.
 
 You can view photos and videos of Yozh here:
 
-https://photos.app.goo.gl/ERGFzz6CUv6od8WP6
+https://photos.app.goo.gl/grQfWu86DGW8zRTT8
 
 .. toctree::
     :caption: Table of Contents

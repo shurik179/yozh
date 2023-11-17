@@ -8,7 +8,7 @@ pins, there are small letters S (Signal) and G (GND) next to corresponding pins.
 
 Yozh can also be used  with mechanical attachments (`grabber <https://www.dfrobot.com/product-2128.html>`__,
 `forklift <https://www.dfrobot.com/product-2129.html>`__,...) by DFRobot --
-see photo below for Yozh with the grabber (beetle) attachment. US customers
+see photo below for Yozh with the forklift attachment. US customers
 might find it easier to order DFrobot kits from DigiKey:
 
   * `Grabber <https://www.digikey.com/en/products/detail/dfrobot/ROB0156-B/13545231>`__
@@ -21,6 +21,6 @@ might find it easier to order DFrobot kits from DigiKey:
 Note that some of these attachments might interfere with the distance sensors.
 
 
-.. figure:: ../images/grabber.jpg
-    :alt: Yozh robot with the grabber attachment
+.. figure:: ../images/with_forklift-4.0.2.jpg
+    :alt: Yozh robot with the forklift attachment
     :width: 80%

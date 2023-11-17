@@ -118,6 +118,9 @@ class Yozh:
         self.display.auto_refresh=False
         self._charge_mode = False
 
+        # other settings
+        self.min_turn_power = 25 
+
         #############################################################################################
         # now that we have the definitions, let us put things on display and initilaize the slave MCU
 
@@ -442,28 +445,6 @@ class Yozh:
         # restore old motor mode  setting
         self._write_8(YOZH_REG_MOTOR_MODE, 0x00)
 
-    def turn(self, angle, speed=50):
-        start_yaw = self.IMU_yaw()
-        target_yaw = start_yaw + angle
-        #print("turn ",angle)
-        #print(start_yaw)
-        if angle>0:
-            self.set_motors(speed, -speed)
-            diff=0
-            while (diff  < (angle -2) or diff >355): #subtract 2 degrees to account for robot not stopping instantly
-                #print(diff)
-                diff = self.angle_diff(start_yaw,self.IMU_yaw(), CW)
-        else:
-            angle = - angle
-            self.set_motors(-speed, speed)
-            diff=0
-            while (diff  < angle -2  or diff >355):
-                diff = self.angle_diff(start_yaw,self.IMU_yaw(), CCW)
-        self.stop_motors()
-        error = self.normalize(self.IMU_yaw()- target_yaw)
-        self.angle_error = error
-
-
     def turn_to(self, heading, direction, speed=50):
         target_yaw = self.normalize(heading)
         if direction == CW:
@@ -475,13 +456,24 @@ class Yozh:
         while (diff > 10): 
             diff = self.angle_diff(self.IMU_yaw(),target_yaw, direction)
         # when we are close, let's slow down to 25% speed
-        self.set_motors(sign*25, -sign*25)
+        self.set_motors(sign*self.min_turn_power, -sign*self.min_turn_power)
         while (diff > 1  and  diff <355): #subtract 2 degrees to account for robot not stopping instantly
             #print(diff)
             diff = self.angle_diff(self.IMU_yaw(),target_yaw, direction)
         self.stop_motors()
         error = self.normalize(self.IMU_yaw()- target_yaw)
         self.angle_error = error
+
+
+    def turn(self, angle, speed=50):
+        start_yaw = self.IMU_yaw()
+        target_yaw = start_yaw + angle
+        #print("turn ",angle)
+        #print(start_yaw)
+        if angle>0:
+            self.turn_to(target_yaw, CW, speed)
+        else:
+            self.turn_to(target_yaw, CCW, speed)
 
 
 ##########  SERVOS ########################################
