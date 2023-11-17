@@ -3,14 +3,22 @@ Yozh at a glance
 
 The photos below show main features of Yozh:
 
-.. figure:: ../images/overview-front.png
+.. figure:: ../images/front-annotated.png
     :alt: Front view
     :width: 80%
 
 
-.. figure:: ../images/overview-back.png
+.. figure:: ../images/top-annotated.png
+    :alt: Top view
+    :width: 80%
+
+
+
+.. figure:: ../images/back-annotated.png
     :alt: Rear view
     :width: 80%
+
+
 
 .. figure:: ../images/reflectance2.jpg
     :alt: Reflectance array
