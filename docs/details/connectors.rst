@@ -1,6 +1,6 @@
 Connecting additional devices 
 =============================
-Youzh porvides connectors for additional sensors and other eelctroncis, as described below. 
+Youzh provides connectors for additional sensors and other eelctroncis, as described below. 
 
 
 Top plate
@@ -32,7 +32,7 @@ The top plate contains the following connectors:
 Main board connectors
 ---------------------
 
-In the rear of the main robot baord, there are even more connectors, providing access to SPI 
+In the rear of the main robot board, there are even more connectors, providing access to SPI 
 (MISO/MOSI/SCK) pns of ESP32-S3 and pins A3, A4, A5 (you coudl use one of them as chip select 
 line for SPI). 
 

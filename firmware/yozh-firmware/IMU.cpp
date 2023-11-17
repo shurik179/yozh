@@ -47,6 +47,7 @@ bool IMUbegin() {
 
   i2cMasterWriteByte(ICM42688_ADDRESS, ICM42688_ACCEL_CONFIG0, AFS_2G << 5 | AODR_500Hz); // set accel ODR and FS
   i2cMasterWriteByte(ICM42688_ADDRESS, ICM42688_GYRO_CONFIG0,  GFS_500DPS << 5 | AODR_500Hz); // set gyro ODR and FS
+  //i2cMasterWriteByte(ICM42688_ADDRESS, ICM42688_GYRO_CONFIG0,  GFS_250DPS << 5 | AODR_500Hz); // set gyro ODR and FS
   i2cMasterWriteByte(ICM42688_ADDRESS, ICM42688_GYRO_ACCEL_CONFIG0,  0x44); // set gyro and accel bandwidth to ODR/10
 
    // interrupt handling
@@ -151,10 +152,12 @@ void IMUupdate(){
     uint32_t Now; //timestamp in us
     // If data ready bit set, at least some  registers have new data
     IMUreadData();
-    Now = micros();
-    IMUdeltat = ((Now - IMUlastUpdate) / 1000000.0f); // set integration time by time elapsed since last filter update
-    IMUlastUpdate = Now;
-    _MadgwickQuaternionUpdate(IMUdeltat);
+    //for (int i=0; i++; i<3){
+      Now = micros();
+      IMUdeltat = ((Now - IMUlastUpdate) / 1000000.0f); // set integration time by time elapsed since last filter update
+      IMUlastUpdate = Now;
+      _MadgwickQuaternionUpdate(IMUdeltat);      
+    //}
     if (Now - lastIMUregUpdate> 25000) {
         //more than 25 ms since we last updated output registers
         lastIMUregUpdate = Now;

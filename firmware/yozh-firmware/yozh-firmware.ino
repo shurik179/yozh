@@ -10,8 +10,8 @@
 #include "analog.h"
 #include "IMU.h"
 
-#define FW_VERSION_MAJOR 3
-#define FW_VERSION_MINOR 95
+#define FW_VERSION_MAJOR 4
+#define FW_VERSION_MINOR 02
 
 //uncomment to allow debugging print to Serial.
 //#define DEBUG_PRINT

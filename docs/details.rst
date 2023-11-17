@@ -3,7 +3,7 @@
 Yozh Features in Detail
 ***************************
 
-.. figure:: images/main_photo.jpg
+.. figure:: images/main-4.0.2.jpg
     :alt: Yozh robot
     :width: 80%
     
