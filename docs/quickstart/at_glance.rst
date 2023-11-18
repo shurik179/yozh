@@ -20,6 +20,6 @@ The photos below show main features of Yozh:
 
 
 
-.. figure:: ../images/reflectance2.jpg
+.. figure:: ../images/reflectance-4.0.2.jpg
     :alt: Reflectance array
     :width: 80%
