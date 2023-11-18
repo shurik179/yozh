@@ -2,7 +2,7 @@ Commonly used functions
 ====================================
 
 Below is the list of most commonly used functions from Yozh CircuitPython library. 
-This is not a full list! See Yozh Library reference for full list and details. 
+This is not a full list! See :ref:`Library reference <library>`  for full list and details. 
 
 To begin using the library, you need to put the following in the beginning of
 your `code.py` file:
@@ -34,8 +34,10 @@ Display, buttons
 
    Waits until the user presses the given button. There are three  possible
    pre-defined buttons: ``BUTTON_A``, ``BUTTON_B``, ``BUTTON_C``.
-   There are also functions for checking if a given button is currently pressed, 
-   or waiting until the user presses one of 3 buttons. 
+
+
+There are also functions for checking if a given button is currently pressed, 
+or waiting until the user presses one of 3 buttons. 
 
 
 LEDs, buzzer, headlights
@@ -119,6 +121,7 @@ saved calibration values.
 
 
 .. function:: IMU_yaw()
+
    Returns robot yaw, i.e. heading in horizontal plane. Note that zero heading 
    is rather random (it is not the starting position of the robot!). Positive 
    values correspond to turning right (clockwise). 
