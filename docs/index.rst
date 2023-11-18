@@ -76,3 +76,4 @@ https://photos.app.goo.gl/grQfWu86DGW8zRTT8
     quickstart
     details
     library
+    projects
