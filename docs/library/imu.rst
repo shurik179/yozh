@@ -107,8 +107,8 @@ and computed orientation, using the following functions:
    These three angles determine the robot orientation as described below:
 
    * yaw is the rotation around the vertical axis (positive angle corresponds to
-     clockwise rotation, i.e. right turns), relative to the starting position of
-     the robot
+     clockwise rotation, i.e. right turns). Note that zero value  
+     is rather random (it is not the starting position of the robot!)
    * pitch is the rotation around the horizontal line, running from
      left to right. Positive pitch angle corresponds to raising the front of the
      robot and lowering the back
@@ -117,3 +117,14 @@ and computed orientation, using the following functions:
      lowering the right.
    For more information about yaw, pitch, and roll angles, please visit
    https://en.wikipedia.org/wiki/Aircraft_principal_axes
+
+.. function:: normalize(angle)
+   A helper function; adds or subtracts 360 to the angle as needed to bring it to the range 
+   [-180,180]. Useful for computing difference of headings, e.g. 
+
+.. code-block:: python
+
+   start_yaw = bot.IMU_yaw()
+   # some driving instructiosn here
+   angle_turned = bot.normalize(bot.IMU_yaw()-start_yaw) # angle will be between -180 and 180
+

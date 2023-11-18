@@ -17,5 +17,6 @@ Once the robot is assembled, follow the steps below to get started quickly.
     quickstart/thonny
     quickstart/hello_world
     quickstart/serial
+    quickstart/functions
     quickstart/examples
     quickstart/further
