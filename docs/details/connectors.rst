@@ -15,7 +15,7 @@ The top plate contains the following connectors:
   listed above. Pull-up resistors (3.3K) on SCL and SDA lines are already provided, 
   so there is no need to add your own. 
 
-* 8-pin connector (unpopulatred), containing pins for 3.3v, GND, and pins A1, A2, TX, RX
+* 8-pin connector (unpopulated), containing pins for 3.3v, GND, and pins A1, A2, TX, RX
   of ESP32-S3 
 
 * Huskylens connector. This is also gives access to the same  I2C bus; however, instead of 3.3V, 
@@ -27,6 +27,11 @@ The top plate contains the following connectors:
 
   Note that the SDA and SCL lines are pulled up to 3.3v, not to VCC. 
 
+.. figure:: ../images/top-4.0.2.jpg
+   :alt: Top view of the robot 
+   :width: 80%
+
+
 
 
 Main board connectors
@@ -37,4 +42,8 @@ In the rear of the main robot board, there are even more connectors, providing a
 line for SPI). 
 
 Note that  the SPI bus is also used for communication with the display. 
+
+.. figure:: ../images/back-annotated.png
+    :alt: Rear view
+    :width: 80%
 

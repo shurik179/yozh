@@ -58,9 +58,9 @@ Function `check_intersection()` should do three things:
 
 We can achieve this by asking the robot to start moving  forward until
 we have travelled 5 cm;  while doing this, we will be checking the
-line sensors. If the leftmost line sensor (A8)  sees white, it means that
+line sensors. If the leftmost line sensor (number 6)  sees white, it means that
 there is a passage to the left. To record it, we can create boolean variable
-`path_left` and set it to `True` once the sensor A8 sees white
+`path_left` and set it to `True` once the sensor 6 sees white
 (Also, we should remember to set it   to `False` initially):
 
 

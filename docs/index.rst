@@ -11,7 +11,7 @@ created by `shurik179 <https://github.com/shurik179>`__ for a robotics class at
 key features of this robot.
 
 
-* **Dimensions:** Length: 12.4 cm; width: 13 cm; height: 4.8 cm
+* **Dimensions:** Length: 12.4 cm; width: 13 cm; height: 4.9 cm
 
 * **Power:** one or two 18650 Li-Ion batteries
 

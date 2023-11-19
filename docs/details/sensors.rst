@@ -10,21 +10,14 @@ sensors for detecting field borders, following the line, and other similar tasks
 It uses `ITR9909 <https://lcsc.com/product-detail/Reflective-Optical-Interrupters_Everlight-Elec-ITR9909_C53399.html>`__ sensors
 by Everlight. The sensors are labeled A0 (rightmost) through A6 (leftmost).
 
-.. figure:: ../images/reflectance2.jpg
-    :alt: Reflectance sensor
+.. figure:: ../images/reflectance-4.0.2.jpg
+    :alt: Reflectance array
     :width: 80%
 
-.. figure:: ../images/reflectance-sideview.jpg
-    :alt: Reflectance sensor - side view
-    :width: 80%
 
 
 Distance sensors
 ----------------
-
-.. figure:: ../images/distance_sensors.png
-    :alt: Yozh robot
-    :width: 80%
 
 Yozh also contains a front-facing board with two  `VL53L0X
 <https://www.st.com/en/imaging-and-photonics-solutions/vl53l0x.html>`__
@@ -36,3 +29,8 @@ detect any  obstacle placed between 15-150 cm away.
 
 These sensors  can be used for obstacle avoidance, object tracking,
 or other similar purposes.
+
+.. figure:: ../images/front-annotated.png
+    :alt: Front view
+    :width: 80%
+

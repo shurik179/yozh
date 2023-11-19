@@ -43,17 +43,17 @@ OFF    = 0x000000
 YOZH_DEFAULT_I2C_ADDR        =const(0x11)
 # buttons
 BUTTON_A   =  DigitalInOut(board.D2)
-BUTTON_B   = DigitalInOut(board.D1)
-BUTTON_C   = DigitalInOut(board.D0)
+BUTTON_B   =  DigitalInOut(board.D1)
+BUTTON_C   =  DigitalInOut(board.D0)
 # buzzer
 YOZH_BUZZER     = board.D13
 #neopixel leds
 YOZH_LEDS       = board.A0
 #neopixel leds
-YOZH_LIGHTS       = board.D12
+YOZH_LIGHTS     = board.D12
 
 # distance sensors XSHUT pins
-YOZH_XSHUT_L    = DigitalInOut(board.D5)  #XSHUT1  pin D5
+YOZH_XSHUT_L    = DigitalInOut(board.D5)   #XSHUT1  pin D5
 YOZH_XSHUT_R    = DigitalInOut(board.D11)  #XSHUT2 pin D11
 
 # fonts
@@ -97,7 +97,7 @@ class Yozh:
         #Line array
         self._calibrate_W = [50,50,50,50,50,50,50]   #reasonable defaults for black and white sensor readings
         self._calibrate_B = [850,850,850,850,850,850,850]
-        self._threshold = [450,450,450,450,450,450,450]    # black/white threshold
+        self._threshold = [400,400,400,400,400,400,400]    # black/white threshold
         # buttons
         BUTTON_A.direction = Direction.INPUT
         BUTTON_A.pull = Pull.DOWN

@@ -15,12 +15,6 @@ The robot is controlled by two microcontrollers (MCU):
   This MCU comes preloaded with firmware, written in C++ (using Arduino IDE).
   Normally, the user shouldn't need to touch this firmware.
 
-.. figure:: ../images/electronics.png
-    :alt: Rear view
-    :width: 80%
-
-
-
 
 The two MCUs talk to each other  using I2C communication protocol; main MCU acts as
 the master on the I2C bus, and the secondary acts as slave.
