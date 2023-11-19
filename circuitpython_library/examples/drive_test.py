@@ -36,13 +36,10 @@ if (bot.IMU_status() != 1):
     while True:
         pass
 
-   # new messages on display
+# new messages on display
 bot.set_text(1,"Press button A to continue")
 #wait until user presses button A
 bot.wait_for(BUTTON_A)
-bot.turn(-90)
-time.sleep(1.0)
-bot.turn(90)
 bot.buzz(660,1.0)
 while True:
     # go forward for 100 cm at 60% speed
