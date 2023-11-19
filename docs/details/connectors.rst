@@ -27,7 +27,7 @@ The top plate contains the following connectors:
 
   Note that the SDA and SCL lines are pulled up to 3.3v, not to VCC. 
 
-.. figure:: ../images/top-4.0.2.jpg
+.. figure:: ../images/top-annotated.jpg
    :alt: Top view of the robot 
    :width: 80%
 

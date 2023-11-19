@@ -75,7 +75,3 @@ to the MCU  even if the main battery is off. This would activate the main  MCU
 and some of the electronics, but not the secondary MCU, motors or servos.
 
 
-
-.. figure:: ../images/overview-back.png
-    :alt: Rear view
-    :width: 80%
