@@ -73,7 +73,7 @@ there is a passage to the left. To record it, we can create boolean variable
 
        bot.set_motors(30,30) #start moving forward slowly
        while bot.get_distance()<5:
-           if bot.sensor_on_white(bot.A8):
+           if bot.sensor_on_white(6):
                path_left = True
        bot.stop_motors()
 
@@ -102,7 +102,7 @@ return the list. This gives the following code:
 
        bot.set_motors(30,30) #start moving forward slowly
        while bot.get_distance()<5:
-           if bot.sensor_on_white(bot.A8):
+           if bot.sensor_on_white(6):
                path_left = True
            ....
        bot.stop_motors()

@@ -38,7 +38,7 @@ Main board connectors
 ---------------------
 
 In the rear of the main robot board, there are even more connectors, providing access to SPI 
-(MISO/MOSI/SCK) pns of ESP32-S3 and pins A3, A4, A5 (you coudl use one of them as chip select 
+(MISO/MOSI/SCK) pns of ESP32-S3 and pins A3, A4, A5 (you can use one of them as chip select 
 line for SPI). 
 
 Note that  the SPI bus is also used for communication with the display. 

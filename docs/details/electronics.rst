@@ -2,7 +2,7 @@ Electronics
 ===========
 The robot is controlled by two microcontrollers (MCU):
 
-* Main (master) MCU: `ESP32-S3 Reverse TFT Feather  <https://www.adafruit.com/product/5691>`__
+* Main (master) MCU: `ESP32-S3 Reverse TFT Feather  <https://www.adafruit.com/product/5691>`__.
   This MCU is programmed by the user in CircuitPython. Provided CircuitPython
   library, documented in :ref:`Yozh Library Guide <library>`, provides convenient
   functions for using all features of the robot.
