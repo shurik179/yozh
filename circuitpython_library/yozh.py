@@ -119,7 +119,7 @@ class Yozh:
         self._charge_mode = False
 
         # other settings
-        self.min_turn_power = 25 
+        self.min_turn_power = 20 
 
         #############################################################################################
         # now that we have the definitions, let us put things on display and initilaize the slave MCU
@@ -455,8 +455,9 @@ class Yozh:
         diff=90 # just a random positive number
         while (diff > 10): 
             diff = self.angle_diff(self.IMU_yaw(),target_yaw, direction)
-        # when we are close, let's slow down to 25% speed
+        # when we are close, let's slow down to minimal speed
         self.set_motors(sign*self.min_turn_power, -sign*self.min_turn_power)
+
         while (diff > 1  and  diff <355): #subtract 2 degrees to account for robot not stopping instantly
             #print(diff)
             diff = self.angle_diff(self.IMU_yaw(),target_yaw, direction)
@@ -474,6 +475,29 @@ class Yozh:
             self.turn_to(target_yaw, CW, speed)
         else:
             self.turn_to(target_yaw, CCW, speed)
+
+    def turn_test(self, heading, direction, speed = 50):
+        target_yaw = self.normalize(heading)
+        if direction == CW:
+            sign = 1
+        else:
+            sign = -1
+        self.set_motors(sign*speed, -sign*speed)
+        diff=90 # just a random positive number
+        while (diff > 10): 
+            diff = self.angle_diff(self.IMU_yaw(),target_yaw, direction)
+        # when we are close, let's slow down and use PID
+        self._write_16(YOZH_REG_DIRECTION, (int) (target_yaw*10) )
+        self._write_8(YOZH_REG_MOTOR_MODE, 0x01)
+        self.set_motors(0,0)
+        time.sleep(0.1)
+        self.IMU_get_gyro()
+        while (abs(self.gz)>1.0): #still rotating
+            self.IMU_get_gyro()
+        time.sleep(1.0)
+        self.stop_motors()
+        error = self.normalize(self.IMU_yaw()- target_yaw)
+        self.angle_error = error
 
 
 ##########  SERVOS ########################################

@@ -1,33 +1,29 @@
 # Yozh Robot
-Yozh is a small robot based on Pololu's Zumo chassis but programmable in CircuitPython.
+Yozh is a small tracked  robot programmable in CircuitPython. 
+It was  inspired by  Pololu's Zumo, but has numerous improvements over it. 
 It was created by shurik179 for a robotics class at SigmaCamp.
-Detailed documentation is available at http://yozh.rtfd.io.
 
-At the moment, it is a work in progress and not ready for public consumption yet
+The project description and logs are posted on Hackaday: 
+https://hackaday.io/project/193665-yozh-robot. 
+Detailed  user documentation is available at http://yozh.rtfd.io. 
+
+
 
 ## Status
-currently working on version 4
+Version 4 is mostly finished, working on documentation and fine-tuning 
+various PID controllers. 
 
-## Project overview
-The robot consists of the following components:
-* [Zumo chassis](https://www.pololu.com/product/1418) by Pololu
-* Two micro metal gearmotors by Pololu ([6V, HP, 75 gear ratio](https://www.pololu.com/product/2215))
-* Custom electronics board, containing a slave MCU (SAMD21) preprogrammed with firmware,
-  which takes care of all low-level operations such as counting encoder pulses
-* Additional boards: reflectance sensor array (for line following), front
-  distance sensors, top cover with 64*128 OLED display and user buttons
-* [ItsyBitsy RP2040](https://www.adafruit.com/product/4888) by Adafruit, which
-  serves as robot brain. It is plugged  into headers   on the main board and
-  programmed by the user in CircuitPython, using a provided CircuitPython
-  library to communicate with the slave MCU over I2C.
 
 
 
 
 ## Structure of this repository
-* `docs`: documentation
+* `docs`: documentation (used to produce docs at http://yozh.rtfd.io)
 * `hardware`: design files for the custom electronics boards, BOM, etc.
-* `firmware`: bootloader and firmware files
+* `board_support_package`: bootloader and packeg to have the secondary MCU 
+   supported in Arduino IDE. Only needed fro uploading the firmware - end 
+   users do not need this. 
+* `firmware`: firmware for secondary MCU
 * `circuitpython_library`: Circuit Python user library
 
 ## License

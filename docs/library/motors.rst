@@ -17,15 +17,75 @@ Yozh python library  provides high level commands for controlling the robot.
 
    Move forward/backward  by given distance (in centimeters). Parameter ``speed``, which ranges 
    between 0-100,  is optional; if not given, default speed of 60 is used.
-   Note that distance and speed should always be positive, even when moving backward.
-
-   Behind the scenes, these commands try to maintain constant robot speed and direction. 
+   Note that distance and speed should always be positive, even when moving backward.    Behind the scenes, these commands try to maintain constant robot speed and direction. 
    To learn more about how it is done check section FIXME.  
+
+   You can use special value `UNLIMITED` for distance; in this case, the command 
+   starts the  robot moving forward without any distance limit. You will need to issue 
+   a separate command to stop it, e.g. 
+
+
+.. code-block:: python
+
+   bot.go_forward(UNLIMITED, 50) #start moving forward a 50% speed
+   time.sleep(1.0)  # wait for 1 second 
+   bot.stop_motors()
+
+   
+
+
+
 
 .. function:: turn(angle, speed=60)
 
-   Turn by given angle, in degrees. Positive values correspond to turning right (clockwise).
-   Parameter ``speed`` is  optional; if not given, default speed of 50 (i.e. half of maximal) is used.
+   Turn by given angle, in degrees. Positive values correspond to turning right 
+   (clockwise). Parameter ``speed`` is  optional; if not given, default speed 
+   of 50 (i.e. half of maximal) is used. Note that this fucntion relies on 
+   Inertial Motion Unit (IMU) for operation, so you need to calibrate IMU at 
+   least once prior to using it. See Section on IMU later. 
+
+
+
+Driving using heading 
+---------------------
+
+If you need to make repeated turns, the errors at each turn add up, so at 
+the end we might get a significant course deviation. To help combat that, 
+you can use the following modification of drive and turn commands:
+
+.. function:: turn_to(heading, direction, speed=60)
+
+   Turn to a given heading (yaw angle), in degrees. Parameter `heading` 
+   can be one of two predefined values: either `CW` (clockwise) or `CCW`
+   (counterclockwise). As before, parameter ``speed`` is  optional.
+   Below is an example: 
+
+.. code-block:: python
+
+   # bad: accumulating errors
+   bot.turn(90)
+   bot.go_forward(50)
+   bot.turn(-90)
+   bot.go_forward(50)
+
+
+
+
+
+.. code-block:: python
+   #better: errors do not accumulate
+
+   # give name to curent robot heading 
+   North = bot.IMU_get_yaw()
+   bot.turn_to(North + 90, CW)
+   bot.go_forward(50)
+   bot.turn_to(North, CCW)
+   bot.go_forward(50)
+
+   
+
+
+
 
 
 
@@ -60,7 +120,8 @@ Encoders
 
 .. function:: reset_encoders()
 
-   Resets both encoders
+   Resets (sets to zero) both encoders. Note that encoders are also reset by commands 
+   `go_forward()`, `go_backward()`, `turn()`. 
 
 
 .. function:: get_encoders()
@@ -75,6 +136,28 @@ Encoders
    Value of left and right  encoders, in ticks, as fetched at last call of
    ``get_encoders()``. Note that these values are not automatically updated:
    you need to call ``get_encoders()`` to update them
+
+
+.. function:: distance_traveled()
+
+   Returns the distance traveled by the robot since the last encoder reset. 
+   It can be very useful in combination with `go_forward(UNLIMITED)`, e.g. 
+
+
+
+
+.. code-block:: python
+
+   bot.go_forward(UNLIMITED, 50) #start moving forward a 50% speed
+   while (bot.all_on_black() and bot.distance_traveled() < 20):
+      pass
+   # stop once we have traveled 20 cm or one of reflectacne sensors sees white, whatever comes first 
+   bot.stop_motors()
+
+
+
+   
+
 
 
 .. function:: get_speeds()
