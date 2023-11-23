@@ -20,6 +20,6 @@ place it in the slot closest to the back of the robot
 (of course, power switch should be off while you are doing it). Make sure 
 to observe correct polarity as labeled on the PCB!
 
-See section ``Power`` in ``Yozh Features in detail`` document for suggestiosn on 
-choosing the best 18650 battery or proper method of installation if you want to 
-use two batteries -- there are some precautions to be observed!
+See section ``Power`` in :ref:`Yozh Features in Detail <features>` document 
+for suggestions on choosing the best 18650 battery or proper method of 
+installation if you want to use two batteries -- there are some precautions to be observed!
