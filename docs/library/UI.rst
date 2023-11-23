@@ -87,9 +87,11 @@ Display
 
 The easiest way to interact with the TFT  display is by using the commands below.
 
-.. function:: clear_display()
+.. function:: clear_display(hide_battery = False)
 
-   Clears all text and graphics from display
+   Clears all text and graphics from display. Optional parameter ``hide_battery`` indicates 
+   whether the battery level indicator should be removed as well; by default, 
+   it is false, so the battery level indicator is preserved. 
 
 .. function:: set_text(line_number, message, font, color)
 
@@ -119,6 +121,10 @@ To use a different font, use optional parameter ``font``. Posible choices are:
 * ``FONT_SMALL``: really small font, useful for long messages 
 
 
+.. function::  update_battery_display()
+
+   Updates the battery level indicator. 
+
 
 Advanced users may also use any commands from CircuitPython ``displayio`` module
 to put text and graphics on the TFT display as described in  https://learn.adafruit.com/circuitpython-display-support-using-displayio.
@@ -133,4 +139,6 @@ The display object of the robot  can be accessed as ``bot.display``,  and the ro
    bot.display.refresh()
 
 Note that ``display.auto_refresh`` property is set to ``False``, so you need to 
-explicitly call ``display.refresh()`` function. 
+explicitly call ``display.refresh()`` function. Also, the battery level indicator 
+is not automatically updated: you need to call ``update_battery_display()`` to 
+update it. 

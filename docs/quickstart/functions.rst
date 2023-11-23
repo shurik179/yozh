@@ -154,7 +154,16 @@ Reflectance array
 
 .. function:: all_on_black()
 
-   Returns ``True`` if all sensors are  on black (respectively, white) and false otherwise.
+   Returns ``True`` if all sensors are  on white (respectively, black) and false otherwise.
 
+.. function:: line_position_white()
+
+.. function:: line_position_black()
+
+   Returns a number showing position of the line under the robot, assuming white 
+   line on black background (respectively, black line on white background). 
+   The number ranges between -4 (line far to the left of the robot) to 
+   4 (line far to the right of the robot). 0 is central position: line is exactly 
+   under the center of the robot. See :ref:`Library reference <library>` for details.
 
 

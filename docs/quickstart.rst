@@ -13,6 +13,7 @@ Once the robot is assembled, follow the steps below to get started quickly.
     :maxdepth: 1
 
     quickstart/at_glance
+    quicstart/batteries
     quickstart/installation
     quickstart/thonny
     quickstart/hello_world
