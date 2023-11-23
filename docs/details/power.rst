@@ -36,7 +36,7 @@ One or two batteries?
 ---------------------
 
 For most purposes, one 18650 battery is sufficient. Place it in the slot
-closest to the back of the robot. Make sure to place it with correct polarity;
+closest to the back of the robot. **Make sure to place it with correct polarity;**
 positive and negative terminals are labeled on the robot PCB.
 
 If you are planning on using accessories that might use significant current,
@@ -50,11 +50,19 @@ take them seriously!
 * it is best to use the two identical batteries (same manufacturer and model)
 
 * before inserting the batteries, turn the power switch to off and **remove the
-  jumper  J14** next to the batteries. After this, insert the batteries;  leave
+  jumper  J14** next to the batteries. After this, insert the batteries; 
+  **make sure to place them with correct polarity** as labeled on the PCB. 
+  Leave
   them inserted for a couple of hours or so, keeping the power switch off. After
   two hours, put the jumper J14 back on.    (This allows the
   two batteries to equalize the voltage. The positive terminals are connected
   through on-board 1 Ohm resistor. Jumper J14 shorts it.)
+
+
+
+.. figure:: ../images/batteries.jpg
+    :alt: Batteries
+    :width: 80%
 
 
 Voltages used by the robot

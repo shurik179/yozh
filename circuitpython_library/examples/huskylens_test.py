@@ -22,7 +22,6 @@ bot.buzz(440,1.0)
 # new messages on display
 bot.set_text(1, "Press A to continue")
 #wait until user presses button A
-# there are two buttons: button_A, button_B
 bot.wait_for(BUTTON_A)
 bot.clear_display()
 
