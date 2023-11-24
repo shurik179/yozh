@@ -22,12 +22,12 @@ def object_detected():
     left = bot.distance_L.range
     right = bot.distance_R.range
     #bot.set_text(4, f"L: {left} R: {right}")
-    if (left>500 and right >500):
+    if (left>600 and right > 600):
         return(False)
     # to avoid glitches, let's double check
     left = bot.distance_L.range
     right = bot.distance_R.range
-    if (left>500 and right >500):
+    if (left>600 and right >600):
         return(False)
     # looks like we really see something
     return(True)
@@ -56,22 +56,15 @@ def get_label_center():
     while (camera.getObjects() == 0):
         pass
     item = camera.receivedObjects[0]
-    center_x = item.x +0.5* item.width - 160
+    center_x = item.x  - 160
     return(center_x)
 
 def turn_by_camera():
     x = get_label_center()
-    if x>0:
-        while x>0:
-            bot.turn(4, 30)
-            x = get_label_center()
-            time.sleep(0.3)
-    else:
-        while x<0:
-            bot.turn(-4, 30)
-            x = get_label_center()
-            time.sleep(0.3) 
+    bot.turn(0.3*x, 30)
+    bot.stop_motors()
 
+        
 
 
 # Main code 
@@ -105,7 +98,7 @@ distance = 500
 speed = 30
 Kp=0.25
 bot.set_text(4, " ")
-while distance>150:
+while distance>180: # distance sensors report larger distances when object is at angle, don't ask me why 
     left = bot.distance_L.range
     right = bot.distance_R.range
     distance = min(left, right)
@@ -130,8 +123,13 @@ bot.set_text(1, "Found: ID {}".format(item.ID))
 bot.set_text(2,"Size {}x{}, \ncoordinates ({},{})".format(item.width, item.height, item.x, item.y))
 bot.set_leds(RED)
 turn_by_camera()
-bot.go_forward(20, 18)
+bot.go_forward(3, 20) 
+turn_by_camera()
+bot.go_forward(10, 20)
 bot.set_servo1(SERVO_UP)
+bot.set_leds(GREEN)
+bot.buzz(660,1.0)
+
 
 
 
